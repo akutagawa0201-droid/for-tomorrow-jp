@@ -1,0 +1,304 @@
+/* ============================================
+   明日のために for-tomorrow — 共通スタイル
+   カラーテーマ: 落ち着いたブルー系
+   ============================================ */
+
+:root {
+  --blue-dark:    #1E3A5F;
+  --blue-mid:     #2E6DA4;
+  --blue-light:   #5B9BD5;
+  --blue-pale:    #EAF2FB;
+  --blue-border:  #B5D4F4;
+
+  --text-primary:   #1a2e3f;
+  --text-secondary: #4a6078;
+  --text-muted:     #7a95aa;
+
+  --bg-page:    #f5f8fc;
+  --bg-white:   #ffffff;
+  --bg-surface: #f0f6fc;
+
+  --accent:     #2E6DA4;
+  --accent-hover: #1E3A5F;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 4px rgba(30,58,95,.08);
+  --shadow-md: 0 4px 16px rgba(30,58,95,.12);
+
+  --font-body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --font-heading: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+
+  --max-width: 860px;
+  --content-width: 680px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Header ---- */
+.site-header {
+  background: var(--blue-dark);
+  color: #fff;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+.site-header .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.site-logo {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .03em;
+}
+.site-logo span {
+  font-size: .75rem;
+  font-weight: 400;
+  opacity: .75;
+  display: block;
+  letter-spacing: .05em;
+}
+.site-nav a {
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: .875rem;
+  margin-left: 24px;
+  transition: color .2s;
+}
+.site-nav a:hover { color: #fff; }
+
+/* ---- Hero ---- */
+.hero {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+  color: #fff;
+  padding: 64px 24px;
+  text-align: center;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hero p {
+  font-size: 1rem;
+  opacity: .85;
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+.btn-primary {
+  display: inline-block;
+  background: #fff;
+  color: var(--blue-dark);
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section { padding: 56px 0; }
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--blue-mid);
+  display: inline-block;
+}
+.section-lead {
+  font-size: .9rem;
+  color: var(--text-secondary);
+  margin: 8px 0 32px;
+}
+
+/* ---- Card ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: box-shadow .2s, transform .2s;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.card-tag {
+  display: inline-block;
+  background: var(--blue-pale);
+  color: var(--blue-mid);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: .04em;
+}
+.card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card p {
+  font-size: .83rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---- Affiliate disclosure ---- */
+.affiliate-note {
+  background: var(--bg-surface);
+  border-left: 3px solid var(--blue-light);
+  padding: 10px 16px;
+  font-size: .78rem;
+  color: var(--text-muted);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 24px 0;
+}
+
+/* ---- Article layout ---- */
+.article-wrap {
+  max-width: var(--content-width);
+  margin: 48px auto;
+  padding: 0 24px;
+}
+.article-header { margin-bottom: 32px; }
+.article-header .tag { /* same as card-tag */ }
+.article-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.45;
+  color: var(--blue-dark);
+  margin: 12px 0;
+}
+.article-meta {
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+.article-body h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--blue-dark);
+  margin: 40px 0 12px;
+  padding-left: 14px;
+  border-left: 4px solid var(--blue-mid);
+}
+.article-body h3 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin: 28px 0 8px;
+}
+.article-body p { margin-bottom: 1.2em; }
+.article-body ul, .article-body ol {
+  margin: 12px 0 20px 24px;
+}
+.article-body li { margin-bottom: 6px; }
+
+/* ---- Product box (アフィリエイト商品) ---- */
+.product-box {
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--bg-white);
+  margin: 24px 0;
+}
+.product-box img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.product-box .product-info h4 { font-size: .95rem; margin-bottom: 6px; }
+.product-box .product-info p { font-size: .82rem; color: var(--text-secondary); margin-bottom: 10px; }
+.btn-shop {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-right: 8px;
+  transition: opacity .15s;
+}
+.btn-shop:hover { opacity: .85; }
+.btn-amazon { background: #FF9900; color: #111; }
+.btn-rakuten { background: #BF0000; color: #fff; }
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--blue-dark);
+  color: rgba(255,255,255,.7);
+  padding: 40px 24px;
+  margin-top: 80px;
+  font-size: .82rem;
+  text-align: center;
+}
+.site-footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+.footer-links { margin-bottom: 12px; }
+.footer-links a { margin: 0 12px; }
+
+/* ---- Utility ---- */
+.text-center { text-align: center; }
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-32 { margin-top: 32px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .site-nav { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .product-box { flex-direction: column; }
+  .hero { padding: 40px 16px; }
+}
