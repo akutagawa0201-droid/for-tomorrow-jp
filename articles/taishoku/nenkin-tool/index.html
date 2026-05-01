@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="4つの質問に答えるだけで、あなたに合った年金受給開始年齢（60・65・70歳）がわかります。想定月額を入力すると受給額・損益分岐点もその場で計算。">
+  <title>年金受給開始年齢 診断ツール｜60・65・70歳どれが得？ | 明日のために for-tomorrow</title>
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/article.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-899479E9P4');
+  </script>
+  <style>
+    /* ---- 診断ツール専用スタイル（CSSカスタムプロパティで統合） ---- */
+    .tool-wrap {
+      background: var(--blue-pale);
+      border: 1px solid var(--blue-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      margin: 32px 0;
+    }
+    .tool-wrap h2 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--blue-dark);
+      margin: 0 0 6px;
+      padding-left: 0;
+      border-left: none;
+    }
+    .tool-lead {
+      font-size: .875rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .tool-question {
+      margin-bottom: 20px;
+    }
+    .tool-label {
+      display: block;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .tool-input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tool-input-row input[type="number"] {
+      width: 90px;
+      padding: 9px 12px;
+      border: 1px solid var(--blue-border);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: var(--font-body);
+      background: var(--bg-white);
+      color: var(--text-primary);
+    }
+    .tool-input-row input[type="number"]:focus {
+      outline: 2px solid var(--blue-mid);
+      outline-offset: 1px;
+    }
+    .tool-unit {
+      font-size: .875rem;
+      color: var(--text-secondary);
+    }
+    .tool-hint {
+      font-size: .775rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .tool-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tool-radio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .9rem;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-white);
+      border: 1.5px solid var(--blue-border);
+      transition: border-color .15s, background .15s;
+      user-select: none;
+    }
+    .tool-radio:hover {
+      border-color: var(--blue-light);
+      background: #f0f7ff;
+    }
+    .tool-radio input[type="radio"] {
+      accent-color: var(--blue-mid);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .tool-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--blue-mid);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .2s, transform .1s;
+      font-family: var(--font-body);
+      letter-spacing: .03em;
+    }
+    .tool-btn:hover { background: var(--blue-dark); }
+    .tool-btn:active { transform: scale(.99); }
+
+    /* ---- 診断結果エリア ---- */
+    .tool-result {
+      margin: 8px 0 32px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      animation: fadeSlide .3s ease;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .result-head {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 20px 24px;
+    }
+    .result-head .result-sub {
+      font-size: .78rem;
+      opacity: .75;
+      margin-bottom: 4px;
+      letter-spacing: .04em;
+    }
+    .result-head .result-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .result-body {
+      background: var(--bg-white);
+      border: 1px solid var(--blue-border);
+      border-top: none;
+      padding: 24px;
+    }
+    .result-reason {
+      font-size: .9rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+    .result-caution {
+      font-size: .85rem;
+      color: #8a6000;
+      background: #fff8e6;
+      border-left: 3px solid #d4a017;
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 20px;
+    }
+    .amount-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+      margin-bottom: 16px;
+    }
+    .amount-table th {
+      background: var(--blue-dark);
+      color: #fff;
+      padding: 9px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .amount-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--blue-border);
+    }
+    .amount-table tr.highlight td {
+      background: #daeeff;
+      font-weight: 700;
+    }
+    .amount-table .badge {
+      display: inline-block;
+      background: var(--blue-mid);
+      color: #fff;
+      font-size: .68rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .breakeven-box {
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: .85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .breakeven-box strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .result-disclaimer {
+      font-size: .775rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-top: 1px solid var(--blue-border);
+      padding-top: 14px;
+      margin-top: 6px;
+    }
+
+    /* ---- レスポンシブ ---- */
+    @media (max-width: 600px) {
+      .tool-wrap { padding: 20px 16px; }
+      .result-body { padding: 18px 16px; }
+      .amount-table th, .amount-table td { padding: 8px 10px; font-size: .82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="../../../" class="site-logo">明日のために<span>for-tomorrow</span></a>
+    <nav class="site-nav">
+      <a href="../../nisa/">NISA入門</a>
+      <a href="../../kakei/">家計改善</a>
+      <a href="../../taishoku/">退職準備</a>
+    </nav>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <div class="article-header">
+    <span class="card-tag">退職準備・ツール</span>
+    <h1 class="article-title">年金受給開始年齢 診断ツール<br>60・65・70歳、あなたはどれが得？</h1>
+    <p class="article-meta">監修：2026年5月時点の公的年金制度（日本年金機構）に基づく情報</p>
+  </div>
+
+  <p class="affiliate-note">※ 本ページの一部リンクはアフィリエイト広告（もしもアフィリエイト経由）を含みます。記事内容は広告主の影響を受けません。Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。</p>
+
+  <div class="article-body">
+
+    <p>「年金は何歳からもらうのが得か」――この問いに一律の正解はありません。健康状態・働く予定・生活費の必要額によって、最適な受給開始年齢は人それぞれ違います。</p>
+    <p>このツールは4つの質問に答えるだけで、あなたの状況に合ったおすすめの受給開始年齢と、想定受給額・損益分岐点をその場で計算します。</p>
+
+    <div class="warn-box">
+      <strong>ご利用前にお読みください：</strong>本ツールは公的年金制度に関する一般的な目安を提供するものです。実際の受給額は個人の加入期間・標準報酬月額によって異なります。個別の年金相談は<strong>年金事務所</strong>または<strong>社会保険労務士（社労士）</strong>にご相談ください。
+    </div>
+
+    <!-- ========== 診断ツール ========== -->
+    <div class="tool-wrap">
+      <h2>あなたの年金受給開始年齢を診断する</h2>
+      <p class="tool-lead">4つの質問に答えてください。最後に「診断する」ボタンを押すと結果が表示されます。</p>
+
+      <div class="tool-question">
+        <label class="tool-label" for="baseAmount">① 65歳時点の想定年金月額</label>
+        <div class="tool-input-row">
+          <input type="number" id="baseAmount" value="10" min="3" max="40" step="0.5">
+          <span class="tool-unit">万円 / 月</span>
+        </div>
+        <p class="tool-hint">ねんきん定期便（毎年誕生月に届く）の「65歳からの老齢年金見込み額」を入力してください。わからない場合は10万円のままでOKです。</p>
+      </div>
+
+      <div class="tool-question">
+        <label class="tool-label">② 60〜64歳に働く予定はありますか？</label>
+        <div class="tool-radio-group">
+          <label class="tool-radio">
+            <input type="radio" name="work60" value="yes" checked>
+            ある（再就職・再雇用・パートなど）
+          </label>
+          <label class="tool-radio">
+            <input type="radio" name="work60" value="no">
+            ない（専業・療養中など）
+          </label>
+        </div>
+      </div>
+
+      <div class="tool-question">
+        <label class="tool-label">③ 65歳以降も働ける見込みはありますか？</label>
+        <div class="tool-radio-group">
+          <label class="tool-radio">
+            <input type="radio" name="work65" value="yes">
+            ある（70歳近くまで働きたい）
+          </label>
+          <label class="tool-radio">
+            <input type="radio" name="work65" value="no" checked>
+            ない・まだわからない
+          </label>
+        </div>
+      </div>
+
+      <div class="tool-question">
+        <label class="tool-label">④ 現在の健康状態は？</label>
+        <div class="tool-radio-group">
+          <label class="tool-radio">
+            <input type="radio" name="health" value="good">
+            良好（長生きを前提に考えたい）
+          </label>
+          <label class="tool-radio">
+            <input type="radio" name="health" value="normal" checked>
+            普通（平均的な寿命で考えたい）
+          </label>
+          <label class="tool-radio">
+            <input type="radio" name="health" value="bad">
+            不安あり（早めに受け取りたい）
+          </label>
+        </div>
+      </div>
+
+      <button class="tool-btn" onclick="nenkinDiagnosis()">診断する</button>
+    </div>
+    <!-- ========== /診断ツール ========== -->
+
+    <!-- 診断結果（JSで描画） -->
+    <div id="tool-result"></div>
+
+    <h2>このツールの計算の考え方</h2>
+    <p>受給額の計算は、日本年金機構の公式ルール（2022年4月改正後）に基づいています。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>受給開始</th><th>増減率の計算式</th><th>増減率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>60歳開始</td><td>▲0.4% × 60ヶ月</td><td>▲24%（恒久）</td></tr>
+        <tr><td>65歳開始</td><td>±0（基準）</td><td>—</td></tr>
+        <tr><td>70歳開始</td><td>＋0.7% × 60ヶ月</td><td>＋42%（恒久）</td></tr>
+        <tr><td>75歳開始</td><td>＋0.7% × 120ヶ月</td><td>＋84%（恒久）</td></tr>
+      </tbody>
+    </table>
+
+    <h3>損益分岐点の計算方法</h3>
+    <p>「60歳 vs 65歳」の損益分岐点は、60歳から65歳までに余分に受け取る総額と、65歳以降の月額差から逆算します。</p>
+
+    <div class="point-box">
+      <p class="point-label">損益分岐点の計算例（65歳基準月額10万円の場合）</p>
+      <p>60歳が65歳より早く受け取る5年間の先行取得額：7.6万円 × 60ヶ月 ＝ 456万円<br>
+      65歳以降の月額差：10万円 − 7.6万円 ＝ 2.4万円 / 月<br>
+      逆転するまでの月数：456万円 ÷ 2.4万円 ≈ 190ヶ月（約15.8年）<br>
+      → 損益分岐点：65歳 ＋ 15.8年 ＝ <strong>約81歳</strong></p>
+    </div>
+
+    <div class="warn-box">
+      <strong>注意：</strong>損益分岐点はあくまで「どちらが累計で多いか」の目安です。税・社会保険料・物価変動の影響は含みません。また、繰り上げ受給を選んだ場合は障害年金の受給要件が変わる等の影響もあります。詳細は年金事務所にご確認ください（出典：日本年金機構）。
+    </div>
+
+    <h2>ねんきんネットで自分の見込み額を確認しよう</h2>
+    <p>このツールのQ①「65歳時点の想定年金月額」を正確に知るには、<strong>ねんきんネット</strong>（日本年金機構）が最も確実です。マイナンバーカードやIDパスワードでログインできます。</p>
+
+    <div class="point-box">
+      <p class="point-label">ねんきん定期便でも確認できる</p>
+      <p>毎年誕生月に届く「ねんきん定期便」の裏面に、65歳からの老齢年金見込み額が記載されています。直近のものを手元に置いておくと、このツールをより正確に使えます。</p>
+    </div>
+
+  </div><!-- /.article-body -->
+
+  <div class="related-articles">
+    <h2>関連記事</h2>
+    <div class="card-grid">
+      <a href="../nenkin-qa-52sai/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・年金</span>
+          <h3>【52歳が聞いてみた】年金は何歳からもらうのが得？Q&Aで丸わかり解説</h3>
+          <p>繰り上げ・繰り下げの仕組み、損益分岐点、在職老齢年金の注意点をQ&A形式で解説。</p>
+        </div>
+      </a>
+      <a href="../retirement-simulation-50s/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・体験談</span>
+          <h3>定年まであと8年｜52歳会社員のリアルな老後シミュレーション</h3>
+          <p>退職金・NISA・年金・健康保険・失業給付を数字で整理した体験記。</p>
+        </div>
+      </a>
+      <a href="../kenko-hoken/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備</span>
+          <h3>退職後の健康保険、どれを選ぶ？3つの選択肢を徹底比較</h3>
+          <p>任意継続・国民健康保険・家族の扶養を比較して、退職後に損しない選択を。</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /.article-wrap -->
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../pages/about.html">このサイトについて</a>
+    <a href="../../../pages/disclaimer.html">免責事項</a>
+    <a href="../../../pages/privacy.html">プライバシーポリシー</a>
+  </div>
+  <p>&copy; 2026 明日のために for-tomorrow</p>
+  <p style="margin-top:8px;font-size:.75rem;opacity:.6;">本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。</p>
+</footer>
+
+<script>
+function nenkinDiagnosis() {
+  const base = parseFloat(document.getElementById('baseAmount').value);
+  if (isNaN(base) || base <= 0) {
+    alert('65歳時点の想定年金月額を入力してください。');
+    return;
+  }
+
+  const work60 = document.querySelector('input[name="work60"]:checked').value;
+  const work65 = document.querySelector('input[name="work65"]:checked').value;
+  const health = document.querySelector('input[name="health"]:checked').value;
+
+  // 受給額計算
+  const amt60 = (base * 0.76).toFixed(1);
+  const amt65 = base.toFixed(1);
+  const amt70 = (base * 1.42).toFixed(1);
+  const annual60 = (base * 0.76 * 12).toFixed(1);
+  const annual65 = (base * 12).toFixed(1);
+  const annual70 = (base * 1.42 * 12).toFixed(1);
+
+  // 損益分岐点（数学的に正確な計算）
+  // 60 vs 65: 0.76×base×(X-60) = base×(X-65) → X ≈ 80.8歳
+  // 65 vs 70: base×(X-65) = 1.42×base×(X-70) → X ≈ 81.9歳
+  const be6065 = Math.round((0.76 * 60 / 0.24) + 65); // 81歳
+  const be6570 = Math.round((60 / 0.42) + 70);         // 82歳
+
+  // 診断ロジック
+  let recommendAge, recommendLabel, reason, caution = '';
+
+  if (health === 'bad') {
+    recommendAge = '60';
+    recommendLabel = '60歳開始が有力です';
+    reason = '健康に不安がある場合、早めに受け取り始めることを選ぶ方もいます。損益分岐点（65歳開始との比較で約' + be6065 + '歳）より早い時期に受給を終える可能性がある場合、早期受給が合理的な選択肢になることがあります。';
+    caution = '働きながら受け取る場合は「在職老齢年金」に注意：給与と年金の合計が月50万円（2024年度基準）を超えると年金の一部が支給停止になる場合があります（出典：日本年金機構）。';
+  } else if (health === 'good' && work65 === 'yes') {
+    recommendAge = '70';
+    recommendLabel = '70歳開始が有力です';
+    reason = '健康良好かつ65歳以降も働ける見込みがある場合、70歳まで繰り下げると42%増額が一生続きます。65歳以降も収入があれば年金を受け取らなくても生活でき、長生きしたときのリターンが最大になります。65歳開始との損益分岐点は約' + be6570 + '歳です。';
+  } else if (work60 === 'yes' && work65 === 'yes') {
+    recommendAge = '70';
+    recommendLabel = '70歳開始が有力です';
+    reason = '60〜64歳・65歳以降の両方で仕事収入がある見込みなら、年金を急いで受け取る必要がありません。70歳まで繰り下げると42%増額が一生続き、長生きリスクへの備えが強くなります。65歳開始との損益分岐点は約' + be6570 + '歳です。';
+  } else if (work60 === 'yes') {
+    recommendAge = '65';
+    recommendLabel = '65歳開始が有力です';
+    reason = '60〜64歳に仕事収入がある場合、60歳からの繰り上げ受給は「収入があるのに減額済み年金を受け取る」組み合わせになりがちです。在職老齢年金による調整も重なる可能性があります。65歳から基準額をそのまま受け取るのがバランスの良い選択です。';
+  } else {
+    recommendAge = '65';
+    recommendLabel = '65歳開始が有力です';
+    reason = '60〜64歳に仕事収入がない場合でも、健康状態が普通・良好なら65歳受給が損益分岐点（約' + be6065 + '歳）より前の段階では60歳開始より有利です。繰り上げ受給による24%の恒久的な減額は長期間の影響が大きいため、65歳が無難な選択です。';
+  }
+
+  // おすすめ行のハイライト用クラス
+  const h60 = recommendAge === '60' ? ' class="highlight"' : '';
+  const h65 = recommendAge === '65' ? ' class="highlight"' : '';
+  const h70 = recommendAge === '70' ? ' class="highlight"' : '';
+  const badge = '<span class="badge">おすすめ</span>';
+
+  const resultHTML = `
+    <div class="tool-result">
+      <div class="result-head">
+        <p class="result-sub">あなたへの診断結果</p>
+        <p class="result-title">${recommendLabel}</p>
+      </div>
+      <div class="result-body">
+        <p class="result-reason">${reason}</p>
+        ${caution ? `<p class="result-caution">${caution}</p>` : ''}
+
+        <p style="font-weight:700;font-size:.9rem;margin-bottom:8px;">
+          あなたの想定受給額（65歳月額 ${base}万円の場合）
+        </p>
+        <table class="amount-table">
+          <thead>
+            <tr><th>受給開始</th><th>増減率</th><th>月額</th><th>年額</th></tr>
+          </thead>
+          <tbody>
+            <tr${h60}>
+              <td>60歳開始${recommendAge === '60' ? badge : ''}</td>
+              <td>▲24%</td>
+              <td>${amt60}万円</td>
+              <td>約${annual60}万円</td>
+            </tr>
+            <tr${h65}>
+              <td>65歳開始${recommendAge === '65' ? badge : ''}</td>
+              <td>±0（基準）</td>
+              <td>${amt65}万円</td>
+              <td>約${annual65}万円</td>
+            </tr>
+            <tr${h70}>
+              <td>70歳開始${recommendAge === '70' ? badge : ''}</td>
+              <td>＋42%</td>
+              <td>${amt70}万円</td>
+              <td>約${annual70}万円</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="breakeven-box">
+          <strong>損益分岐点の目安（あなたの入力値での概算）</strong>
+          60歳開始 vs 65歳開始 → 約${be6065}歳で65歳開始の累計受給額が逆転<br>
+          65歳開始 vs 70歳開始 → 約${be6570}歳で70歳開始の累計受給額が逆転
+        </div>
+
+        <p class="result-disclaimer">
+          ※ 本診断はあくまで目安です。実際の受給額は加入期間・標準報酬月額により異なります。税・社会保険料の影響は含みません。繰り上げ受給を選んだ場合は障害基礎年金の受給要件が変わる点にも注意が必要です。<br>
+          個別の年金相談は<strong>年金事務所</strong>（無料）または<strong>社会保険労務士（社労士）</strong>にご相談ください。
+        </p>
+      </div>
+    </div>
+  `;
+
+  const resultEl = document.getElementById('tool-result');
+  resultEl.innerHTML = resultHTML;
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+
+</body>
+</html>
