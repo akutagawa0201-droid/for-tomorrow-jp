@@ -182,6 +182,7 @@
         id="contact-form"
         name="contact"
         method="POST"
+        action="/pages/contact?sent=1"
         netlify
         data-netlify-honeypot="bot-field"
         novalidate
@@ -297,17 +298,20 @@
   </footer>
 
   <script>
-    // ページ表示時刻を記録（高速送信ボット対策）
     document.getElementById('form-timestamp').value = Date.now();
 
     const form = document.getElementById('contact-form');
     const thanksBox = document.getElementById('thanks-box');
     const submitBtn = document.getElementById('submit-btn');
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Netlify送信後リダイレクトで戻ってきた場合に完了画面を表示
+    if (window.location.search.includes('sent=1')) {
+      form.style.display = 'none';
+      thanksBox.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-      // バリデーション
+    form.addEventListener('submit', function(e) {
       let valid = true;
 
       const email = document.getElementById('email');
@@ -346,39 +350,26 @@
 
       // ハニーポットチェック
       const botField = form.querySelector('[name="bot-field"]');
-      if (botField && botField.value !== '') return;
+      if (botField && botField.value !== '') {
+        e.preventDefault();
+        return;
+      }
 
-      // 高速送信チェック（3秒未満は無視）
+      // 高速送信チェック（3秒未満はボットとみなす）
       const elapsed = Date.now() - parseInt(document.getElementById('form-timestamp').value);
-      if (elapsed < 3000) return;
+      if (elapsed < 3000) {
+        e.preventDefault();
+        return;
+      }
 
-      if (!valid) return;
+      if (!valid) {
+        e.preventDefault();
+        return;
+      }
 
-      // 送信処理
+      // バリデーション通過 → ネイティブ送信（Netlifyが処理してaction URLへリダイレクト）
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
-
-      const formData = new FormData(form);
-
-      fetch('/pages/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(function(response) {
-        if (response.ok) {
-          form.style.display = 'none';
-          thanksBox.style.display = 'block';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          throw new Error('送信失敗');
-        }
-      })
-      .catch(function() {
-        submitBtn.disabled = false;
-        submitBtn.textContent = '送信する';
-        alert('送信中にエラーが発生しました。しばらく時間をおいて再度お試しください。');
-      });
     });
   </script>
 
