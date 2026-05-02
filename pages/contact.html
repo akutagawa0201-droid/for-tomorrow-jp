@@ -111,7 +111,6 @@
       background: #aaa;
       cursor: not-allowed;
     }
-    /* ハニーポット（スパム対策）- 人間には見えない */
     .bot-trap {
       position: absolute;
       left: -9999px;
@@ -119,7 +118,6 @@
       height: 1px;
       overflow: hidden;
     }
-    /* 送信完了メッセージ */
     .thanks-box {
       display: none;
       text-align: center;
@@ -170,33 +168,19 @@
         ・スパム防止のため、内容確認後に返信いたします</p>
       </div>
 
-      <!-- ======== お問い合わせフォーム（Netlify Forms） ======== -->
-      <!--
-        【Netlify設定手順】
-        1. Netlify ダッシュボード → Site → Forms
-        2. "contact" フォームが自動検出されます
-        3. Form notifications → Add notification → Email notification
-        4. 通知先メールアドレスを設定してください
-      -->
       <form
         id="contact-form"
         name="contact"
         method="POST"
-        action="/pages/contact?sent=1"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         novalidate
       >
-        <!-- Netlify必須の隠しフィールド -->
         <input type="hidden" name="form-name" value="contact">
 
-        <!-- ハニーポット（ボット対策：人間には見えない） -->
         <div class="bot-trap" aria-hidden="true">
           <label>入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off"></label>
         </div>
-
-        <!-- タイムスタンプ（JS設定・高速送信ボット対策） -->
-        <input type="hidden" name="timestamp" id="form-timestamp" value="">
 
         <div class="form-group">
           <label class="form-label" for="name">
@@ -272,7 +256,6 @@
         <button type="submit" class="submit-btn" id="submit-btn">送信する</button>
       </form>
 
-      <!-- 送信完了メッセージ -->
       <div class="thanks-box" id="thanks-box">
         <div class="thanks-icon">&#10003;</div>
         <p class="thanks-title">送信が完了しました</p>
@@ -298,26 +281,19 @@
   </footer>
 
   <script>
-    document.getElementById('form-timestamp').value = Date.now();
-
-    const form = document.getElementById('contact-form');
-    const thanksBox = document.getElementById('thanks-box');
-    const submitBtn = document.getElementById('submit-btn');
-
-    // Netlify送信後リダイレクトで戻ってきた場合に完了画面を表示
-    if (window.location.search.includes('sent=1')) {
-      form.style.display = 'none';
-      thanksBox.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    var loadTime = Date.now();
+    var form = document.getElementById('contact-form');
+    var thanksBox = document.getElementById('thanks-box');
+    var submitBtn = document.getElementById('submit-btn');
 
     form.addEventListener('submit', function(e) {
-      let valid = true;
+      e.preventDefault();
 
-      const email = document.getElementById('email');
-      const emailError = document.getElementById('email-error');
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email.value.trim())) {
+      var valid = true;
+
+      var email = document.getElementById('email');
+      var emailError = document.getElementById('email-error');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
         emailError.style.display = 'block';
         email.style.borderColor = '#c0392b';
         valid = false;
@@ -326,8 +302,8 @@
         email.style.borderColor = '';
       }
 
-      const subject = document.getElementById('subject');
-      const subjectError = document.getElementById('subject-error');
+      var subject = document.getElementById('subject');
+      var subjectError = document.getElementById('subject-error');
       if (!subject.value) {
         subjectError.style.display = 'block';
         subject.style.borderColor = '#c0392b';
@@ -337,8 +313,8 @@
         subject.style.borderColor = '';
       }
 
-      const message = document.getElementById('message');
-      const messageError = document.getElementById('message-error');
+      var message = document.getElementById('message');
+      var messageError = document.getElementById('message-error');
       if (message.value.trim().length < 10) {
         messageError.style.display = 'block';
         message.style.borderColor = '#c0392b';
@@ -348,28 +324,43 @@
         message.style.borderColor = '';
       }
 
-      // ハニーポットチェック
-      const botField = form.querySelector('[name="bot-field"]');
-      if (botField && botField.value !== '') {
-        e.preventDefault();
-        return;
-      }
+      var botField = form.querySelector('[name="bot-field"]');
+      if (botField && botField.value !== '') return;
 
-      // 高速送信チェック（3秒未満はボットとみなす）
-      const elapsed = Date.now() - parseInt(document.getElementById('form-timestamp').value);
-      if (elapsed < 3000) {
-        e.preventDefault();
-        return;
-      }
+      if (Date.now() - loadTime < 3000) return;
 
-      if (!valid) {
-        e.preventDefault();
-        return;
-      }
+      if (!valid) return;
 
-      // バリデーション通過 → ネイティブ送信（Netlifyが処理してaction URLへリダイレクト）
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
+
+      var body = 'form-name=contact';
+      body += '&name=' + encodeURIComponent(document.getElementById('name').value);
+      body += '&email=' + encodeURIComponent(email.value.trim());
+      body += '&subject=' + encodeURIComponent(subject.value);
+      body += '&message=' + encodeURIComponent(message.value.trim());
+      if (botField) body += '&bot-field=' + encodeURIComponent(botField.value);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      .then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          thanksBox.style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(res.status);
+        }
+      })
+      .catch(function(err) {
+        console.error('Form error:', err);
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+        alert('送信できませんでした（' + (err.message || 'network error') + '）。時間をおいて再度お試しください。');
+      });
     });
   </script>
 
