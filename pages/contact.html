@@ -360,7 +360,7 @@
 
       const formData = new FormData(form);
 
-      fetch('/', {
+      fetch('/pages/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
