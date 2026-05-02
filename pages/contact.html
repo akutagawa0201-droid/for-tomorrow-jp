@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="「明日のために for-tomorrow」へのお問い合わせページです。記事の内容・ご意見・ご要望などお気軽にご連絡ください。">
+  <title>お問い合わせ | 明日のために for-tomorrow</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/article.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-899479E9P4');
+  </script>
+  <style>
+    .contact-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-label {
+      display: block;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .form-label .required {
+      display: inline-block;
+      background: var(--blue-mid);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-label .optional {
+      display: inline-block;
+      background: #ccc;
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--blue-border);
+      border-radius: var(--radius-sm);
+      font-size: .95rem;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg-white);
+      transition: border-color .15s, box-shadow .15s;
+      box-sizing: border-box;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--blue-mid);
+      box-shadow: 0 0 0 3px rgba(46,109,164,.15);
+    }
+    .form-textarea {
+      height: 180px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+    .form-hint {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+    .form-error {
+      font-size: .82rem;
+      color: #c0392b;
+      margin-top: 5px;
+      display: none;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--blue-mid);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-body);
+      letter-spacing: .03em;
+      transition: background .2s, transform .1s;
+    }
+    .submit-btn:hover { background: var(--blue-dark); }
+    .submit-btn:active { transform: scale(.99); }
+    .submit-btn:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+    /* ハニーポット（スパム対策）- 人間には見えない */
+    .bot-trap {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    /* 送信完了メッセージ */
+    .thanks-box {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .thanks-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      color: var(--blue-mid);
+    }
+    .thanks-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
+    }
+    .thanks-text {
+      font-size: .9rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="../" class="site-logo">明日のために<span>for-tomorrow</span></a>
+      <nav class="site-nav">
+        <a href="../articles/nisa/">NISA入門</a>
+        <a href="../articles/kakei/">家計改善</a>
+        <a href="../articles/taishoku/">退職準備</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="article-wrap">
+    <div class="article-header">
+      <h1 class="article-title">お問い合わせ</h1>
+      <p class="article-meta">記事の内容・ご意見・ご要望などお気軽にどうぞ</p>
+    </div>
+
+    <div class="contact-wrap">
+
+      <div class="point-box" style="margin-bottom:28px;">
+        <p class="point-label">送信前にご確認ください</p>
+        <p>・個別の投資・税務・年金相談にはお答えできません<br>
+        ・返信まで数日いただく場合があります<br>
+        ・スパム防止のため、内容確認後に返信いたします</p>
+      </div>
+
+      <!-- ======== お問い合わせフォーム（Netlify Forms） ======== -->
+      <!--
+        【Netlify設定手順】
+        1. Netlify ダッシュボード → Site → Forms
+        2. "contact" フォームが自動検出されます
+        3. Form notifications → Add notification → Email notification
+        4. 通知先メールアドレスを設定してください
+      -->
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        netlify
+        data-netlify-honeypot="bot-field"
+        novalidate
+      >
+        <!-- Netlify必須の隠しフィールド -->
+        <input type="hidden" name="form-name" value="contact">
+
+        <!-- ハニーポット（ボット対策：人間には見えない） -->
+        <div class="bot-trap" aria-hidden="true">
+          <label>入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <!-- タイムスタンプ（JS設定・高速送信ボット対策） -->
+        <input type="hidden" name="timestamp" id="form-timestamp" value="">
+
+        <div class="form-group">
+          <label class="form-label" for="name">
+            お名前
+            <span class="optional">任意</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            placeholder="例：山田 太郎（ニックネームでも可）"
+            maxlength="100"
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス
+            <span class="required">必須</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="例：example@mail.com"
+            maxlength="200"
+            autocomplete="email"
+            required
+          >
+          <p class="form-error" id="email-error">メールアドレスを正しく入力してください</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">
+            お問い合わせ種別
+            <span class="required">必須</span>
+          </label>
+          <select id="subject" name="subject" class="form-select" required>
+            <option value="">選択してください</option>
+            <option value="記事の内容について">記事の内容について</option>
+            <option value="サイトの不具合・表示について">サイトの不具合・表示について</option>
+            <option value="ご意見・ご要望">ご意見・ご要望</option>
+            <option value="その他">その他</option>
+          </select>
+          <p class="form-error" id="subject-error">種別を選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">
+            お問い合わせ内容
+            <span class="required">必須</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-textarea"
+            placeholder="お問い合わせ内容をご記入ください（10文字以上）"
+            minlength="10"
+            maxlength="2000"
+            required
+          ></textarea>
+          <p class="form-hint">2,000文字以内</p>
+          <p class="form-error" id="message-error">内容を10文字以上入力してください</p>
+        </div>
+
+        <div class="warn-box" style="margin-bottom:24px;">
+          <strong>個人情報の取り扱いについて：</strong>入力いただいた情報は、お問い合わせへの返信のみに使用します。第三者への提供はいたしません。詳細は<a href="privacy.html">プライバシーポリシー</a>をご確認ください。
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">送信する</button>
+      </form>
+
+      <!-- 送信完了メッセージ -->
+      <div class="thanks-box" id="thanks-box">
+        <div class="thanks-icon">&#10003;</div>
+        <p class="thanks-title">送信が完了しました</p>
+        <p class="thanks-text">
+          お問い合わせいただきありがとうございます。<br>
+          内容を確認のうえ、数日以内にご返信いたします。<br>
+          <br>
+          <a href="../" style="color:var(--blue-mid);font-weight:700;">トップページに戻る</a>
+        </p>
+      </div>
+
+    </div><!-- /.contact-wrap -->
+  </div><!-- /.article-wrap -->
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="about.html">このサイトについて</a>
+      <a href="disclaimer.html">免責事項</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <p>&copy; 2026 明日のために for-tomorrow</p>
+  </footer>
+
+  <script>
+    // ページ表示時刻を記録（高速送信ボット対策）
+    document.getElementById('form-timestamp').value = Date.now();
+
+    const form = document.getElementById('contact-form');
+    const thanksBox = document.getElementById('thanks-box');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // バリデーション
+      let valid = true;
+
+      const email = document.getElementById('email');
+      const emailError = document.getElementById('email-error');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value.trim())) {
+        emailError.style.display = 'block';
+        email.style.borderColor = '#c0392b';
+        valid = false;
+      } else {
+        emailError.style.display = 'none';
+        email.style.borderColor = '';
+      }
+
+      const subject = document.getElementById('subject');
+      const subjectError = document.getElementById('subject-error');
+      if (!subject.value) {
+        subjectError.style.display = 'block';
+        subject.style.borderColor = '#c0392b';
+        valid = false;
+      } else {
+        subjectError.style.display = 'none';
+        subject.style.borderColor = '';
+      }
+
+      const message = document.getElementById('message');
+      const messageError = document.getElementById('message-error');
+      if (message.value.trim().length < 10) {
+        messageError.style.display = 'block';
+        message.style.borderColor = '#c0392b';
+        valid = false;
+      } else {
+        messageError.style.display = 'none';
+        message.style.borderColor = '';
+      }
+
+      // ハニーポットチェック
+      const botField = form.querySelector('[name="bot-field"]');
+      if (botField && botField.value !== '') return;
+
+      // 高速送信チェック（3秒未満は無視）
+      const elapsed = Date.now() - parseInt(document.getElementById('form-timestamp').value);
+      if (elapsed < 3000) return;
+
+      if (!valid) return;
+
+      // 送信処理
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      const formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          thanksBox.style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('送信失敗');
+        }
+      })
+      .catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+        alert('送信中にエラーが発生しました。しばらく時間をおいて再度お試しください。');
+      });
+    });
+  </script>
+
+</body>
+</html>
