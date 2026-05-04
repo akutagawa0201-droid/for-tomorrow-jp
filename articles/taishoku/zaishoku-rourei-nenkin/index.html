@@ -17,59 +17,71 @@
     gtag('config', 'G-899479E9P4');
   </script>
   <style>
-    .chat-wrap {
-      max-width: 680px;
-      margin: 0 auto 2rem;
-    }
-    .chat-row {
+    .qa-q {
+      background: var(--blue-pale);
+      border-left: 4px solid var(--blue-mid);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 32px 0 8px;
       display: flex;
-      align-items: flex-start;
       gap: 12px;
-      margin-bottom: 1.4rem;
+      align-items: flex-start;
     }
-    .chat-row.tora {
-      flex-direction: row;
-    }
-    .chat-row.masahiro {
-      flex-direction: row-reverse;
-    }
-    .chat-avatar {
-      width: 48px;
-      height: 48px;
+    .qa-q .qa-icon {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      flex-shrink: 0;
+      background: var(--blue-mid);
+      color: #fff;
+      font-weight: 700;
+      font-size: .8rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      background: #f5f5f5;
+      flex-shrink: 0;
+      letter-spacing: .02em;
     }
-    .chat-bubble {
-      max-width: 80%;
-      padding: 0.8rem 1.1rem;
-      border-radius: 16px;
-      line-height: 1.7;
-      font-size: 0.97rem;
-    }
-    .chat-row.tora .chat-bubble {
-      background: #fff8e1;
-      border: 1.5px solid #ffe082;
-      border-top-left-radius: 4px;
-    }
-    .chat-row.masahiro .chat-bubble {
-      background: #e8f0fe;
-      border: 1.5px solid #90caf9;
-      border-top-right-radius: 4px;
-      text-align: left;
-    }
-    .chat-name {
-      font-size: 0.78rem;
-      color: #888;
+    .qa-q .qa-body { flex: 1; }
+    .qa-q .qa-label {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--blue-mid);
       margin-bottom: 4px;
+      letter-spacing: .05em;
     }
-    .chat-row.masahiro .chat-name {
-      text-align: right;
+    .qa-q p { margin: 0; font-weight: 700; color: var(--text-primary); }
+    .qa-a {
+      border-left: 4px solid #f0a500;
+      padding: 14px 18px;
+      margin: 0 0 8px;
+      background: #fffdf5;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
     }
+    .qa-a .qa-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid #f0a500;
+    }
+    .qa-a .qa-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .qa-a .qa-body { flex: 1; }
+    .qa-a .qa-label {
+      font-size: .78rem;
+      font-weight: 700;
+      color: #c47d00;
+      margin-bottom: 4px;
+      letter-spacing: .05em;
+    }
+    .qa-a p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -102,158 +114,124 @@
     <div class="toc">
       <p class="toc-title">目次</p>
       <ol>
-        <li><a href="#chat">トラちゃんとの会話</a></li>
+        <li><a href="#q1">在職老齢年金ってなに？</a></li>
+        <li><a href="#q2">2026年からどう変わったの？</a></li>
+        <li><a href="#q3">計算方法と具体例</a></li>
+        <li><a href="#q4">メリットとデメリットは？</a></li>
+        <li><a href="#q5">定年後のおじさんはどうすればいい？</a></li>
         <li><a href="#summary">まとめ</a></li>
       </ol>
     </div>
 
-    <!-- チャット会話 -->
-    <h2 id="chat">トラちゃんとの会話</h2>
+    <!-- Q1 -->
+    <h2 id="q1">在職老齢年金ってなに？</h2>
 
-    <div class="chat-wrap">
-
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            トラちゃん、在職老齢年金って何？<br>
-            なんか働くと年金が減るって聞くけど、本当？
-          </div>
-        </div>
+    <div class="qa-q">
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>トラちゃん、在職老齢年金って何？なんか働くと年金が減るって聞くけど、本当？</p>
       </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            にゃんにゃん！ おじさん、わかりやすく教えてあげるね🐯<br><br>
-            在職老齢年金っていうのはね、<br>
-            <strong>「年金をもらいながら会社で働いている人」のお金を調整する制度</strong>だよ。<br><br>
-            昔は「たくさん働くと年金がガッツリ減る」ってイメージだったんだけど、<strong>2026年4月からルールが優しく変わった</strong>んだ！
-          </div>
-        </div>
+    </div>
+    <div class="qa-a">
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラちゃん"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラちゃん</p>
+        <p>にゃんにゃん！ おじさん、わかりやすく教えてあげるね🐯</p>
+        <p>在職老齢年金っていうのはね、<strong>「年金をもらいながら会社で働いている人」のお金を調整する制度</strong>だよ。</p>
+        <p>昔は「たくさん働くと年金がガッツリ減る」ってイメージだったんだけど、<strong>2026年4月からルールが優しく変わった</strong>んだ！</p>
       </div>
+    </div>
 
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            どう変わったの？
-          </div>
-        </div>
+    <!-- Q2 -->
+    <h2 id="q2">2026年からどう変わったの？</h2>
+
+    <div class="qa-q">
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>どう変わったの？</p>
       </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            今は<strong>「給与＋年金の合計が月65万円以下」なら、年金が全額もらえる</strong>ようになったにゃ！<br><br>
-            以前は51万円くらいがボーダーだったけど、65万円までOKになったから、だいぶ働きやすくなったよ〜。
-          </div>
-        </div>
+    </div>
+    <div class="qa-a">
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラちゃん"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラちゃん</p>
+        <p>今は<strong>「給与＋年金の合計が月65万円以下」なら、年金が全額もらえる</strong>ようになったにゃ！</p>
+        <p>以前は51万円くらいがボーダーだったけど、65万円までOKになったから、だいぶ働きやすくなったよ〜。</p>
       </div>
+    </div>
 
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            65万円！ 結構余裕あるね。計算はどうやるの？
-          </div>
-        </div>
+    <!-- Q3 -->
+    <h2 id="q3">計算方法と具体例</h2>
+
+    <div class="qa-q">
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>65万円！ 結構余裕あるね。計算はどうやるの？例えば月給45万円で、年金が月10万円もらえる人は？</p>
       </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            簡単だよ！<br><br>
-            <strong>（給与＋賞与の平均 ＋ 年金月額）－ 65万円 ＝ 超過額</strong><br>
-            その超過額の<strong>半分</strong>が、毎月もらえる年金から減る仕組みだにゃ。
-          </div>
-        </div>
+    </div>
+    <div class="qa-a">
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラちゃん"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラちゃん</p>
+        <p>簡単だよ！</p>
+        <p><strong>（給与＋賞与の平均 ＋ 年金月額）－ 65万円 ＝ 超過額</strong><br>
+        その超過額の<strong>半分</strong>が、毎月もらえる年金から減る仕組みだにゃ。</p>
+        <p>おじさんの例だと、合計55万円で65万円以下！<br>
+        → <strong>年金10万円が全額もらえる</strong>よ！</p>
+        <p>でも、月給55万円＋年金15万円＝70万円になると、<br>
+        超過5万円の半分 → <strong>2.5万円減る</strong>にゃ。</p>
       </div>
+    </div>
 
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            例えば月給45万円で、年金が月10万円もらえる人は？
-          </div>
-        </div>
+    <!-- Q4 -->
+    <h2 id="q4">メリットとデメリットは？</h2>
+
+    <div class="qa-q">
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>なるほど。メリットとデメリットは？</p>
       </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            合計55万円だから、65万円以下！<br>
-            → <strong>年金10万円が全額もらえる</strong>よ！<br><br>
-            でも、月給55万円＋年金15万円＝70万円になると、<br>
-            超過5万円の半分 → <strong>2.5万円減る</strong>にゃ。
-          </div>
-        </div>
+    </div>
+    <div class="qa-a">
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラちゃん"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラちゃん</p>
+        <p><strong>メリット</strong></p>
+        <ul>
+          <li>65万円までなら年金が減らないから安心して働けるにゃ</li>
+          <li>厚生年金にも入り続けられるから、将来の年金も増える</li>
+          <li>健康保険も続けられる</li>
+        </ul>
+        <p><strong>デメリット</strong></p>
+        <ul>
+          <li>65万円をかなり超えると年金が減っちゃう</li>
+          <li>賞与をたくさんもらうと計算が変わりやすい</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            なるほど。メリットとデメリットは？
-          </div>
-        </div>
+    <!-- Q5 -->
+    <h2 id="q5">定年後のおじさんはどうすればいい？</h2>
+
+    <div class="qa-q">
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>トラちゃん、定年後のおじさんはどうしたらいいと思う？</p>
       </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            <strong>メリット</strong>
-            <ul style="margin: 0.4rem 0 0.8rem; padding-left: 1.2rem;">
-              <li>65万円までなら年金が減らないから安心して働ける</li>
-              <li>厚生年金にも入り続けられるから、将来の年金も増える</li>
-              <li>健康保険も続けられる</li>
-            </ul>
-            <strong>デメリット</strong>
-            <ul style="margin: 0.4rem 0 0; padding-left: 1.2rem;">
-              <li>65万円をかなり超えると年金が減っちゃう</li>
-              <li>賞与をたくさんもらうと計算が変わりやすい</li>
-            </ul>
-          </div>
-        </div>
+    </div>
+    <div class="qa-a">
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラちゃん"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラちゃん</p>
+        <p>まずは<strong>ねんきんネット</strong>でおじさんの年金見込み額を確認するにゃ！</p>
+        <p>それから給与との合計をシミュレーションして、65万円以内に収まる働き方を考えたらいいと思うよ〜。</p>
       </div>
-
-      <div class="chat-row masahiro">
-        <div class="chat-avatar">👨</div>
-        <div>
-          <p class="chat-name">masahiro</p>
-          <div class="chat-bubble">
-            トラちゃん、定年後のおじさんはどうしたらいいと思う？
-          </div>
-        </div>
-      </div>
-
-      <div class="chat-row tora">
-        <div class="chat-avatar">🐯</div>
-        <div>
-          <p class="chat-name">トラちゃん</p>
-          <div class="chat-bubble">
-            まずは<strong>ねんきんネット</strong>でおじさんの年金見込み額を確認するにゃ！<br>
-            それから給与との合計をシミュレーションして、65万円以内に収まる働き方を考えたらいいと思うよ〜。
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /.chat-wrap -->
+    </div>
 
     <!-- まとめ -->
     <h2 id="summary">まとめ（masahiro）</h2>
@@ -287,18 +265,18 @@
           <p>厚生年金は70歳まで加入義務あり。国民年金との違いや定年後の働き方を整理しました。</p>
         </div>
       </a>
+      <a href="../nenkin-zeikin/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・年金・税金</span>
+          <h3>年金に税金はかかるの？国民年金だけ vs 厚生年金の税額をやさしく解説</h3>
+          <p>国民年金満額だけなら非課税の人がほとんど。厚生年金が加わると月いくらから税金が発生するか、会話形式で解説。</p>
+        </div>
+      </a>
       <a href="../nenkin-qa-52sai/" style="text-decoration:none;">
         <div class="card">
           <span class="card-tag">退職準備・年金</span>
           <h3>年金は何歳からもらうのが得？Q&Aで丸わかり解説</h3>
           <p>繰り上げ・繰り下げ受給の仕組みと損益分岐点を、IT系会社員の視点でわかりやすく整理しました。</p>
-        </div>
-      </a>
-      <a href="../kenko-hoken/" style="text-decoration:none;">
-        <div class="card">
-          <span class="card-tag">退職準備</span>
-          <h3>退職後の健康保険、どれを選ぶ？3つの選択肢を徹底比較</h3>
-          <p>任意継続・国民健康保険・家族の扶養を比較。退職後の手続きで損しないための基礎知識。</p>
         </div>
       </a>
     </div>
