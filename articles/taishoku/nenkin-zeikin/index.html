@@ -23,27 +23,62 @@
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       margin: 32px 0 8px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
     }
+    .qa-q .qa-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--blue-mid);
+      color: #fff;
+      font-weight: 700;
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+    .qa-q .qa-body { flex: 1; }
     .qa-q .qa-label {
       font-size: .78rem;
       font-weight: 700;
       color: var(--blue-mid);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       letter-spacing: .05em;
     }
     .qa-q p { margin: 0; font-weight: 700; color: var(--text-primary); }
     .qa-a {
-      border-left: 4px solid var(--blue-border);
+      border-left: 4px solid #f0a500;
       padding: 14px 18px;
       margin: 0 0 8px;
-      background: var(--bg-white);
+      background: #fffdf5;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
     }
+    .qa-a .qa-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid #f0a500;
+    }
+    .qa-a .qa-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .qa-a .qa-body { flex: 1; }
     .qa-a .qa-label {
       font-size: .78rem;
       font-weight: 700;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
+      color: #c47d00;
+      margin-bottom: 4px;
       letter-spacing: .05em;
     }
     .qa-a p:last-child { margin-bottom: 0; }
@@ -90,58 +125,76 @@
     <h2 id="q1">年金に税金はかかるの？</h2>
 
     <div class="qa-q">
-      <p class="qa-label">Q. 読者の疑問</p>
-      <p>まず基本から。年金って税金かかるの？</p>
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>まず基本から。年金って税金かかるの？</p>
+      </div>
     </div>
     <div class="qa-a">
-      <p class="qa-label">A. masahiro</p>
-      <p>はい、<strong>かかる場合があります</strong>。ただし、<strong>すべての年金にかかるわけじゃない</strong>んです。</p>
-      <p><strong>税金がかからない年金（非課税）</strong><br>
-      → 障害年金・遺族年金<br>
-      これらは金額に関係なく税金ゼロです。</p>
-      <p><strong>税金がかかる可能性がある年金</strong><br>
-      → 老齢年金（老齢基礎年金・老齢厚生年金など）<br>
-      これらは「雑所得（ざっしょとく）」として、<strong>所得税と住民税の対象</strong>になります（復興特別所得税も少し上乗せ）。</p>
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラ先生"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラ先生</p>
+        <p>かかる場合がありますよ。でも<strong>すべての年金にかかるわけじゃない</strong>んです。</p>
+        <p><strong>税金がかからない年金（非課税）</strong><br>
+        → 障害年金・遺族年金<br>
+        これらは金額に関係なく税金ゼロです。安心してください。</p>
+        <p><strong>税金がかかる可能性がある年金</strong><br>
+        → 老齢年金（老齢基礎年金・老齢厚生年金など）<br>
+        これらは「雑所得（ざっしょとく）」として、<strong>所得税と住民税の対象</strong>になります（復興特別所得税も少し上乗せされます）。</p>
+      </div>
     </div>
 
     <!-- Q2 -->
     <h2 id="q2">国民年金（老齢基礎年金）の満額はいくら？</h2>
 
     <div class="qa-q">
-      <p class="qa-label">Q. 読者の疑問</p>
-      <p>国民年金（老齢基礎年金）だけの場合、満額でいくらもらえるの？</p>
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>国民年金（老齢基礎年金）だけの場合、満額でいくらもらえるの？</p>
+      </div>
     </div>
     <div class="qa-a">
-      <p class="qa-label">A. masahiro</p>
-      <p>2026年度（令和8年度）の40年満額はこちらです。</p>
-      <table class="compare-table">
-        <thead><tr><th>受取方法</th><th>金額</th></tr></thead>
-        <tbody>
-          <tr><td>月額</td><td><strong>70,608円</strong>（昭和31年4月2日以降生まれの方）</td></tr>
-          <tr><td>年額</td><td>約<strong>84.7万円</strong></td></tr>
-        </tbody>
-      </table>
-      <p>前年度より月1,300円アップで、4年連続増額しています。<br>
-      ※ 昭和31年4月1日以前生まれの方は月70,408円です。</p>
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラ先生"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラ先生</p>
+        <p>2026年度（令和8年度）の40年満額はこちらです。</p>
+        <table class="compare-table">
+          <thead><tr><th>受取方法</th><th>金額</th></tr></thead>
+          <tbody>
+            <tr><td>月額</td><td><strong>70,608円</strong>（昭和31年4月2日以降生まれの方）</td></tr>
+            <tr><td>年額</td><td>約<strong>84.7万円</strong></td></tr>
+          </tbody>
+        </table>
+        <p>前年度より月1,300円アップで、4年連続増額しています。<br>
+        ※ 昭和31年4月1日以前生まれの方は月70,408円です。</p>
+      </div>
     </div>
 
     <!-- Q3 -->
     <h2 id="q3">満額の国民年金だけなら税金は？</h2>
 
     <div class="qa-q">
-      <p class="qa-label">Q. 読者の疑問</p>
-      <p>満額の国民年金（年84.7万円）だけなら、税金はどうなるの？</p>
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>満額の国民年金（年84.7万円）だけなら、税金はどうなるの？</p>
+      </div>
     </div>
     <div class="qa-a">
-      <p class="qa-label">A. masahiro</p>
-      <p><strong>65歳以上でこの金額だけなら、税金はかかりません！</strong></p>
-      <p>計算の流れはこうなります。</p>
-      <ol>
-        <li>年金収入 84.7万円</li>
-        <li>「公的年金等控除（こうてきねんきんとうこうじょ）」110万円を引く → 雑所得 <strong>0円</strong></li>
-        <li>さらに基礎控除なども引いて課税所得 <strong>0円</strong></li>
-      </ol>
-      <p>→ <strong>所得税も住民税も0円</strong>です。</p>
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラ先生"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラ先生</p>
+        <p><strong>65歳以上でこの金額だけなら、税金はかかりません！</strong></p>
+        <p>計算の流れはこうなります。</p>
+        <ol>
+          <li>年金収入 84.7万円</li>
+          <li>「公的年金等控除（こうてきねんきんとうこうじょ）」110万円を引く → 雑所得 <strong>0円</strong></li>
+          <li>さらに基礎控除なども引いて課税所得 <strong>0円</strong></li>
+        </ol>
+        <p>→ <strong>所得税も住民税も0円</strong>です。</p>
+      </div>
     </div>
 
     <div class="point-box">
@@ -153,57 +206,62 @@
     <h2 id="q4">厚生年金も合わせると、いくらから税金がかかる？</h2>
 
     <div class="qa-q">
-      <p class="qa-label">Q. 読者の疑問</p>
-      <p>じゃあ厚生年金ももらっていると、どれくらいから税金がかかるの？月15万〜20万円くらいもらっている場合は？</p>
+      <div class="qa-icon">masa</div>
+      <div class="qa-body">
+        <p class="qa-label">masahiro</p>
+        <p>じゃあ厚生年金ももらっていると、どれくらいから税金がかかるの？月15万〜20万円くらいもらっている場合は？</p>
+      </div>
     </div>
     <div class="qa-a">
-      <p class="qa-label">A. masahiro</p>
-      <p>国民年金だけならセーフでも、<strong>厚生年金を足すと合計額が上がる</strong>ので税金が発生しやすくなります。</p>
-      <p>65歳以上・年金収入のみ・単身の場合の目安（2026年）は以下のとおりです。</p>
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>月額合計（基礎＋厚生）</th>
-            <th>年額合計</th>
-            <th>税金の目安（年額）</th>
-            <th>コメント</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>15万円</td>
-            <td>180万円</td>
-            <td><strong>1万円未満</strong></td>
-            <td>ほぼ非課税</td>
-          </tr>
-          <tr>
-            <td>17万円</td>
-            <td>204万円</td>
-            <td><strong>1〜3万円</strong></td>
-            <td>所得税はほぼ0円</td>
-          </tr>
-          <tr>
-            <td>18万円</td>
-            <td>216万円</td>
-            <td><strong>3〜4万円</strong></td>
-            <td>少しずつかかり始める</td>
-          </tr>
-          <tr>
-            <td>20万円</td>
-            <td>240万円</td>
-            <td><strong>5〜7万円</strong></td>
-            <td>所得税＋住民税でこのくらい</td>
-          </tr>
-        </tbody>
-      </table>
-      <p><strong>計算のポイント</strong></p>
-      <ul>
-        <li>公的年金等控除：110万円</li>
-        <li>基礎控除：48万円（所得税）／43万円（住民税）</li>
-        <li>健康保険料・介護保険料も控除できるので、実際はもう少し少なくなります</li>
-        <li>夫婦世帯や配偶者控除があるとさらに税金が減ります</li>
-      </ul>
-      <p>なお、年金からは<strong>源泉徴収（げんせんちょうしゅう）</strong>といって自動で税金が天引きされる仕組みがありますが、確定申告をすることで払いすぎた分が戻ってくるケースも多いです。</p>
+      <div class="qa-icon"><img src="../../../img/tora-sensei.png" alt="トラ先生"></div>
+      <div class="qa-body">
+        <p class="qa-label">トラ先生</p>
+        <p>国民年金だけならセーフでも、<strong>厚生年金を足すと合計額が上がる</strong>ので税金が発生しやすくなります。65歳以上・年金収入のみ・単身の場合の目安（2026年）はこちらです。</p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>月額合計（基礎＋厚生）</th>
+              <th>年額合計</th>
+              <th>税金の目安（年額）</th>
+              <th>コメント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15万円</td>
+              <td>180万円</td>
+              <td><strong>1万円未満</strong></td>
+              <td>ほぼ非課税</td>
+            </tr>
+            <tr>
+              <td>17万円</td>
+              <td>204万円</td>
+              <td><strong>1〜3万円</strong></td>
+              <td>所得税はほぼ0円</td>
+            </tr>
+            <tr>
+              <td>18万円</td>
+              <td>216万円</td>
+              <td><strong>3〜4万円</strong></td>
+              <td>少しずつかかり始める</td>
+            </tr>
+            <tr>
+              <td>20万円</td>
+              <td>240万円</td>
+              <td><strong>5〜7万円</strong></td>
+              <td>所得税＋住民税でこのくらい</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>計算のポイント</strong></p>
+        <ul>
+          <li>公的年金等控除：110万円</li>
+          <li>基礎控除：48万円（所得税）／43万円（住民税）</li>
+          <li>健康保険料・介護保険料も控除できるので、実際はもう少し少なくなります</li>
+          <li>夫婦世帯や配偶者控除があるとさらに税金が減ります</li>
+        </ul>
+        <p>なお、年金からは<strong>源泉徴収（げんせんちょうしゅう）</strong>といって自動で税金が天引きされる仕組みがありますが、確定申告をすることで払いすぎた分が戻ってくるケースも多いです。</p>
+      </div>
     </div>
 
     <div class="warn-box">
