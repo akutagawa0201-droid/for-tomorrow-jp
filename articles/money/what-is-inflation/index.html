@@ -219,9 +219,15 @@ em{font-style:normal;color:var(--rakuten);font-weight:700}
 
 /* 値上げ比較ボックス */
 .price-compare{
-  display:grid;
-  grid-template-columns:1fr;
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
   gap:14px;margin:24px 0;
+}
+@media(max-width:1023px){
+  .price-compare{grid-template-columns:repeat(2,1fr) !important;}
+}
+@media(max-width:639px){
+  .price-compare{grid-template-columns:1fr !important;}
 }
 .price-item{
   background:#fff;
