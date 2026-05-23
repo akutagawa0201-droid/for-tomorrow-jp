@@ -366,15 +366,31 @@ tbody tr:hover{background:var(--alert-soft)}
   th,td{padding:10px 8px;font-size:.85rem}
   .price-item{flex-direction:column;align-items:flex-start;gap:8px}
 }
+
+.site-nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.site-nav a{color:var(--ink-soft);text-decoration:none;font-size:.82rem;font-family:'Hiragino Sans','Yu Gothic',sans-serif;letter-spacing:.05em}
+.site-nav a:hover{color:var(--accent)}
+.site-footer{background:var(--navy);color:rgba(255,255,255,.8);text-align:center;padding:28px 20px;font-size:.82rem}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 20px;margin-bottom:12px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none}
+.footer-links a:hover{color:#fff}
+@media(max-width:600px){.site-nav{display:none}}
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="site-header-inner">
-    <div class="brand">
-      明日のために <small>for-tomorrow</small>
-    </div>
+    <a href="/" style="text-decoration:none;color:inherit">
+      <div class="brand">明日のために <small>for-tomorrow</small></div>
+    </a>
+    <nav class="site-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/pages/about.html">このサイトについて</a>
+    </nav>
   </div>
 </header>
 
@@ -834,5 +850,16 @@ tbody tr:hover{background:var(--alert-soft)}
 
 </article>
 
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="/pages/about.html">このサイトについて</a>
+    <a href="/pages/disclaimer.html">免責事項</a>
+    <a href="/pages/privacy.html">プライバシーポリシー</a>
+    <a href="/pages/contact.html">お問い合わせ</a>
+  </div>
+  <p>&copy; 2026 明日のために for-tomorrow</p>
+  <p style="margin-top:8px;font-size:.75rem;opacity:.6;">本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。</p>
+</footer>
 </body>
 </html>
