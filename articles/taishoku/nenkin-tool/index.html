@@ -228,7 +228,43 @@
     }
 
     /* ---- レスポンシブ ---- */
-    @media (max-width: 600px) {
+    /* ========================================
+   サイト共通ヘッダー
+   ======================================== */
+.global-header{background:#1e3a5f;width:100%;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.global-header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.global-brand{color:#fff !important;text-decoration:none !important}
+.global-brand-name{font-weight:700;font-size:1.05rem;letter-spacing:.05em;line-height:1.2;color:#fff}
+.global-brand-sub{display:block;font-size:.7rem;letter-spacing:.15em;font-weight:400;opacity:.85;margin-top:2px;color:#fff}
+.global-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.global-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.03em;transition:opacity .15s;white-space:nowrap}
+.global-nav a:hover{opacity:.75}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px 8px}
+/* ========================================
+   サイト共通フッター
+   ======================================== */
+.global-footer{background:#1e3a5f;color:#fff;padding:40px 24px 28px;margin-top:60px;width:100%}
+.global-footer-inner{max-width:1200px;margin:0 auto;text-align:center}
+.global-footer-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:22px}
+.global-footer-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.05em;transition:opacity .15s}
+.global-footer-nav a:hover{opacity:.75;text-decoration:underline !important}
+.global-footer-copyright{font-size:.85rem;letter-spacing:.05em;margin-bottom:8px}
+.global-footer-note{font-size:.75rem;opacity:.7;line-height:1.7;max-width:600px;margin:0 auto}
+@media(max-width:768px){
+  .global-header-inner{padding:0 16px}
+  .menu-toggle{display:block}
+  .global-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#1e3a5f;flex-direction:column;align-items:stretch;padding:12px 0;gap:0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .global-nav.is-open{display:flex}
+  .global-nav a{padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+  .global-nav a:last-child{border-bottom:none}
+  .global-footer{padding:32px 20px 24px}
+  .global-footer-nav{gap:16px;margin-bottom:18px}
+  .global-footer-nav a{font-size:.82rem}
+  .global-footer-copyright{font-size:.8rem}
+  .global-footer-note{font-size:.72rem}
+}
+
+@media (max-width: 600px) {
       .tool-wrap { padding: 20px 16px; }
       .result-body { padding: 18px 16px; }
       .amount-table th, .amount-table td { padding: 8px 10px; font-size: .82rem; }
@@ -237,18 +273,25 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="inner">
-    <a href="../../../" class="site-logo">明日のために<span>for-tomorrow</span></a>
-    <nav class="site-nav">
-      <a href="../../nisa/">NISA入門</a>
-      <a href="../../kakei/">家計改善</a>
-      <a href="../../taishoku/">退職準備</a>
-        <a href="../../taishoku/fp3-cbt/">FP3模試</a>
-    
-        <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
-        <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
-      </nav>
+<!-- サイト共通ヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
+      <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
+    </nav>
   </div>
 </header>
 
@@ -533,6 +576,24 @@ function nenkinDiagnosis() {
   resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 </script>
+
+<!-- サイト共通フッター -->
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      &copy; 2026 明日のために for-tomorrow
+    </div>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
