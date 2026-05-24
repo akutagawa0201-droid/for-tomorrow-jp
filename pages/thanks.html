@@ -9,20 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="inner">
-      <a href="../" class="site-logo">明日のために<span>for-tomorrow</span></a>
-      <nav class="site-nav">
-        <a href="../articles/nisa/">NISA入門</a>
-        <a href="../articles/kakei/">家計改善</a>
-        <a href="../articles/taishoku/">退職準備</a>
-        <a href="../articles/taishoku/fp3-cbt/">FP3模試</a>
-      
-        <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
-        <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
-      </nav>
-    </div>
-  </header>
+<!-- サイト共通ヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
+      <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
+    </nav>
+  </div>
+</header>
 
   <div class="article-wrap" style="text-align:center; padding: 60px 24px;">
     <p style="font-size:3rem; color:var(--blue-mid); margin-bottom:16px;">&#10003;</p>
@@ -34,14 +41,22 @@
     <a href="../" style="color:var(--blue-mid); font-weight:700;">トップページに戻る</a>
   </div>
 
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="about.html">このサイトについて</a>
-      <a href="disclaimer.html">免責事項</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-      <a href="contact.html">お問い合わせ</a>
+<!-- サイト共通フッター -->
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      &copy; 2026 明日のために for-tomorrow
     </div>
-    <p>&copy; 2026 明日のために for-tomorrow</p>
-  </footer>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
 </body>
 </html>
