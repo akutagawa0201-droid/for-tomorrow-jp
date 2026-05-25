@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エンディングノート作成ツール｜諸世代のためのオンライン作成アプリ | 明日のために for-tomorrow</title>
+<meta name="description" content="エンディングノートをオンラインで簡単に作成。データはお使いのブラウザに保存されサーバーには送信されません。10カテゴリの入力でMarkdown形式でダウンロード可能。諸世代のための無料ツール。">
+<meta name="keywords" content="エンディングノート,作成ツール,オンライン,無料,テンプレート,諸世代,終活">
+<link rel="canonical" href="https://for-tomorrow2026.com/tools/ending-note/">
+
+<!-- OGP -->
+<meta property="og:title" content="エンディングノート作成ツール｜諸世代のためのオンライン作成アプリ">
+<meta property="og:description" content="プライバシー完全保護。データはブラウザに保存され外部に送信されません。10カテゴリで完全網羅。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://for-tomorrow2026.com/tools/ending-note/">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+
+<style>
+:root{
+  --bg:#fbf9f4;
+  --ink:#1f2933;
+  --ink-soft:#475569;
+  --paper:#ffffff;
+  --accent:#0a6e5b;
+  --accent-soft:#e8f3ef;
+  --gold:#c89b3c;
+  --gold-soft:#fbf4e2;
+  --rakuten:#bf0000;
+  --rakuten-soft:#fdecec;
+  --navy:#1e3a5f;
+  --navy-soft:#e0e9f3;
+  --warm:#9c3d54;
+  --warm-soft:#fce4ec;
+  --alert:#d97706;
+  --alert-soft:#fef3c7;
+  --success:#059669;
+  --success-soft:#d1fae5;
+  --border:#e6e1d6;
+  --shadow:0 2px 12px rgba(31,41,51,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Hiragino Sans','Yu Gothic',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ========================================
+   サイト共通ヘッダー
+   ======================================== */
+.global-header{
+  background:#1e3a5f;
+  width:100%;
+  padding:14px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.global-header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.global-brand{color:#fff !important;text-decoration:none !important}
+.global-brand-name{font-weight:700;font-size:1.05rem;letter-spacing:.05em;line-height:1.2;color:#fff}
+.global-brand-sub{display:block;font-size:.7rem;letter-spacing:.15em;font-weight:400;opacity:.85;margin-top:2px;color:#fff}
+.global-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.global-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.03em;transition:opacity .15s;white-space:nowrap}
+.global-nav a:hover{opacity:.75}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px 8px}
+
+/* ========================================
+   サイト共通フッター
+   ======================================== */
+.global-footer{background:#1e3a5f;color:#fff;padding:40px 24px 28px;margin-top:60px;width:100%}
+.global-footer-inner{max-width:1200px;margin:0 auto;text-align:center}
+.global-footer-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:22px}
+.global-footer-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.05em;transition:opacity .15s}
+.global-footer-nav a:hover{opacity:.75;text-decoration:underline !important}
+.global-footer-copyright{font-size:.85rem;letter-spacing:.05em;margin-bottom:8px}
+.global-footer-note{font-size:.75rem;opacity:.7;line-height:1.7;max-width:600px;margin:0 auto}
+
+/* ========================================
+   メインコンテンツ
+   ======================================== */
+.app-container{
+  max-width:900px;
+  margin:0 auto;
+  padding:24px 20px 40px;
+}
+
+.app-header{
+  text-align:center;
+  margin-bottom:24px;
+}
+.app-title{
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--warm);
+  margin-bottom:8px;
+}
+.app-subtitle{
+  font-size:.95rem;
+  color:var(--ink-soft);
+}
+
+/* プライバシー説明 */
+.privacy-banner{
+  background:linear-gradient(135deg,var(--success-soft) 0%,#fff 100%);
+  border:2px solid var(--success);
+  padding:18px 22px;
+  border-radius:8px;
+  margin-bottom:24px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.privacy-icon{
+  font-size:1.8rem;
+  flex-shrink:0;
+}
+.privacy-content h3{
+  font-size:1rem;
+  color:var(--success);
+  margin-bottom:4px;
+  font-weight:700;
+}
+.privacy-content p{
+  font-size:.85rem;
+  color:var(--ink);
+  margin:0;
+  line-height:1.6;
+}
+
+/* ステータスバー */
+.status-bar{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:14px 18px;
+  border-radius:8px;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  box-shadow:var(--shadow);
+}
+.status-info{
+  font-size:.85rem;
+  color:var(--ink-soft);
+}
+.status-info strong{
+  color:var(--warm);
+}
+.status-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:8px 16px;
+  border-radius:6px;
+  border:none;
+  font-size:.85rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .15s;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:inherit;
+}
+.btn-primary{background:var(--warm);color:#fff}
+.btn-primary:hover{background:#7d2f43;transform:translateY(-1px)}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn-secondary:hover{background:#152d4a;transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--ink);border:1px solid var(--border)}
+.btn-outline:hover{background:var(--bg)}
+.btn-danger{background:#fff;color:var(--rakuten);border:1px solid var(--rakuten)}
+.btn-danger:hover{background:var(--rakuten-soft)}
+
+/* タブナビゲーション */
+.tabs{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:8px 8px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  overflow:hidden;
+}
+.tab{
+  flex:1;
+  min-width:90px;
+  padding:12px 8px;
+  background:none;
+  border:none;
+  border-bottom:3px solid transparent;
+  cursor:pointer;
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--ink-soft);
+  transition:all .15s;
+  text-align:center;
+  font-family:inherit;
+  position:relative;
+}
+.tab:hover{background:var(--bg)}
+.tab.active{
+  color:var(--warm);
+  border-bottom-color:var(--warm);
+  background:var(--warm-soft);
+}
+.tab-icon{
+  display:block;
+  font-size:1.2rem;
+  margin-bottom:2px;
+}
+.tab-progress{
+  position:absolute;
+  top:4px;
+  right:4px;
+  background:var(--success);
+  color:#fff;
+  font-size:.6rem;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.tab.has-content .tab-progress{display:flex}
+
+/* フォームエリア */
+.form-area{
+  background:#fff;
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 8px 8px;
+  padding:24px;
+  min-height:400px;
+  box-shadow:var(--shadow);
+}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.tab-panel-title{
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--warm);
+  margin-bottom:8px;
+  padding-bottom:10px;
+  border-bottom:2px dashed var(--border);
+}
+.tab-panel-desc{
+  font-size:.85rem;
+  color:var(--ink-soft);
+  margin-bottom:20px;
+  line-height:1.7;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+.form-label{
+  display:block;
+  font-size:.9rem;
+  font-weight:600;
+  margin-bottom:6px;
+  color:var(--ink);
+}
+.form-label .optional{
+  font-size:.75rem;
+  font-weight:400;
+  color:var(--ink-soft);
+  margin-left:6px;
+}
+.form-input,
+.form-textarea{
+  width:100%;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:.95rem;
+  font-family:inherit;
+  background:#fff;
+  transition:border-color .15s;
+}
+.form-input:focus,
+.form-textarea:focus{
+  outline:none;
+  border-color:var(--warm);
+  box-shadow:0 0 0 3px rgba(156,61,84,.1);
+}
+.form-textarea{
+  resize:vertical;
+  min-height:80px;
+  line-height:1.6;
+}
+.form-help{
+  font-size:.78rem;
+  color:var(--ink-soft);
+  margin-top:4px;
+  line-height:1.5;
+}
+.form-help.warning{
+  color:var(--alert);
+  font-weight:600;
+}
+
+/* 動的リスト */
+.dynamic-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.dynamic-item{
+  background:var(--bg);
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:6px;
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:10px;
+  align-items:end;
+}
+.dynamic-item .form-group{margin-bottom:0}
+.dynamic-item-remove{
+  padding:8px 12px;
+  background:#fff;
+  border:1px solid var(--rakuten);
+  color:var(--rakuten);
+  border-radius:6px;
+  font-size:.8rem;
+  cursor:pointer;
+  height:42px;
+}
+.dynamic-add{
+  margin-top:10px;
+  padding:8px 16px;
+  background:var(--success-soft);
+  border:1px dashed var(--success);
+  color:var(--success);
+  border-radius:6px;
+  cursor:pointer;
+  font-size:.85rem;
+  font-weight:600;
+  width:100%;
+}
+.dynamic-add:hover{background:var(--success);color:#fff}
+
+/* タブ間ナビ */
+.tab-nav{
+  display:flex;
+  justify-content:space-between;
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+}
+
+/* プレビューエリア */
+.preview-area{
+  background:#fff;
+  border:2px solid var(--warm);
+  border-radius:8px;
+  padding:30px;
+  margin-top:24px;
+  display:none;
+}
+.preview-area.show{display:block}
+.preview-title{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--warm);
+  text-align:center;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:2px solid var(--warm);
+}
+.preview-section{
+  margin-bottom:24px;
+  padding-bottom:20px;
+  border-bottom:1px dashed var(--border);
+}
+.preview-section:last-child{border-bottom:none}
+.preview-section h3{
+  font-size:1rem;
+  color:var(--warm);
+  margin-bottom:10px;
+  font-weight:700;
+}
+.preview-section p{
+  font-size:.9rem;
+  margin-bottom:6px;
+  line-height:1.7;
+}
+.preview-section .preview-row{
+  display:flex;
+  gap:14px;
+  padding:4px 0;
+  font-size:.88rem;
+}
+.preview-section .preview-row strong{
+  min-width:130px;
+  color:var(--ink-soft);
+  font-weight:500;
+}
+.preview-message{
+  background:var(--warm-soft);
+  padding:16px 20px;
+  border-radius:8px;
+  font-style:italic;
+  line-height:1.9;
+  white-space:pre-wrap;
+}
+
+/* 警告メッセージ */
+.warning-banner{
+  background:var(--alert-soft);
+  border:1px solid var(--alert);
+  padding:14px 18px;
+  border-radius:6px;
+  margin-bottom:20px;
+  font-size:.85rem;
+  color:var(--ink);
+  line-height:1.7;
+}
+.warning-banner strong{color:var(--alert)}
+
+/* トースト通知 */
+.toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:var(--success);
+  color:#fff;
+  padding:14px 24px;
+  border-radius:8px;
+  font-size:.9rem;
+  font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,.15);
+  opacity:0;
+  transition:all .3s;
+  z-index:2000;
+}
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+.toast.error{background:var(--rakuten)}
+
+@media(max-width:768px){
+  .global-header-inner{padding:0 16px}
+  .menu-toggle{display:block}
+  .global-nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#1e3a5f;
+    flex-direction:column;
+    align-items:stretch;
+    padding:12px 0;
+    gap:0;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+  .global-nav.is-open{display:flex}
+  .global-nav a{padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+  .global-nav a:last-child{border-bottom:none}
+  .global-footer{padding:32px 20px 24px}
+  .global-footer-nav{gap:16px;margin-bottom:18px}
+  .global-footer-nav a{font-size:.82rem}
+  .global-footer-copyright{font-size:.8rem}
+  .global-footer-note{font-size:.72rem}
+}
+
+@media(max-width:600px){
+  .app-title{font-size:1.4rem}
+  .app-container{padding:18px 14px 40px}
+  .privacy-banner{padding:14px 16px;flex-direction:column;gap:8px}
+  .privacy-icon{font-size:1.5rem}
+  .status-bar{flex-direction:column;align-items:stretch}
+  .status-actions{justify-content:stretch}
+  .status-actions .btn{flex:1;justify-content:center}
+  .tab{min-width:60px;font-size:.68rem;padding:10px 4px}
+  .tab-icon{font-size:1rem}
+  .form-area{padding:18px}
+  .dynamic-item{grid-template-columns:1fr;gap:6px}
+  .dynamic-item-remove{height:36px;width:100%}
+  .preview-area{padding:18px}
+  .tab-nav{flex-direction:column;gap:8px}
+  .tab-nav .btn{width:100%;justify-content:center}
+}
+
+/* 印刷用CSS */
+@media print{
+  .global-header,
+  .global-footer,
+  .privacy-banner,
+  .status-bar,
+  .tabs,
+  .form-area,
+  .tab-nav,
+  .toast{display:none !important}
+  .preview-area{
+    display:block !important;
+    border:none;
+    padding:0;
+  }
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<!-- サイト共通ヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
+      <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="app-container">
+
+  <div class="app-header">
+    <h1 class="app-title">🌸 エンディングノート作成ツール</h1>
+    <p class="app-subtitle">諸世代のための、家族へのラブレターを作るオンラインツール</p>
+  </div>
+
+  <!-- プライバシー説明 -->
+  <div class="privacy-banner">
+    <div class="privacy-icon">🔒</div>
+    <div class="privacy-content">
+      <h3>あなたのデータは完全に安全です</h3>
+      <p>入力したデータは<strong>お使いのブラウザ内のみに保存</strong>され、当サイトのサーバーには一切送信されません。データの管理はすべてご自身で行います。</p>
+    </div>
+  </div>
+
+  <!-- 警告 -->
+  <div class="warning-banner">
+    <strong>⚠️ 重要な注意：</strong>暗証番号・パスワード・クレジットカード番号などの秘匿情報は、このツールに入力しないでください。万一データを家族や第三者が見つけた場合に、悪用されるリスクがあります。
+  </div>
+
+  <!-- ステータスバー -->
+  <div class="status-bar">
+    <div class="status-info">
+      最終更新：<strong id="last-updated">まだ保存されていません</strong>
+    </div>
+    <div class="status-actions">
+      <button class="btn btn-primary" onclick="showPreview()">👁️ プレビュー</button>
+      <button class="btn btn-secondary" onclick="downloadMarkdown()">📄 ダウンロード</button>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ 印刷</button>
+      <button class="btn btn-outline" onclick="exportJSON()">💾 バックアップ</button>
+      <label class="btn btn-outline" style="cursor:pointer">
+        📂 読み込み
+        <input type="file" accept=".json" onchange="importJSON(event)" style="display:none">
+      </label>
+      <button class="btn btn-danger" onclick="clearAllData()">🗑️ 全削除</button>
+    </div>
+  </div>
+
+  <!-- タブ -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="basic"><span class="tab-icon">👤</span>基本情報<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="assets"><span class="tab-icon">💰</span>資産<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="property"><span class="tab-icon">🏠</span>不動産<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="digital"><span class="tab-icon">📱</span>デジタル<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="medical"><span class="tab-icon">🏥</span>医療<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="funeral"><span class="tab-icon">⚱️</span>葬儀<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="contacts"><span class="tab-icon">📞</span>連絡先<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="pets"><span class="tab-icon">🐱</span>ペット<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="memories"><span class="tab-icon">📷</span>思い出<span class="tab-progress">✓</span></button>
+    <button class="tab" data-tab="messages"><span class="tab-icon">💌</span>家族へ<span class="tab-progress">✓</span></button>
+  </div>
+
+  <!-- フォームエリア -->
+  <div class="form-area">
+
+    <!-- ① 基本情報 -->
+    <div class="tab-panel active" data-panel="basic">
+      <h2 class="tab-panel-title">👤 ①基本情報</h2>
+      <p class="tab-panel-desc">あなたの基本情報を記入してください。本籍地など、家族でも知らないことが多い情報が役立ちます。</p>
+
+      <div class="form-group">
+        <label class="form-label">氏名 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.name" placeholder="例：山田太郎">
+      </div>
+      <div class="form-group">
+        <label class="form-label">生年月日 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.birthday" placeholder="例：1974年2月1日">
+      </div>
+      <div class="form-group">
+        <label class="form-label">本籍地 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.honseki" placeholder="例：東京都〇〇区〇〇1-2-3">
+      </div>
+      <div class="form-group">
+        <label class="form-label">血液型 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.blood" placeholder="例：A型 Rh+">
+      </div>
+      <div class="form-group">
+        <label class="form-label">健康保険証の保管場所 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.kenpo" placeholder="例：自宅書斎の引き出し">
+      </div>
+      <div class="form-group">
+        <label class="form-label">マイナンバーカードの保管場所 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.mynumber" placeholder="例：自宅書斎の引き出し">
+      </div>
+      <div class="form-group">
+        <label class="form-label">パスポートの保管場所 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="basic.passport" placeholder="例：自宅書斎の引き出し">
+      </div>
+    </div>
+
+    <!-- ② 資産 -->
+    <div class="tab-panel" data-panel="assets">
+      <h2 class="tab-panel-title">💰 ②資産・お金</h2>
+      <p class="tab-panel-desc">「どこに何があるか」を記入します。<strong>暗証番号・パスワードは絶対に書かないでください</strong>。</p>
+
+      <div class="warning-banner">
+        <strong>⚠️ 重要：</strong>金額や暗証番号は記入しないでください。「どこに口座があるか」だけが分かれば、家族は手続きを進められます。
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">銀行口座 <span class="optional">（複数可）</span></label>
+        <textarea class="form-textarea" data-key="assets.banks" placeholder="例：&#10;・〇〇銀行（メイン）：通帳は書斎の引き出し&#10;・楽天銀行（サブ）：アプリで確認"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">証券口座 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.securities" placeholder="例：&#10;・楽天証券（NISA口座・特定口座）"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">クレジットカード <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.cards" placeholder="例：&#10;・楽天プレミアムカード（メイン）"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">保険 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.insurance" placeholder="例：&#10;・生命保険：〇〇生命&#10;・医療保険：〇〇生命&#10;・自転車保険：楽天超かんたん保険&#10;・自動車保険：〇〇損保"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">住宅ローン <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.loan" placeholder="例：&#10;借入先：〇〇銀行&#10;残債：約〇〇万円&#10;完済予定：退職金で一括完済予定"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">年金関連 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.pension" placeholder="例：&#10;ねんきん定期便：書斎の引き出しに保管&#10;マイナポータルで確認可能"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">印鑑（実印・銀行印）の保管場所 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="assets.inkan" placeholder="例：&#10;実印：書斎の鍵付き引き出し&#10;銀行印：寝室のタンスの引き出し"></textarea>
+      </div>
+    </div>
+
+    <!-- ③ 不動産 -->
+    <div class="tab-panel" data-panel="property">
+      <h2 class="tab-panel-title">🏠 ③不動産・自宅</h2>
+      <p class="tab-panel-desc">自宅の登記情報や、住宅関係の重要書類の場所を記録します。</p>
+
+      <div class="form-group">
+        <label class="form-label">自宅の住所 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="property.address" placeholder="例：東京都〇〇区〇〇1-2-3">
+      </div>
+      <div class="form-group">
+        <label class="form-label">所有形態 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="property.type" placeholder="例：所有 / 賃貸">
+      </div>
+      <div class="form-group">
+        <label class="form-label">登記簿・権利書の保管場所 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="property.tokibo" placeholder="例：書斎の鍵付き引き出し">
+      </div>
+      <div class="form-group">
+        <label class="form-label">その他の不動産 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="property.others" placeholder="例：&#10;実家の土地（〇〇県〇〇市）&#10;駐車場（自宅近く）"></textarea>
+      </div>
+    </div>
+
+    <!-- ④ デジタル -->
+    <div class="tab-panel" data-panel="digital">
+      <h2 class="tab-panel-title">📱 ④デジタル情報</h2>
+      <p class="tab-panel-desc">SNS・サブスク・クラウドストレージなど、デジタル資産の整理。</p>
+
+      <div class="warning-banner">
+        <strong>⚠️ 重要：</strong>パスワードは絶対に書かないでください。「サービス名」と「死後の希望（削除/継続）」だけ記入してください。
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">SNSアカウント <span class="optional">（死後どうするか）</span></label>
+        <textarea class="form-textarea" data-key="digital.sns" placeholder="例：&#10;・X（旧Twitter）：削除希望&#10;・Instagram：そのままで&#10;・YouTube：妻の判断に委ねる"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">サブスク契約 <span class="optional">（解約が必要なもの）</span></label>
+        <textarea class="form-textarea" data-key="digital.subscriptions" placeholder="例：&#10;・Amazon Prime（年額）&#10;・YouTube Premium（月額）&#10;・サーバー代（年額）"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">パスワード管理ツール <span class="optional">（マスターパスワードは別途）</span></label>
+        <input type="text" class="form-input" data-key="digital.passwordmanager" placeholder="例：1Password を使用。マスターパスワードは妻に口頭で伝達済み">
+      </div>
+      <div class="form-group">
+        <label class="form-label">クラウドストレージ <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="digital.cloud" placeholder="例：&#10;Google Drive：写真など&#10;iCloud：iPhone のバックアップ"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">運営しているブログ/サイト <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="digital.blogs" placeholder="例：&#10;ブログ「〇〇」：閉鎖でOK&#10;YouTubeチャンネル：妻の判断に委ねる"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑤ 医療 -->
+    <div class="tab-panel" data-panel="medical">
+      <h2 class="tab-panel-title">🏥 ⑤医療・介護の希望</h2>
+      <p class="tab-panel-desc">かかりつけ医・延命治療・介護の希望を記録します。</p>
+
+      <div class="form-group">
+        <label class="form-label">かかりつけ医 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="medical.doctor" placeholder="例:&#10;内科：〇〇クリニック&#10;歯科:〇〇歯科"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">常用薬 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="medical.medicine" placeholder="例:&#10;なし(現時点)&#10;または:〇〇(1日1錠)"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">持病・アレルギー <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="medical.allergy" placeholder="例:&#10;特になし&#10;または:〇〇アレルギー(エビ・カニ)"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">延命治療の希望 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="medical.shumatsu" placeholder="例:&#10;過度な延命治療は希望しない&#10;自然な形での最期を望む&#10;詳しいことは家族の判断に委ねる"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">介護の希望 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="medical.care" placeholder="例:&#10;可能な限り自宅で過ごしたい&#10;ただし家族の負担を最優先にしてほしい&#10;施設入所も家族の判断に委ねる"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑥ 葬儀 -->
+    <div class="tab-panel" data-panel="funeral">
+      <h2 class="tab-panel-title">⚱️ ⑥葬儀・お墓の希望</h2>
+      <p class="tab-panel-desc">家族が判断に迷わないように、具体的に希望を記録します。</p>
+
+      <div class="form-group">
+        <label class="form-label">葬儀の形式 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="funeral.style" placeholder="例:&#10;家族葬・無宗教でOK&#10;徹底的に安く・シンプルに&#10;会社関係は訃報のみ"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">遺体・遺骨の扱い <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="funeral.body" placeholder="例:&#10;火葬のみでOK&#10;戒名は不要"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">お墓・散骨の希望 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="funeral.grave" placeholder="例:&#10;ハワイで散骨してほしい&#10;または:海洋散骨・樹木葬"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">家族へのメッセージ <span class="optional">（葬儀について）</span></label>
+        <textarea class="form-textarea" data-key="funeral.message" placeholder="例:&#10;お金をかけて立派な葬儀をしてほしくない&#10;残されたお金は家族の未来のために使ってほしい"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑦ 連絡先 -->
+    <div class="tab-panel" data-panel="contacts">
+      <h2 class="tab-panel-title">📞 ⑦連絡先リスト</h2>
+      <p class="tab-panel-desc">訃報を伝える人・親しい友人の連絡先を記録します。</p>
+
+      <div class="form-group">
+        <label class="form-label">親族 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="contacts.family" placeholder="例:&#10;兄:〇〇〇〇(電話:090-XXXX-XXXX)&#10;妹:〇〇〇〇(電話:090-XXXX-XXXX)"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">親しい友人 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="contacts.friends" placeholder="例:&#10;〇〇さん(学生時代の友人):090-XXXX-XXXX"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">職場関係 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="contacts.work" placeholder="例:&#10;会社名:株式会社〇〇&#10;直属の上司:〇〇さん"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">コミュニティ・趣味仲間 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="contacts.community" placeholder="例:&#10;リベシティ:オンラインコミュニティ&#10;キャンプ仲間:〇〇さん"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑧ ペット -->
+    <div class="tab-panel" data-panel="pets">
+      <h2 class="tab-panel-title">🐱 ⑧ペットのこと</h2>
+      <p class="tab-panel-desc">ペットの情報・万一の引き取り先を記録します。意外と忘れがちで超重要な項目です。</p>
+
+      <div class="form-group">
+        <label class="form-label">ペットの情報 <span class="optional">（複数可）</span></label>
+        <textarea class="form-textarea" data-key="pets.info" placeholder="例:&#10;名前:〇〇&#10;種類:保護猫&#10;年齢:〇歳&#10;性別:オス/メス&#10;性格:人見知り・甘えん坊"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">かかりつけ動物病院 <span class="optional">（任意）</span></label>
+        <input type="text" class="form-input" data-key="pets.hospital" placeholder="例：〇〇動物病院（電話：03-XXXX-XXXX）">
+      </div>
+      <div class="form-group">
+        <label class="form-label">食事の好み・嫌い <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="pets.food" placeholder="例:&#10;好き:〇〇のフード&#10;嫌い:魚介類"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">万一の引き取り先候補 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="pets.adopter" placeholder="例:&#10;第1希望:家族で世話を続けてほしい&#10;第2希望:〇〇さん(信頼できる友人)&#10;最終手段:保護団体に相談"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑨ 思い出 -->
+    <div class="tab-panel" data-panel="memories">
+      <h2 class="tab-panel-title">📷 ⑨大切な思い出・自分史</h2>
+      <p class="tab-panel-desc">家族に伝えたい自分の人生のエピソードを記録します。</p>
+
+      <div class="form-group">
+        <label class="form-label">生まれ育ち <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="memories.birth" placeholder="例:&#10;〇〇県〇〇市生まれ&#10;〇〇世代"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">仕事人生 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="memories.work" placeholder="例:&#10;18歳でIT業界入り&#10;〇〇社、〇〇社で勤務"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">家族との出会い <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="memories.family" placeholder="例:&#10;妻との出会いと結婚&#10;子どもの誕生"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">趣味 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="memories.hobbies" placeholder="例:&#10;ソロキャンプ&#10;ブログ運営&#10;投資(NISA)"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">大切にしてきた価値観 <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="memories.values" placeholder="例:&#10;家族第一&#10;お金より時間&#10;健康こそ最大の資産"></textarea>
+      </div>
+    </div>
+
+    <!-- ⑩ メッセージ -->
+    <div class="tab-panel" data-panel="messages">
+      <h2 class="tab-panel-title">💌 ⑩家族へのメッセージ</h2>
+      <p class="tab-panel-desc">これがエンディングノートで一番大事な部分。気負わず、自分の言葉で書いてください。</p>
+
+      <div class="form-group">
+        <label class="form-label">配偶者へのメッセージ <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="messages.spouse" rows="6" placeholder="例:&#10;もしこれを読んでいるということは、私はもうそばにいないんだね。&#10;〇〇年間、本当にありがとう。&#10;..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">子どもへのメッセージ① <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="messages.child1" rows="6" placeholder="例:&#10;〇〇(子の名前)へ&#10;生まれてきてくれてありがとう..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">子どもへのメッセージ② <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="messages.child2" rows="6" placeholder="例:&#10;〇〇(子の名前)へ..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">親へのメッセージ <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="messages.parents" rows="4" placeholder="例:&#10;お父さん、お母さんへ&#10;..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">その他のメッセージ <span class="optional">（任意）</span></label>
+        <textarea class="form-textarea" data-key="messages.others" rows="4" placeholder="例:&#10;友人へ・お世話になった方へ&#10;..."></textarea>
+      </div>
+    </div>
+
+    <!-- タブ間ナビ -->
+    <div class="tab-nav">
+      <button class="btn btn-outline" id="prev-tab" onclick="prevTab()">← 前のタブ</button>
+      <button class="btn btn-primary" id="next-tab" onclick="nextTab()">次のタブ →</button>
+    </div>
+  </div>
+
+  <!-- プレビューエリア -->
+  <div class="preview-area" id="preview-area">
+    <h2 class="preview-title">🌸 私のエンディングノート</h2>
+    <div id="preview-content"></div>
+  </div>
+
+</div>
+
+<!-- トースト通知 -->
+<div class="toast" id="toast"></div>
+
+<!-- サイト共通フッター -->
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      © 2026 明日のために for-tomorrow
+    </div>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
+
+<script>
+// ========================================
+// データ管理（localStorage）
+// ========================================
+const STORAGE_KEY = 'ending_note_data_v1';
+let data = loadData();
+
+function loadData() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const now = new Date();
+    const formatted = now.getFullYear() + '/' + 
+      String(now.getMonth()+1).padStart(2,'0') + '/' + 
+      String(now.getDate()).padStart(2,'0') + ' ' + 
+      String(now.getHours()).padStart(2,'0') + ':' + 
+      String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('last-updated').textContent = formatted;
+    data._lastUpdated = formatted;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (e) {
+    showToast('保存に失敗しました', true);
+  }
+}
+
+// 入力欄に既存データを反映
+function restoreData() {
+  document.querySelectorAll('[data-key]').forEach(input => {
+    const key = input.dataset.key;
+    const value = getNestedValue(data, key);
+    if (value) input.value = value;
+  });
+  if (data._lastUpdated) {
+    document.getElementById('last-updated').textContent = data._lastUpdated;
+  }
+  updateTabProgress();
+}
+
+function getNestedValue(obj, path) {
+  return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+}
+
+function setNestedValue(obj, path, value) {
+  const keys = path.split('.');
+  const lastKey = keys.pop();
+  const target = keys.reduce((acc, key) => {
+    if (!acc[key]) acc[key] = {};
+    return acc[key];
+  }, obj);
+  target[lastKey] = value;
+}
+
+// 入力イベント
+document.querySelectorAll('[data-key]').forEach(input => {
+  input.addEventListener('input', (e) => {
+    setNestedValue(data, e.target.dataset.key, e.target.value);
+    saveData();
+    updateTabProgress();
+  });
+});
+
+// タブ進捗の更新
+function updateTabProgress() {
+  document.querySelectorAll('.tab').forEach(tab => {
+    const tabName = tab.dataset.tab;
+    const hasContent = data[tabName] && Object.values(data[tabName]).some(v => v && v.trim());
+    tab.classList.toggle('has-content', hasContent);
+  });
+}
+
+// ========================================
+// タブ切り替え
+// ========================================
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.tab-panel');
+let currentTabIndex = 0;
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => switchTab(index));
+});
+
+function switchTab(index) {
+  currentTabIndex = index;
+  tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+  panels.forEach((p, i) => p.classList.toggle('active', i === index));
+  // タブ上部にスクロール
+  document.querySelector('.tabs').scrollIntoView({behavior:'smooth', block:'start'});
+  updateTabNav();
+}
+
+function prevTab() {
+  if (currentTabIndex > 0) switchTab(currentTabIndex - 1);
+}
+
+function nextTab() {
+  if (currentTabIndex < tabs.length - 1) switchTab(currentTabIndex + 1);
+}
+
+function updateTabNav() {
+  document.getElementById('prev-tab').style.visibility = currentTabIndex === 0 ? 'hidden' : 'visible';
+  document.getElementById('next-tab').textContent = currentTabIndex === tabs.length - 1 ? 'プレビューを見る →' : '次のタブ →';
+  if (currentTabIndex === tabs.length - 1) {
+    document.getElementById('next-tab').onclick = showPreview;
+  } else {
+    document.getElementById('next-tab').onclick = nextTab;
+  }
+}
+
+// ========================================
+// プレビュー生成
+// ========================================
+function showPreview() {
+  const preview = document.getElementById('preview-area');
+  const content = document.getElementById('preview-content');
+  content.innerHTML = generatePreviewHTML();
+  preview.classList.add('show');
+  preview.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function generatePreviewHTML() {
+  const sections = [
+    {key:'basic', title:'👤 基本情報', fields:[
+      {key:'name', label:'氏名'},
+      {key:'birthday', label:'生年月日'},
+      {key:'honseki', label:'本籍地'},
+      {key:'blood', label:'血液型'},
+      {key:'kenpo', label:'健康保険証'},
+      {key:'mynumber', label:'マイナンバーカード'},
+      {key:'passport', label:'パスポート'}
+    ]},
+    {key:'assets', title:'💰 資産・お金', fields:[
+      {key:'banks', label:'銀行口座'},
+      {key:'securities', label:'証券口座'},
+      {key:'cards', label:'クレジットカード'},
+      {key:'insurance', label:'保険'},
+      {key:'loan', label:'住宅ローン'},
+      {key:'pension', label:'年金関連'},
+      {key:'inkan', label:'印鑑'}
+    ]},
+    {key:'property', title:'🏠 不動産・自宅', fields:[
+      {key:'address', label:'自宅住所'},
+      {key:'type', label:'所有形態'},
+      {key:'tokibo', label:'登記簿・権利書'},
+      {key:'others', label:'その他の不動産'}
+    ]},
+    {key:'digital', title:'📱 デジタル情報', fields:[
+      {key:'sns', label:'SNS'},
+      {key:'subscriptions', label:'サブスク'},
+      {key:'passwordmanager', label:'パスワード管理'},
+      {key:'cloud', label:'クラウドストレージ'},
+      {key:'blogs', label:'ブログ/サイト'}
+    ]},
+    {key:'medical', title:'🏥 医療・介護', fields:[
+      {key:'doctor', label:'かかりつけ医'},
+      {key:'medicine', label:'常用薬'},
+      {key:'allergy', label:'持病・アレルギー'},
+      {key:'shumatsu', label:'延命治療の希望'},
+      {key:'care', label:'介護の希望'}
+    ]},
+    {key:'funeral', title:'⚱️ 葬儀・お墓', fields:[
+      {key:'style', label:'葬儀の形式'},
+      {key:'body', label:'遺体・遺骨'},
+      {key:'grave', label:'お墓・散骨'},
+      {key:'message', label:'メッセージ'}
+    ]},
+    {key:'contacts', title:'📞 連絡先', fields:[
+      {key:'family', label:'親族'},
+      {key:'friends', label:'親しい友人'},
+      {key:'work', label:'職場関係'},
+      {key:'community', label:'コミュニティ'}
+    ]},
+    {key:'pets', title:'🐱 ペットのこと', fields:[
+      {key:'info', label:'ペット情報'},
+      {key:'hospital', label:'動物病院'},
+      {key:'food', label:'食事'},
+      {key:'adopter', label:'引き取り先候補'}
+    ]},
+    {key:'memories', title:'📷 大切な思い出', fields:[
+      {key:'birth', label:'生まれ育ち'},
+      {key:'work', label:'仕事人生'},
+      {key:'family', label:'家族との出会い'},
+      {key:'hobbies', label:'趣味'},
+      {key:'values', label:'価値観'}
+    ]},
+    {key:'messages', title:'💌 家族へのメッセージ', fields:[
+      {key:'spouse', label:'配偶者へ', isMessage:true},
+      {key:'child1', label:'子どもへ①', isMessage:true},
+      {key:'child2', label:'子どもへ②', isMessage:true},
+      {key:'parents', label:'親へ', isMessage:true},
+      {key:'others', label:'その他', isMessage:true}
+    ]}
+  ];
+
+  let html = '';
+  sections.forEach(section => {
+    const sectionData = data[section.key] || {};
+    const hasAny = section.fields.some(f => sectionData[f.key]);
+    if (!hasAny) return;
+
+    html += '<div class="preview-section"><h3>' + section.title + '</h3>';
+    section.fields.forEach(field => {
+      const value = sectionData[field.key];
+      if (!value) return;
+      
+      if (field.isMessage) {
+        html += '<p style="margin-bottom:6px;font-weight:600">' + escapeHtml(field.label) + '：</p>';
+        html += '<div class="preview-message">' + escapeHtml(value) + '</div>';
+      } else if (value.includes('\n')) {
+        html += '<p style="margin-bottom:6px;font-weight:600">' + escapeHtml(field.label) + '：</p>';
+        html += '<p style="white-space:pre-wrap;margin-left:14px;font-size:.88rem">' + escapeHtml(value) + '</p>';
+      } else {
+        html += '<div class="preview-row"><strong>' + escapeHtml(field.label) + ':</strong><span>' + escapeHtml(value) + '</span></div>';
+      }
+    });
+    html += '</div>';
+  });
+
+  if (!html) {
+    html = '<p style="text-align:center;color:#94a3b8">まだ何も入力されていません。タブから入力を始めてください。</p>';
+  }
+
+  return html;
+}
+
+function escapeHtml(text) {
+  const map = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+  return String(text).replace(/[&<>"']/g, m => map[m]);
+}
+
+// ========================================
+// Markdownダウンロード
+// ========================================
+function downloadMarkdown() {
+  const md = generateMarkdown();
+  const blob = new Blob([md], {type:'text/markdown;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'my-ending-note-' + getDateString() + '.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('Markdown ファイルをダウンロードしました');
+}
+
+function generateMarkdown() {
+  let md = '# 🌸 私のエンディングノート\n\n';
+  md += '> このノートは、私が突然いなくなった時、残された家族が困らないようにするための「家族へのラブレター」です。\n';
+  md += '> 法的拘束力はありませんが、私の希望と必要な情報を整理しています。\n\n';
+  md += '**作成日**：' + getDateString() + '\n';
+  md += '**最終更新**：' + (data._lastUpdated || getDateString()) + '\n\n';
+  md += '---\n\n';
+
+  const sections = [
+    {key:'basic', title:'📋 基本情報', fields:[
+      {key:'name', label:'氏名'},
+      {key:'birthday', label:'生年月日'},
+      {key:'honseki', label:'本籍地'},
+      {key:'blood', label:'血液型'},
+      {key:'kenpo', label:'健康保険証'},
+      {key:'mynumber', label:'マイナンバーカード'},
+      {key:'passport', label:'パスポート'}
+    ]},
+    {key:'assets', title:'💰 資産・お金の情報', fields:[
+      {key:'banks', label:'銀行口座'},
+      {key:'securities', label:'証券口座'},
+      {key:'cards', label:'クレジットカード'},
+      {key:'insurance', label:'保険'},
+      {key:'loan', label:'住宅ローン'},
+      {key:'pension', label:'年金関連'},
+      {key:'inkan', label:'印鑑の保管場所'}
+    ]},
+    {key:'property', title:'🏠 不動産・自宅', fields:[
+      {key:'address', label:'自宅住所'},
+      {key:'type', label:'所有形態'},
+      {key:'tokibo', label:'登記簿・権利書'},
+      {key:'others', label:'その他の不動産'}
+    ]},
+    {key:'digital', title:'📱 デジタル情報', fields:[
+      {key:'sns', label:'SNSアカウント'},
+      {key:'subscriptions', label:'サブスク契約'},
+      {key:'passwordmanager', label:'パスワード管理ツール'},
+      {key:'cloud', label:'クラウドストレージ'},
+      {key:'blogs', label:'運営しているブログ/サイト'}
+    ]},
+    {key:'medical', title:'🏥 医療・介護の希望', fields:[
+      {key:'doctor', label:'かかりつけ医'},
+      {key:'medicine', label:'常用薬'},
+      {key:'allergy', label:'持病・アレルギー'},
+      {key:'shumatsu', label:'延命治療の希望'},
+      {key:'care', label:'介護の希望'}
+    ]},
+    {key:'funeral', title:'⚱️ 葬儀・お墓の希望', fields:[
+      {key:'style', label:'葬儀の形式'},
+      {key:'body', label:'遺体・遺骨の扱い'},
+      {key:'grave', label:'お墓・散骨の希望'},
+      {key:'message', label:'家族へのメッセージ'}
+    ]},
+    {key:'contacts', title:'📞 連絡先リスト', fields:[
+      {key:'family', label:'親族'},
+      {key:'friends', label:'親しい友人'},
+      {key:'work', label:'職場関係'},
+      {key:'community', label:'コミュニティ・趣味仲間'}
+    ]},
+    {key:'pets', title:'🐱 ペットのこと', fields:[
+      {key:'info', label:'ペットの情報'},
+      {key:'hospital', label:'かかりつけ動物病院'},
+      {key:'food', label:'食事の好み・嫌い'},
+      {key:'adopter', label:'万一の引き取り先候補'}
+    ]},
+    {key:'memories', title:'📷 大切な思い出・自分史', fields:[
+      {key:'birth', label:'生まれ育ち'},
+      {key:'work', label:'仕事人生'},
+      {key:'family', label:'家族との出会い'},
+      {key:'hobbies', label:'趣味'},
+      {key:'values', label:'大切にしてきた価値観'}
+    ]},
+    {key:'messages', title:'💌 家族へのメッセージ', fields:[
+      {key:'spouse', label:'配偶者へ'},
+      {key:'child1', label:'子どもへ①'},
+      {key:'child2', label:'子どもへ②'},
+      {key:'parents', label:'親へ'},
+      {key:'others', label:'その他のメッセージ'}
+    ]}
+  ];
+
+  sections.forEach(section => {
+    const sectionData = data[section.key] || {};
+    const hasAny = section.fields.some(f => sectionData[f.key]);
+    if (!hasAny) return;
+
+    md += '## ' + section.title + '\n\n';
+    section.fields.forEach(field => {
+      const value = sectionData[field.key];
+      if (!value) return;
+      md += '### ' + field.label + '\n\n';
+      md += value + '\n\n';
+    });
+    md += '---\n\n';
+  });
+
+  md += '## 🌸 最後に\n\n';
+  md += 'このノートを書きながら、自分の人生を振り返り、家族への感謝を改めて感じることができました。\n\n';
+  md += '**家族の幸せが、私の幸せです。**\n\n';
+  md += '---\n\n';
+  md += '*このノートは「明日のために for-tomorrow」のエンディングノート作成ツールで作成されました。*\n';
+  md += '*年に1回（誕生月など）、見直して更新することをおすすめします。*\n';
+
+  return md;
+}
+
+function getDateString() {
+  const now = new Date();
+  return now.getFullYear() + '-' + 
+    String(now.getMonth()+1).padStart(2,'0') + '-' + 
+    String(now.getDate()).padStart(2,'0');
+}
+
+// ========================================
+// JSONエクスポート/インポート
+// ========================================
+function exportJSON() {
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], {type:'application/json;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'ending-note-backup-' + getDateString() + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('バックアップを保存しました');
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  if (!confirm('現在の入力内容を、バックアップで上書きします。よろしいですか？')) {
+    event.target.value = '';
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      data = imported;
+      saveData();
+      restoreData();
+      showToast('バックアップを読み込みました');
+    } catch (err) {
+      showToast('ファイルの読み込みに失敗しました', true);
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+// ========================================
+// 全削除
+// ========================================
+function clearAllData() {
+  if (!confirm('すべての入力内容を削除します。この操作は元に戻せません。バックアップを取りましたか？\n\n本当に削除しますか？')) return;
+  if (!confirm('最終確認：本当にすべて削除しますか？')) return;
+
+  localStorage.removeItem(STORAGE_KEY);
+  data = {};
+  document.querySelectorAll('[data-key]').forEach(input => input.value = '');
+  document.getElementById('last-updated').textContent = 'まだ保存されていません';
+  document.getElementById('preview-area').classList.remove('show');
+  updateTabProgress();
+  showToast('すべてのデータを削除しました');
+}
+
+// ========================================
+// トースト通知
+// ========================================
+function showToast(message, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.toggle('error', isError);
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ========================================
+// 初期化
+// ========================================
+restoreData();
+updateTabNav();
+</script>
+
+</body>
+</html>
