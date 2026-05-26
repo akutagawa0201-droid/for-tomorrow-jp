@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="人生の羅針盤となる価値観マップを無料で作成できるツール。大切にしたいこと、手放したいこと、人生の満足度、目標、アクションプランを整理して、自分らしい豊かな人生を実現しましょう。スマホ対応・自動保存機能付き。">
+<meta name="keywords" content="価値観マップ,自己分析,人生設計,目標設定,自己実現,ライフプラン,人生の羅針盤">
+<meta name="author" content="明日のために for-tomorrow">
+<link rel="canonical" href="https://for-tomorrow2026.com/tools/values-map/">
+<meta property="og:title" content="価値観マップ作成ツール｜人生の羅針盤を作ろう">
+<meta property="og:description" content="自分の価値観を整理して、豊かな人生への一歩を踏み出すための無料ツール。データはブラウザに保存され、外部には送信されません。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://for-tomorrow2026.com/tools/values-map/">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+<title>価値観マップ作成ツール｜人生の羅針盤を作ろう｜明日のために for-tomorrow</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-899479E9P4');
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "価値観マップ作成ツール",
+  "description": "人生の価値観を整理して、自分らしい豊かな人生を実現するための無料ツール",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "url": "https://for-tomorrow2026.com/tools/values-map/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
+
+<style>
+/* ========================================
+   サイト共通ヘッダー・フッター
+   ======================================== */
+*{box-sizing:border-box;margin:0;padding:0}
+.global-header{
+  background:#1e3a5f;
+  width:100%;
+  padding:14px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.global-header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.global-brand{color:#fff !important;text-decoration:none !important}
+.global-brand-name{font-weight:700;font-size:1.05rem;letter-spacing:.05em;line-height:1.2;color:#fff}
+.global-brand-sub{display:block;font-size:.7rem;letter-spacing:.15em;font-weight:400;opacity:.85;margin-top:2px;color:#fff}
+.global-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.global-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.03em;transition:opacity .15s;white-space:nowrap}
+.global-nav a:hover{opacity:.75}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px 8px}
+.global-footer{background:#1e3a5f;color:#fff;padding:40px 24px 28px;margin-top:0;width:100%}
+.global-footer-inner{max-width:1200px;margin:0 auto;text-align:center}
+.global-footer-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:22px}
+.global-footer-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.05em;transition:opacity .15s}
+.global-footer-nav a:hover{opacity:.75;text-decoration:underline !important}
+.global-footer-copyright{font-size:.85rem;letter-spacing:.05em;margin-bottom:8px}
+.global-footer-note{font-size:.75rem;opacity:.7;line-height:1.7;max-width:600px;margin:0 auto}
+
+@media(max-width:768px){
+  .global-header-inner{padding:0 16px}
+  .global-nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#1e3a5f;
+    flex-direction:column;
+    padding:8px 0;
+    gap:0;
+    border-top:1px solid rgba(255,255,255,.15);
+    z-index:999;
+  }
+  .global-nav.is-open{display:flex}
+  .global-nav a{padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+  .global-nav a:last-child{border-bottom:none}
+  .menu-toggle{display:block}
+  .global-footer{padding:32px 20px 24px}
+  .global-footer-nav{gap:16px;margin-bottom:18px}
+}
+
+@media print{
+  .global-header,.global-footer{display:none !important}
+}
+
+/* ========================================
+   価値観マップ本体デザイン
+   ======================================== */
+:root {
+  --color-bg: #FAF7F2;
+  --color-bg-alt: #F5F0E8;
+  --color-paper: #FFFFFF;
+  --color-ink: #2C2A26;
+  --color-ink-soft: #5A554D;
+  --color-ink-light: #8A857C;
+  --color-accent: #C9985C;
+  --color-accent-dark: #A87B3F;
+  --color-accent-soft: #F0E4D0;
+  --color-leaf: #6B8E5A;
+  --color-leaf-soft: #DEE8D5;
+  --color-coral: #C7634F;
+  --color-coral-soft: #F4DDD5;
+  --color-sky: #5E89A8;
+  --color-sky-soft: #D8E4ED;
+  --color-rose: #B66C7E;
+  --color-rose-soft: #EDD8DE;
+  --color-line: #E5DDD0;
+  --color-line-soft: #EFE9DD;
+  --shadow-soft: 0 2px 12px rgba(44, 42, 38, 0.06);
+  --shadow-card: 0 4px 24px rgba(44, 42, 38, 0.08);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-display: 'Playfair Display', 'Noto Serif JP', serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201, 152, 92, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(107, 142, 90, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ヘッダー（ツール内装飾） */
+.tool-header {
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  padding: 8px 20px;
+  background: var(--color-paper);
+  border-radius: 100px;
+  border: 1px solid var(--color-line);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-soft);
+}
+
+.brand-mark::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+h1.main-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(36px, 6vw, 56px);
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+h1.main-title .jp {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 26px);
+  letter-spacing: 0.1em;
+  color: var(--color-ink-soft);
+  margin-top: 8px;
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.9;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px auto;
+  max-width: 200px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.divider-icon {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-accent);
+  font-size: 18px;
+}
+
+/* プライバシーバナー */
+.privacy-banner {
+  background: linear-gradient(135deg, #d1fae5 0%, #fff 100%);
+  border: 2px solid #059669;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.privacy-banner-icon { font-size: 1.6rem; flex-shrink: 0; }
+.privacy-banner-content h3 { font-size: .95rem; color: #059669; margin-bottom: 4px; font-weight: 700; font-family: var(--font-sans); }
+.privacy-banner-content p { font-size: .85rem; color: var(--color-ink); margin: 0; line-height: 1.6; }
+
+/* イントロセクション */
+.intro-section {
+  background: var(--color-paper);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-line-soft);
+}
+
+.intro-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.intro-title::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.intro-section p {
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  margin-bottom: 12px;
+}
+
+.intro-section p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.intro-point {
+  background: var(--color-bg-alt);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  text-align: center;
+  border: 1px solid var(--color-line-soft);
+}
+
+.intro-point-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--color-accent);
+  margin-bottom: 4px;
+}
+
+/* プログレス */
+.progress-wrap {
+  background: var(--color-paper);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-line-soft);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  font-size: 13px;
+  color: var(--color-ink-light);
+  letter-spacing: 0.05em;
+}
+
+.progress-step {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--color-line-soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ナビゲーションタブ */
+.nav-tabs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-bottom: 32px;
+  background: var(--color-paper);
+  padding: 8px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-tab {
+  padding: 12px 6px;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-ink-light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-tab .tab-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 2px;
+  color: var(--color-accent);
+}
+
+.nav-tab:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-ink);
+}
+
+.nav-tab.active {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.nav-tab.active .tab-num {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .nav-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .nav-tab {
+    font-size: 11px;
+    padding: 10px 4px;
+  }
+}
+
+/* ステップコンテンツ */
+.step-content {
+  display: none;
+  animation: fadeInUp 0.5s ease;
+}
+
+.step-content.active {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-card {
+  background: var(--color-paper);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-line-soft);
+}
+
+.section-header {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-line-soft);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.section-description {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  line-height: 1.9;
+}
+
+/* アイテムリスト */
+.item-list {
+  margin-bottom: 16px;
+}
+
+.item-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line-soft);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  transition: all 0.3s ease;
+}
+
+.item-row:hover {
+  border-color: var(--color-line);
+  background: var(--color-paper);
+}
+
+.item-num {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-accent);
+  border: 1px solid var(--color-line);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.item-inputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+textarea, input[type="text"], input[type="number"], input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(201, 152, 92, 0.1);
+}
+
+textarea {
+  min-height: 44px;
+  line-height: 1.6;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.item-meta-label {
+  font-size: 12px;
+  color: var(--color-ink-light);
+  font-weight: 500;
+}
+
+.item-meta input[type="number"] {
+  width: 80px;
+  text-align: center;
+}
+
+.item-meta input[type="date"] {
+  width: auto;
+  min-width: 140px;
+}
+
+.item-meta-unit {
+  font-size: 12px;
+  color: var(--color-ink-light);
+}
+
+.delete-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-coral);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: var(--color-coral-soft);
+  border-color: var(--color-coral);
+}
+
+.add-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border: 1.5px dashed var(--color-line);
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-ink-soft);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.add-btn-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ヒントボックス */
+.hint-box {
+  background: linear-gradient(135deg, var(--color-bg-alt), var(--color-paper));
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-top: 20px;
+}
+
+.hint-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hint-title::before {
+  content: '💡';
+  font-size: 14px;
+}
+
+.hint-content {
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  line-height: 1.8;
+}
+
+/* 満足度スコア */
+.score-display {
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, var(--color-paper), var(--color-bg-alt));
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+  border: 1px solid var(--color-line-soft);
+}
+
+.score-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 80px;
+  font-weight: 500;
+  color: var(--color-accent);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.score-unit {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--color-ink-light);
+  margin-left: 8px;
+}
+
+.score-slider {
+  margin-top: 24px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--color-line);
+  border-radius: 3px;
+  outline: none;
+  margin: 16px 0 8px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--color-paper);
+  box-shadow: 0 2px 8px rgba(201, 152, 92, 0.4);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid var(--color-paper);
+  box-shadow: 0 2px 8px rgba(201, 152, 92, 0.4);
+}
+
+.score-marks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-ink-light);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* 合計ポイント表示 */
+.total-display {
+  background: linear-gradient(135deg, var(--color-leaf-soft), var(--color-paper));
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid var(--color-line-soft);
+}
+
+.total-label {
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  margin-bottom: 6px;
+}
+
+.total-value {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--color-leaf);
+}
+
+.total-unit {
+  font-size: 16px;
+  color: var(--color-ink-light);
+  margin-left: 4px;
+}
+
+/* まとめセクション */
+.summary-field {
+  margin-bottom: 24px;
+}
+
+.summary-label {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--color-ink);
+}
+
+.summary-label::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.summary-field textarea {
+  min-height: 80px;
+  background: var(--color-bg-alt);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* アクションボタン */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.action-btn {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.action-btn:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-ink-light);
+}
+
+.action-btn.primary {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.action-btn.primary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.action-btn.danger {
+  color: var(--color-coral);
+  border-color: var(--color-coral-soft);
+}
+
+.action-btn.danger:hover {
+  background: var(--color-coral-soft);
+  border-color: var(--color-coral);
+}
+
+/* ナビゲーションボタン */
+.step-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.step-nav-btn {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.step-nav-btn:hover:not(:disabled) {
+  background: var(--color-bg-alt);
+  border-color: var(--color-ink);
+}
+
+.step-nav-btn.next {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.step-nav-btn.next:hover:not(:disabled) {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.step-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 自動保存インジケーター */
+.save-indicator {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--color-ink-light);
+  transition: opacity 0.3s ease;
+}
+
+.save-indicator.saved {
+  color: var(--color-leaf);
+}
+
+/* ページ内フッター（引用） */
+.page-footer {
+  margin-top: 80px;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid var(--color-line);
+  margin-bottom: 0;
+}
+
+.footer-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  max-width: 500px;
+  margin: 0 auto 16px;
+  line-height: 1.7;
+}
+
+.footer-attribution {
+  font-size: 12px;
+  color: var(--color-ink-light);
+  margin-top: 24px;
+}
+
+/* 関連記事リンク */
+.related-section {
+  margin-top: 60px;
+  padding: 32px 28px;
+  background: var(--color-paper);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.related-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.related-subtitle {
+  font-size: 13px;
+  color: var(--color-ink-light);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.related-card {
+  padding: 18px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line-soft);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.related-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-accent);
+}
+
+.related-card-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.related-card-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--color-ink);
+}
+
+.related-card-desc {
+  font-size: 12px;
+  color: var(--color-ink-light);
+  line-height: 1.6;
+}
+
+/* 印刷対応 */
+@media print {
+  body {
+    background: white;
+  }
+  .nav-tabs, .step-nav, .action-buttons, .progress-wrap,
+  .save-indicator, .add-btn, .delete-btn, .related-section,
+  .page-footer, .privacy-banner {
+    display: none !important;
+  }
+  .step-content {
+    display: block !important;
+    page-break-after: always;
+  }
+  .section-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* スマホ最適化 */
+@media (max-width: 600px) {
+  .tool-header {
+    padding: 40px 16px 24px;
+  }
+  .container {
+    padding: 0 14px;
+  }
+  .section-card {
+    padding: 24px 20px;
+  }
+  .intro-section {
+    padding: 24px 20px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .score-number {
+    font-size: 64px;
+  }
+  .item-row {
+    padding: 12px;
+    gap: 8px;
+  }
+  .item-num {
+    min-width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+}
+
+/* セクションごとのアクセントカラー */
+.step-content[data-color="accent"] .section-eyebrow { color: var(--color-accent); }
+.step-content[data-color="coral"] .section-eyebrow { color: var(--color-coral); }
+.step-content[data-color="leaf"] .section-eyebrow { color: var(--color-leaf); }
+.step-content[data-color="sky"] .section-eyebrow { color: var(--color-sky); }
+.step-content[data-color="rose"] .section-eyebrow { color: var(--color-rose); }
+</style>
+</head>
+<body>
+
+<!-- サイト共通ヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/tools/ending-note/">🌸 エンディングノート</a>
+      <a href="/tools/values-map/">🧭 価値観マップ</a>
+      <a href="/pages/about.html">このサイトについて</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ツール内装飾ヘッダー -->
+  <div class="tool-header">
+    <div class="brand-mark">明日のために for-tomorrow</div>
+    <h1 class="main-title">
+      Compass of Life
+      <span class="jp">価値観マップ</span>
+    </h1>
+    <p class="tagline">
+      自分にとっての豊かな人生とは何か。<br>
+      人生の羅針盤となる価値観を整理して、後悔しない一日を選び取るためのワークシート。
+    </p>
+    <div class="divider">
+      <span class="divider-icon">✦</span>
+    </div>
+  </div>
+
+  <!-- プライバシーバナー -->
+  <div class="privacy-banner">
+    <div class="privacy-banner-icon">🔒</div>
+    <div class="privacy-banner-content">
+      <h3>入力内容は完全に安全です</h3>
+      <p>入力したデータは<strong>お使いのブラウザ内のみに保存</strong>され、当サイトのサーバーには一切送信されません。個人情報の入力も安心してご利用いただけます。</p>
+    </div>
+  </div>
+
+  <!-- イントロセクション -->
+  <section class="intro-section">
+    <h2 class="intro-title">このツールについて</h2>
+    <p>このツールは、自分が何を大切にしたいかを言葉にして整理するためのワークシートです。記入した内容はあなたのブラウザに自動保存されるので、何度でも続きから書き直せます。</p>
+    <p>正解はありません。考え込まず、思いついたことを素直に書いてみてください。</p>
+
+    <div class="intro-points">
+      <div class="intro-point">
+        <span class="intro-point-num">01</span>
+        所要時間
+        <div style="margin-top:2px;font-size:11px;">30〜60分</div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point-num">02</span>
+        自動保存
+        <div style="margin-top:2px;font-size:11px;">ブラウザに保存</div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point-num">03</span>
+        完全無料
+        <div style="margin-top:2px;font-size:11px;">登録不要</div>
+      </div>
+      <div class="intro-point">
+        <span class="intro-point-num">04</span>
+        印刷対応
+        <div style="margin-top:2px;font-size:11px;">PDF出力可</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- プログレス -->
+  <div class="progress-wrap">
+    <div class="progress-header">
+      <span class="progress-label">PROGRESS</span>
+      <span class="progress-step" id="progress-text">Step 1 / 6</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-bar" style="width: 16.67%;"></div>
+    </div>
+  </div>
+
+  <!-- ナビゲーションタブ -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-step="1">
+      <span class="tab-num">01</span>
+      大切なこと
+    </button>
+    <button class="nav-tab" data-step="2">
+      <span class="tab-num">02</span>
+      手放すこと
+    </button>
+    <button class="nav-tab" data-step="3">
+      <span class="tab-num">03</span>
+      満足度
+    </button>
+    <button class="nav-tab" data-step="4">
+      <span class="tab-num">04</span>
+      実現したい
+    </button>
+    <button class="nav-tab" data-step="5">
+      <span class="tab-num">05</span>
+      行動計画
+    </button>
+    <button class="nav-tab" data-step="6">
+      <span class="tab-num">06</span>
+      まとめ
+    </button>
+  </nav>
+
+  <!-- ステップ1: 大切なこと -->
+  <div id="step-1" class="step-content active" data-color="accent">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 01</span>
+        <h2 class="section-title">人生で大切にしたいこと</h2>
+        <p class="section-description">
+          家族、健康、自由、お金、趣味、仕事、人とのつながり…。あなたの人生・生活に「必要だ」「大切だ」と感じるモノやコトを、思いつくまま書き出してみましょう。優先順位は気にしなくて構いません。
+        </p>
+      </div>
+
+      <div class="item-list" id="important-list"></div>
+
+      <button class="add-btn" onclick="addItem('important')">
+        <span class="add-btn-icon">＋</span>
+        項目を追加する
+      </button>
+
+      <div class="hint-box">
+        <div class="hint-title">書き方のヒント</div>
+        <div class="hint-content">
+          抽象的な言葉ではなく、具体的に書くと後で振り返りやすくなります。<br>
+          例：「家族」→「妻と子どもと一緒に夕食を食べる時間」、「お金」→「資産5,000万円」など。
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ステップ2: 手放すこと -->
+  <div id="step-2" class="step-content" data-color="coral">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 02</span>
+        <h2 class="section-title">人生から手放したいこと</h2>
+        <p class="section-description">
+          逆に、あなたの人生・生活にとって「不要だ」「無駄だ」「ストレスだ」と感じるモノやコトを書き出してみましょう。手放すべきものが明確になると、大切なものに使える時間とエネルギーが増えていきます。
+        </p>
+      </div>
+
+      <div class="item-list" id="unwanted-list"></div>
+
+      <button class="add-btn" onclick="addItem('unwanted')">
+        <span class="add-btn-icon">＋</span>
+        項目を追加する
+      </button>
+
+      <div class="hint-box">
+        <div class="hint-title">書き方のヒント</div>
+        <div class="hint-content">
+          時間を奪う習慣、ストレスになる人間関係、惰性で続けている支出など。「やめたいけれどやめられないもの」も書き出すと気づきがあります。<br>
+          例：「使っていないサブスク」「義理だけの飲み会」「SNSのダラ見」など。
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ステップ3: 満足度 -->
+  <div id="step-3" class="step-content" data-color="leaf">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 03</span>
+        <h2 class="section-title">今の人生の満足度</h2>
+        <p class="section-description">
+          自分にとって「豊かな人生」を100点とした場合、今のあなたの人生は何点ですか？スライダーを動かして、直感で点数をつけてみてください。
+        </p>
+      </div>
+
+      <div class="score-display">
+        <div>
+          <span class="score-number" id="score-display">50</span>
+          <span class="score-unit">/ 100</span>
+        </div>
+        <div class="score-slider">
+          <input type="range" id="satisfaction-score" min="0" max="100" value="50" step="1" oninput="updateScore(this.value)">
+          <div class="score-marks">
+            <span>0</span>
+            <span>25</span>
+            <span>50</span>
+            <span>75</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--font-serif);font-size:16px;font-weight:500;margin:24px 0 12px;">
+        その点数をつけた理由は？
+      </h3>
+
+      <div class="item-list" id="reasons-list"></div>
+
+      <button class="add-btn" onclick="addItem('reasons')">
+        <span class="add-btn-icon">＋</span>
+        理由を追加する
+      </button>
+
+      <div class="hint-box">
+        <div class="hint-title">書き方のヒント</div>
+        <div class="hint-content">
+          「なぜ100点ではないのか」を考えると、足りないものが見えてきます。逆に「なぜこれだけの点数があるのか」を考えると、すでに自分が手にしている豊かさに気づけます。
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ステップ4: 実現したい -->
+  <div id="step-4" class="step-content" data-color="sky">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 04</span>
+        <h2 class="section-title">100点に近づくために実現したいこと</h2>
+        <p class="section-description">
+          理想の人生（100点）に近づくために、これから実現したいこと・解決したいことを書き出しましょう。それぞれが実現したら何点分の価値があるかも併せて記入すると、優先順位が見えてきます。
+        </p>
+      </div>
+
+      <div class="item-list" id="goals-list"></div>
+
+      <button class="add-btn" onclick="addItem('goals')">
+        <span class="add-btn-icon">＋</span>
+        目標を追加する
+      </button>
+
+      <div class="total-display">
+        <div class="total-label">すべて実現したときの価値</div>
+        <div>
+          <span class="total-value" id="total-points">0</span>
+          <span class="total-unit">点</span>
+        </div>
+      </div>
+
+      <div class="hint-box">
+        <div class="hint-title">書き方のヒント</div>
+        <div class="hint-content">
+          点数の合計が100点を超えてもOKです。逆に下回ってもOK。重要なのは「自分にとって何がどれだけ価値があるか」を見える化することです。
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ステップ5: 行動計画 -->
+  <div id="step-5" class="step-content" data-color="accent">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 05</span>
+        <h2 class="section-title">具体的な行動計画</h2>
+        <p class="section-description">
+          目標を実現するために、これから具体的にやることを書き出しましょう。「いつまでに」を決めると、ぐっと現実味が増します。
+        </p>
+      </div>
+
+      <div class="item-list" id="actions-list"></div>
+
+      <button class="add-btn" onclick="addItem('actions')">
+        <span class="add-btn-icon">＋</span>
+        行動を追加する
+      </button>
+
+      <div class="hint-box">
+        <div class="hint-title">書き方のヒント</div>
+        <div class="hint-content">
+          「ダイエットする」ではなく「毎朝30分散歩する」「夜21時以降は食べない」など、行動レベルで書き出すと実行しやすくなります。期限は無理のない範囲で設定しましょう。
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ステップ6: まとめ -->
+  <div id="step-6" class="step-content" data-color="rose">
+    <article class="section-card">
+      <div class="section-header">
+        <span class="section-eyebrow">— Section 06</span>
+        <h2 class="section-title">あなたの価値観をまとめよう</h2>
+        <p class="section-description">
+          これまで書き出してきた内容をもとに、あなた自身の価値観を一つの文章にまとめましょう。これがあなたの「人生の羅針盤」になります。
+        </p>
+      </div>
+
+      <div class="summary-field">
+        <label class="summary-label" for="summary-1">私が豊かに生きるために、心から大切にしたいことは…</label>
+        <textarea id="summary-1" rows="3" placeholder="例：家族との時間と、自分の健康と、経済的な自由です。" oninput="saveData()"></textarea>
+      </div>
+
+      <div class="summary-field">
+        <label class="summary-label" for="summary-2">なぜなら…</label>
+        <textarea id="summary-2" rows="3" placeholder="例：いくらお金があっても、家族や健康を失えば豊かさは感じられないと思うから。" oninput="saveData()"></textarea>
+      </div>
+
+      <div class="summary-field">
+        <label class="summary-label" for="summary-3">そのためにこれから取り組むことは…</label>
+        <textarea id="summary-3" rows="4" placeholder="例：毎日家族と夕食を共にする時間を確保し、週3回の運動習慣を作り、月5万円の積立投資を継続します。" oninput="saveData()"></textarea>
+      </div>
+
+      <div class="action-buttons">
+        <button class="action-btn primary" onclick="exportData()">
+          📄 テキストで保存
+        </button>
+        <button class="action-btn" onclick="copyToClipboard()">
+          📋 クリップボードにコピー
+        </button>
+        <button class="action-btn" onclick="printMap()">
+          🖨️ 印刷・PDF出力
+        </button>
+        <button class="action-btn danger" onclick="resetData()">
+          ↻ 最初からやり直す
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- 前へ/次へボタン -->
+  <div class="step-nav">
+    <button class="step-nav-btn" id="prev-btn" onclick="changeStep(-1)">
+      ← 前へ
+    </button>
+    <button class="step-nav-btn next" id="next-btn" onclick="changeStep(1)">
+      次へ →
+    </button>
+  </div>
+
+  <!-- 自動保存インジケーター -->
+  <div class="save-indicator" id="save-indicator">
+    ✓ 入力内容はブラウザに自動保存されます
+  </div>
+
+  <!-- 関連記事リンク -->
+  <section class="related-section">
+    <h2 class="related-title">価値観マップを作ったら、次は行動</h2>
+    <p class="related-subtitle">明日のために for-tomorrow のおすすめ記事</p>
+    <div class="related-grid">
+      <a href="/articles/kakei/koteihi-sakugen/" class="related-card">
+        <div class="related-card-icon">💰</div>
+        <div class="related-card-title">固定費の見直し術</div>
+        <div class="related-card-desc">手放すべき支出を削り、大切なことへお金を回す</div>
+      </a>
+      <a href="/articles/nisa/" class="related-card">
+        <div class="related-card-icon">📈</div>
+        <div class="related-card-title">新NISA 徹底解説</div>
+        <div class="related-card-desc">経済的な自由に向けた積立投資の始め方</div>
+      </a>
+      <a href="/articles/taishoku/teinen-checklist/" class="related-card">
+        <div class="related-card-icon">📋</div>
+        <div class="related-card-title">定年までの準備チェックリスト</div>
+        <div class="related-card-desc">お金・仕事・家族・健康を8カテゴリで総点検</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ページ内引用フッター -->
+  <div class="page-footer">
+    <p class="footer-quote">
+      "The unexamined life is not worth living."<br>
+      — Socrates
+    </p>
+    <p class="footer-attribution">
+      自分を見つめ直すことから、人生は変わり始める。
+    </p>
+  </div>
+
+</div>
+
+<!-- サイト共通フッター -->
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      © 2026 明日のために for-tomorrow
+    </div>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  let currentStep = 1;
+  const totalSteps = 6;
+  const STORAGE_KEY = 'for_tomorrow_values_map_v2';
+
+  let data = {
+    important: [],
+    unwanted: [],
+    reasons: [],
+    goals: [],
+    actions: [],
+    score: 50,
+    summary1: '',
+    summary2: '',
+    summary3: ''
+  };
+
+  function loadData() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        data = JSON.parse(stored);
+      } else {
+        initDefaults();
+      }
+    } catch (e) {
+      console.error('読み込みエラー:', e);
+      initDefaults();
+    }
+    renderAll();
+  }
+
+  function initDefaults() {
+    data.important = [{id: Date.now()+1, text: ''}];
+    data.unwanted = [{id: Date.now()+2, text: ''}];
+    data.reasons = [{id: Date.now()+3, text: ''}];
+    data.goals = [{id: Date.now()+4, text: '', points: 0}];
+    data.actions = [{id: Date.now()+5, text: '', deadline: ''}];
+  }
+
+  function saveData() {
+    const s1 = document.getElementById('summary-1');
+    const s2 = document.getElementById('summary-2');
+    const s3 = document.getElementById('summary-3');
+    if (s1) data.summary1 = s1.value;
+    if (s2) data.summary2 = s2.value;
+    if (s3) data.summary3 = s3.value;
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      showSaveIndicator();
+    } catch (e) {
+      console.error('保存エラー:', e);
+    }
+  }
+  window.saveData = saveData;
+
+  let saveTimer;
+  function showSaveIndicator() {
+    const indicator = document.getElementById('save-indicator');
+    if (!indicator) return;
+    indicator.innerHTML = '✓ 保存しました';
+    indicator.classList.add('saved');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      indicator.innerHTML = '✓ 入力内容はブラウザに自動保存されます';
+      indicator.classList.remove('saved');
+    }, 1500);
+  }
+
+  window.addItem = function(type) {
+    const newItem = {id: Date.now() + Math.random(), text: ''};
+    if (type === 'goals') newItem.points = 0;
+    if (type === 'actions') newItem.deadline = '';
+    data[type].push(newItem);
+    renderList(type);
+    saveData();
+  };
+
+  window.removeItem = function(type, id) {
+    data[type] = data[type].filter(item => item.id !== id);
+    renderList(type);
+    saveData();
+    if (type === 'goals') updateTotalPoints();
+  };
+
+  window.updateItem = function(type, id, field, value) {
+    const item = data[type].find(i => i.id === id);
+    if (item) {
+      item[field] = field === 'points' ? (parseInt(value) || 0) : value;
+      if (type === 'goals' && field === 'points') updateTotalPoints();
+      saveData();
+    }
+  };
+
+  window.updateScore = function(value) {
+    data.score = parseInt(value);
+    const display = document.getElementById('score-display');
+    if (display) display.textContent = value;
+    saveData();
+  };
+
+  function updateTotalPoints() {
+    const total = data.goals.reduce((sum, g) => sum + (parseInt(g.points) || 0), 0);
+    const el = document.getElementById('total-points');
+    if (el) el.textContent = total;
+  }
+
+  function renderList(type) {
+    const containerId = {
+      important: 'important-list',
+      unwanted: 'unwanted-list',
+      reasons: 'reasons-list',
+      goals: 'goals-list',
+      actions: 'actions-list'
+    }[type];
+
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = '';
+    data[type].forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'item-row';
+
+      const num = document.createElement('div');
+      num.className = 'item-num';
+      num.textContent = index + 1;
+      row.appendChild(num);
+
+      const inputs = document.createElement('div');
+      inputs.className = 'item-inputs';
+
+      const textarea = document.createElement('textarea');
+      textarea.value = item.text || '';
+      textarea.rows = 2;
+      textarea.placeholder = getPlaceholder(type);
+      textarea.addEventListener('input', (e) => updateItem(type, item.id, 'text', e.target.value));
+      inputs.appendChild(textarea);
+
+      if (type === 'goals') {
+        const meta = document.createElement('div');
+        meta.className = 'item-meta';
+        meta.innerHTML = '<span class="item-meta-label">価値</span>';
+        const pInput = document.createElement('input');
+        pInput.type = 'number';
+        pInput.value = item.points || 0;
+        pInput.min = 0;
+        pInput.max = 200;
+        pInput.addEventListener('input', (e) => updateItem(type, item.id, 'points', e.target.value));
+        meta.appendChild(pInput);
+        const unit = document.createElement('span');
+        unit.className = 'item-meta-unit';
+        unit.textContent = '点';
+        meta.appendChild(unit);
+        inputs.appendChild(meta);
+      }
+
+      if (type === 'actions') {
+        const meta = document.createElement('div');
+        meta.className = 'item-meta';
+        meta.innerHTML = '<span class="item-meta-label">期限</span>';
+        const dInput = document.createElement('input');
+        dInput.type = 'date';
+        dInput.value = item.deadline || '';
+        dInput.addEventListener('input', (e) => updateItem(type, item.id, 'deadline', e.target.value));
+        meta.appendChild(dInput);
+        inputs.appendChild(meta);
+      }
+
+      row.appendChild(inputs);
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'delete-btn';
+      delBtn.setAttribute('aria-label', '削除');
+      delBtn.innerHTML = '×';
+      delBtn.style.fontSize = '22px';
+      delBtn.style.lineHeight = '1';
+      delBtn.addEventListener('click', () => removeItem(type, item.id));
+      row.appendChild(delBtn);
+
+      container.appendChild(row);
+    });
+
+    if (type === 'goals') updateTotalPoints();
+  }
+
+  function getPlaceholder(type) {
+    return {
+      important: '例：家族と夕食を共にする時間',
+      unwanted: '例：使っていないサブスク契約',
+      reasons: '例：仕事は順調だが、健康面に不安がある',
+      goals: '例：月10万円の副収入を得る',
+      actions: '例：毎朝30分ブログを書く'
+    }[type] || '';
+  }
+
+  function renderAll() {
+    ['important','unwanted','reasons','goals','actions'].forEach(renderList);
+
+    const scoreInput = document.getElementById('satisfaction-score');
+    const scoreDisplay = document.getElementById('score-display');
+    if (scoreInput) scoreInput.value = data.score;
+    if (scoreDisplay) scoreDisplay.textContent = data.score;
+
+    const s1 = document.getElementById('summary-1');
+    const s2 = document.getElementById('summary-2');
+    const s3 = document.getElementById('summary-3');
+    if (s1) s1.value = data.summary1 || '';
+    if (s2) s2.value = data.summary2 || '';
+    if (s3) s3.value = data.summary3 || '';
+  }
+
+  window.changeStep = function(direction) {
+    const newStep = currentStep + direction;
+    if (newStep < 1 || newStep > totalSteps) return;
+    showStep(newStep);
+  };
+
+  function showStep(step) {
+    currentStep = step;
+
+    for (let i = 1; i <= totalSteps; i++) {
+      const el = document.getElementById('step-' + i);
+      if (el) {
+        if (i === step) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      }
+    }
+
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      if (parseInt(tab.dataset.step) === step) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    const progText = document.getElementById('progress-text');
+    const progBar = document.getElementById('progress-bar');
+    if (progText) progText.textContent = `Step ${step} / ${totalSteps}`;
+    if (progBar) progBar.style.width = (step / totalSteps * 100) + '%';
+
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    if (prevBtn) prevBtn.disabled = step === 1;
+    if (nextBtn) nextBtn.disabled = step === totalSteps;
+
+    const target = document.querySelector('.nav-tabs');
+    if (target) {
+      target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => showStep(parseInt(tab.dataset.step)));
+  });
+
+  function buildExportText() {
+    let text = '═══════════════════════════════════\n';
+    text += '   価値観マップ - Compass of Life\n';
+    text += '   明日のために for-tomorrow\n';
+    text += '═══════════════════════════════════\n';
+    text += '作成日: ' + new Date().toLocaleDateString('ja-JP') + '\n\n';
+
+    text += '【1. 大切にしたいこと】\n';
+    text += '─────────────────\n';
+    data.important.forEach((item, i) => {
+      if (item.text) text += `${i+1}. ${item.text}\n`;
+    });
+
+    text += '\n【2. 手放したいこと】\n';
+    text += '─────────────────\n';
+    data.unwanted.forEach((item, i) => {
+      if (item.text) text += `${i+1}. ${item.text}\n`;
+    });
+
+    text += `\n【3. 人生の満足度】\n`;
+    text += '─────────────────\n';
+    text += `現在の満足度: ${data.score} / 100点\n\n`;
+    text += '【点数をつけた理由】\n';
+    data.reasons.forEach((item, i) => {
+      if (item.text) text += `${i+1}. ${item.text}\n`;
+    });
+
+    text += '\n【4. 実現したいこと】\n';
+    text += '─────────────────\n';
+    data.goals.forEach((item, i) => {
+      if (item.text) text += `${i+1}. ${item.text} （${item.points||0}点）\n`;
+    });
+    const totalP = data.goals.reduce((s,g) => s + (parseInt(g.points)||0), 0);
+    text += `\n合計価値: ${totalP}点\n`;
+
+    text += '\n【5. 行動計画】\n';
+    text += '─────────────────\n';
+    data.actions.forEach((item, i) => {
+      if (item.text) {
+        text += `${i+1}. ${item.text}`;
+        if (item.deadline) text += ` [期限: ${item.deadline}]`;
+        text += '\n';
+      }
+    });
+
+    text += '\n【6. 私の価値観 - まとめ】\n';
+    text += '─────────────────\n';
+    text += '◆ 心から大切にしたいことは…\n';
+    text += (data.summary1 || '（未記入）') + '\n\n';
+    text += '◆ なぜなら…\n';
+    text += (data.summary2 || '（未記入）') + '\n\n';
+    text += '◆ これから取り組むことは…\n';
+    text += (data.summary3 || '（未記入）') + '\n';
+
+    text += '\n═══════════════════════════════════\n';
+    text += 'このマップはあなたの人生の羅針盤です。\n';
+    text += '迷ったら立ち返ってみてください。\n';
+    text += '═══════════════════════════════════\n';
+    return text;
+  }
+
+  window.exportData = function() {
+    const text = buildExportText();
+    const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `価値観マップ_${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  window.copyToClipboard = function() {
+    const text = buildExportText();
+    navigator.clipboard.writeText(text).then(() => {
+      const indicator = document.getElementById('save-indicator');
+      if (indicator) {
+        indicator.innerHTML = '📋 クリップボードにコピーしました';
+        indicator.classList.add('saved');
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => {
+          indicator.innerHTML = '✓ 入力内容はブラウザに自動保存されます';
+          indicator.classList.remove('saved');
+        }, 2000);
+      }
+    }).catch(() => {
+      alert('コピーできませんでした。「テキストで保存」をお試しください。');
+    });
+  };
+
+  window.printMap = function() {
+    document.querySelectorAll('.step-content').forEach(el => {
+      el.classList.add('active');
+    });
+    setTimeout(() => {
+      window.print();
+      setTimeout(() => {
+        document.querySelectorAll('.step-content').forEach((el, i) => {
+          if (i + 1 !== currentStep) el.classList.remove('active');
+        });
+      }, 500);
+    }, 100);
+  };
+
+  window.resetData = function() {
+    if (confirm('入力された全てのデータをリセットします。\nこの操作は取り消せません。よろしいですか？')) {
+      localStorage.removeItem(STORAGE_KEY);
+      data = {
+        important: [],
+        unwanted: [],
+        reasons: [],
+        goals: [],
+        actions: [],
+        score: 50,
+        summary1: '',
+        summary2: '',
+        summary3: ''
+      };
+      initDefaults();
+      renderAll();
+      showStep(1);
+    }
+  };
+
+  loadData();
+  showStep(1);
+})();
+</script>
+
+</body>
+</html>
