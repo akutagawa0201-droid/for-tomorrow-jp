@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遺族年金 受給シミュレーター | 明日のために for-tomorrow</title>
+<meta name="description" content="家族構成・年齢・年金加入状況を入力するだけで、遺族基礎年金・遺族厚生年金・中高齢寡婦加算が「何歳から何歳まで」いくら受給できるか一覧表示。">
+<link rel="canonical" href="https://for-tomorrow2026.com/tools/izokunenkin-simulator/">
+<meta property="og:title" content="遺族年金 受給シミュレーター｜無料・フェーズ別に試算">
+<meta property="og:description" content="家族構成・年齢・年金加入状況を入力するだけで、遺族基礎年金・遺族厚生年金・中高齢寡婦加算が「何歳から何歳まで」いくら受給できるか一覧表示。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://for-tomorrow2026.com/tools/izokunenkin-simulator/">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-899479E9P4');
+</script>
+
+<style>
+:root{
+  --primary:#1a3a5c;
+  --accent:#2d7dd2;
+  --al:#e8f2fc;
+  --success:#16a34a;
+  --sl:#f0fdf4;
+  --warn:#d97706;
+  --wl:#fffbeb;
+  --danger:#dc2626;
+  --dl:#fef2f2;
+  --gray:#6b7280;
+  --gl:#f3f4f6;
+  --border:#e5e7eb;
+  --text:#1f2937;
+  --tl:#4b5563;
+  --bg:#fff;
+  --r:10px;
+  --max:720px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Sans','Meiryo','Noto Sans JP',sans-serif;color:var(--text);background:#eef2f7;min-height:100vh;font-size:15px;line-height:1.75}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 14px 60px}
+
+/* ヘッダー */
+.site-header{background:var(--primary);padding:11px 18px;border-bottom:3px solid var(--accent)}
+.site-header a{color:#fff;text-decoration:none;font-size:13px;font-weight:700}
+
+/* ヒーロー */
+.hero{background:linear-gradient(135deg,#1a3a5c,#2d5986);color:#fff;padding:32px 20px 28px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;font-size:11px;font-weight:700;padding:3px 13px;letter-spacing:.07em;margin-bottom:12px}
+.hero h1{font-size:clamp(18px,5vw,24px);font-weight:700;line-height:1.4;margin-bottom:10px}
+.hero p{font-size:13px;color:rgba(255,255,255,.82);max-width:500px;margin:0 auto}
+
+/* セクション */
+.section{background:var(--bg);border-radius:var(--r);box-shadow:0 2px 10px rgba(0,0,0,.07);padding:22px 20px;margin-top:16px}
+.section-title{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.07em;margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.section-title::before{content:"";display:inline-block;width:3px;height:14px;background:var(--accent);border-radius:2px}
+
+/* フォーム行 */
+.form-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px;align-items:flex-end}
+.form-group{display:flex;flex-direction:column;gap:5px;flex:1;min-width:120px}
+.form-group.wide{flex:2;min-width:200px}
+label{font-size:12px;font-weight:700;color:var(--tl)}
+input[type=number],select{
+  border:1.5px solid var(--border);border-radius:7px;padding:9px 12px;
+  font-size:15px;font-family:inherit;color:var(--text);
+  background:var(--bg);outline:none;transition:border-color .2s;width:100%;
+}
+input[type=number]:focus,select:focus{border-color:var(--accent)}
+.input-unit{font-size:13px;color:var(--gray);margin-left:4px}
+.inline-group{display:flex;align-items:center;gap:6px}
+
+/* ラジオ・チェック */
+.radio-row{display:flex;flex-wrap:wrap;gap:8px}
+.radio-btn{
+  display:flex;align-items:center;gap:6px;padding:8px 14px;
+  border:1.5px solid var(--border);border-radius:7px;cursor:pointer;
+  font-size:13px;transition:border-color .2s,background .2s;
+}
+.radio-btn input{display:none}
+.radio-btn.active{border-color:var(--accent);background:var(--al);font-weight:700;color:var(--primary)}
+.radio-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;transition:.2s}
+.radio-btn.active .radio-dot{border-color:var(--accent);background:var(--accent)}
+
+/* 子供追加 */
+.children-wrap{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.child-row{display:flex;align-items:center;gap:10px;background:var(--gl);border-radius:7px;padding:10px 12px}
+.child-row label{font-size:12px;font-weight:700;color:var(--tl);white-space:nowrap;margin:0}
+.child-row input{width:70px;flex-shrink:0}
+.btn-add-child{background:none;border:1.5px dashed var(--border);border-radius:7px;padding:8px 16px;font-size:13px;color:var(--gray);cursor:pointer;display:flex;align-items:center;gap:6px;width:100%;justify-content:center;font-family:inherit;transition:border-color .2s,color .2s;margin-top:4px}
+.btn-add-child:hover{border-color:var(--accent);color:var(--accent)}
+.btn-remove{background:none;border:none;color:var(--danger);font-size:18px;cursor:pointer;line-height:1;padding:0 4px;flex-shrink:0}
+
+/* 実行ボタン */
+.btn-calc{
+  width:100%;background:var(--accent);border:none;border-radius:var(--r);
+  padding:14px;font-size:16px;font-weight:700;font-family:inherit;color:#fff;
+  cursor:pointer;margin-top:18px;transition:background .2s,transform .1s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-calc:hover{background:#1a5fa8}
+.btn-calc:active{transform:scale(.98)}
+
+/* 結果エリア */
+#result{display:none;margin-top:16px}
+#result.show{display:block}
+
+/* サマリーバナー */
+.summary-banner{background:var(--primary);border-radius:var(--r);padding:20px 22px;color:#fff;margin-bottom:14px}
+.summary-banner h2{font-size:17px;font-weight:700;margin-bottom:12px;color:#fff}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.summary-item{background:rgba(255,255,255,.1);border-radius:7px;padding:10px 14px;text-align:center}
+.summary-item .sv{font-size:22px;font-weight:700;color:#fff;line-height:1.2}
+.summary-item .sl{font-size:11px;color:rgba(255,255,255,.75);margin-top:3px}
+
+/* タイムラインカード */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:0}
+.tl-line{display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0}
+.tl-dot{width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:3px;z-index:1}
+.tl-dot.active{background:var(--success)}
+.tl-dot.warn{background:var(--warn)}
+.tl-dot.end{background:#d1d5db}
+.tl-connector{width:2px;background:#e5e7eb;flex:1;min-height:12px}
+.tl-body{padding:0 0 20px;flex:1}
+.tl-period{font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:4px}
+.tl-period.g{color:var(--success)}
+.tl-period.w{color:var(--warn)}
+.tl-period.d{color:var(--gray)}
+.tl-title{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px;line-height:1.4}
+.tl-benefits{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+.benefit-row{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:7px 12px;font-size:13px;flex-wrap:wrap}
+.benefit-row.hi{border-color:#93c5fd;background:var(--al)}
+.benefit-row.su{border-color:#86efac;background:var(--sl)}
+.benefit-row.wa{border-color:#fcd34d;background:var(--wl)}
+.benefit-row.en{border-color:#fca5a5;background:var(--dl);opacity:.7}
+.bl{color:var(--tl)}
+.ba{font-weight:700;color:var(--primary);white-space:nowrap}
+.ba.red{color:var(--danger)}
+.tl-note{font-size:12px;color:var(--tl);background:var(--gl);border-radius:6px;padding:8px 12px;line-height:1.7}
+.tl-note ul{padding-left:14px;margin:0}
+.tl-note li{margin:2px 0}
+
+/* 受給期間サマリー表 */
+.period-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+.period-table th{background:var(--primary);color:#fff;padding:8px 10px;text-align:left;font-size:12px}
+.period-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle;line-height:1.6}
+.period-table tr:last-child td{border-bottom:none}
+.period-table tr:nth-child(even) td{background:var(--gl)}
+.tag-ok{display:inline-block;background:var(--success);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;white-space:nowrap}
+.tag-ng{display:inline-block;background:#d1d5db;color:#4b5563;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;white-space:nowrap}
+.tag-warn{display:inline-block;background:var(--warn);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;white-space:nowrap}
+
+/* アラートボックス */
+.alert{border-radius:7px;padding:12px 14px;font-size:13px;line-height:1.75;margin:10px 0}
+.alert ul{padding-left:16px;margin:4px 0}
+.alert li{margin:2px 0}
+.alert.info{background:var(--al);border-left:3px solid var(--accent)}
+.alert.warn{background:var(--wl);border-left:3px solid var(--warn)}
+.alert.success{background:var(--sl);border-left:3px solid var(--success)}
+.alert.danger{background:var(--dl);border-left:3px solid var(--danger)}
+.alert-title{font-weight:700;margin-bottom:4px}
+.alert.info .alert-title{color:var(--accent)}
+.alert.warn .alert-title{color:var(--warn)}
+.alert.success .alert-title{color:var(--success)}
+.alert.danger .alert-title{color:var(--danger)}
+
+/* CTA */
+.cta-box{background:var(--primary);border-radius:var(--r);padding:20px 22px;text-align:center;margin-top:14px}
+.cta-box p{color:rgba(255,255,255,.85);font-size:13px;margin-bottom:12px}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;padding:11px 24px;border-radius:7px;text-decoration:none;font-weight:700;font-size:14px}
+.btn-retry{margin-top:10px;display:block;background:none;border:none;color:rgba(255,255,255,.6);font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline}
+
+.disclaimer{font-size:11px;color:var(--gray);text-align:center;padding:12px 14px 0;line-height:1.8}
+footer{background:var(--primary);color:rgba(255,255,255,.6);padding:16px;text-align:center;font-size:12px;margin-top:24px}
+footer a{color:rgba(255,255,255,.6)}
+
+@media(max-width:480px){
+  .form-group{min-width:100px}
+  .summary-grid{grid-template-columns:1fr 1fr}
+  .benefit-row{font-size:12px}
+  .section{padding:18px 14px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://for-tomorrow2026.com/">明日のために for-tomorrow</a>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">無料シミュレーター</div>
+  <h1>遺族年金 受給シミュレーター</h1>
+  <p>家族構成・年齢・年金加入状況を入力すると<br>「何歳から何歳まで」「どの年金が」いくら受給できるかをフェーズ別に表示します</p>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== 入力フォーム ===== -->
+
+  <!-- 亡くなった方 -->
+  <div class="section">
+    <div class="section-title">亡くなった方（被保険者）の情報</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>死亡時の年齢</label>
+        <div class="inline-group">
+          <input type="number" id="deathAge" min="20" max="80" value="52" style="width:80px">
+          <span class="input-unit">歳</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:10px">
+      <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">年金加入の種類</label>
+      <div class="radio-row" id="pensionType">
+        <label class="radio-btn active" onclick="setRadio('pensionType',this,'kosei')">
+          <span class="radio-dot"></span>会社員・公務員（厚生年金）
+        </label>
+        <label class="radio-btn" onclick="setRadio('pensionType',this,'kokumin')">
+          <span class="radio-dot"></span>自営業・フリーランス（国民年金のみ）
+        </label>
+      </div>
+    </div>
+    <div style="margin-bottom:4px">
+      <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">保険料の納付状況</label>
+      <div class="radio-row" id="payStatus">
+        <label class="radio-btn active" onclick="setRadio('payStatus',this,'ok')">
+          <span class="radio-dot"></span>問題なし（会社員・納付済み）
+        </label>
+        <label class="radio-btn" onclick="setRadio('payStatus',this,'ng')">
+          <span class="radio-dot"></span>直近1年以内に未納あり
+        </label>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">厚生年金の加入期間（目安）</label>
+      <div class="radio-row" id="kouseiPeriod">
+        <label class="radio-btn active" onclick="setRadio('kouseiPeriod',this,'long')">
+          <span class="radio-dot"></span>20年以上
+        </label>
+        <label class="radio-btn" onclick="setRadio('kouseiPeriod',this,'short')">
+          <span class="radio-dot"></span>20年未満
+        </label>
+        <label class="radio-btn" onclick="setRadio('kouseiPeriod',this,'na')">
+          <span class="radio-dot"></span>該当なし（自営業）
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- 配偶者 -->
+  <div class="section">
+    <div class="section-title">配偶者（遺族）の情報</div>
+    <div style="margin-bottom:10px">
+      <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">配偶者はいますか？</label>
+      <div class="radio-row" id="hasSpouse">
+        <label class="radio-btn active" onclick="setRadio('hasSpouse',this,'yes');toggleSpouse(true)">
+          <span class="radio-dot"></span>いる
+        </label>
+        <label class="radio-btn" onclick="setRadio('hasSpouse',this,'no');toggleSpouse(false)">
+          <span class="radio-dot"></span>いない
+        </label>
+      </div>
+    </div>
+    <div id="spouseForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>配偶者の現在の年齢</label>
+          <div class="inline-group">
+            <input type="number" id="spouseAge" min="20" max="80" value="39" style="width:80px">
+            <span class="input-unit">歳</span>
+          </div>
+        </div>
+        <div class="form-group wide">
+          <label>配偶者の年収（目安）</label>
+          <select id="spouseIncome">
+            <option value="ok">850万円未満（パート・フルタイム含む）</option>
+            <option value="ng">850万円以上</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:10px">
+        <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">配偶者の年金加入状況</label>
+        <div class="radio-row" id="spousePension">
+          <label class="radio-btn active" onclick="setRadio('spousePension',this,'kosei')">
+            <span class="radio-dot"></span>厚生年金加入（会社員・公務員）
+          </label>
+          <label class="radio-btn" onclick="setRadio('spousePension',this,'kokumin')">
+            <span class="radio-dot"></span>国民年金のみ（専業主婦等）
+          </label>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:700;color:var(--tl);display:block;margin-bottom:8px">配偶者の老齢厚生年金受給資格（10年以上加入）</label>
+        <div class="radio-row" id="spouseKoseiEligible">
+          <label class="radio-btn" onclick="setRadio('spouseKoseiEligible',this,'yes')">
+            <span class="radio-dot"></span>あり・もうすぐ取得見込み
+          </label>
+          <label class="radio-btn active" onclick="setRadio('spouseKoseiEligible',this,'no')">
+            <span class="radio-dot"></span>なし・不明
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 子 -->
+  <div class="section">
+    <div class="section-title">子の情報</div>
+    <div id="childrenWrap" class="children-wrap"></div>
+    <button class="btn-add-child" onclick="addChild()">＋ 子を追加する</button>
+    <div style="font-size:12px;color:var(--gray);margin-top:8px;">※18歳年度末（高3の3月）未満の子が対象。障害がある場合は20歳未満。</div>
+  </div>
+
+  <!-- 計算ボタン -->
+  <button class="btn-calc" onclick="calculate()">
+    <span style="font-size:18px">📊</span> 受給期間・金額をシミュレートする
+  </button>
+
+  <!-- ===== 結果エリア ===== -->
+  <div id="result">
+
+    <div class="section">
+      <div class="section-title">シミュレーション結果</div>
+
+      <div class="summary-banner">
+        <h2>受給期間サマリー</h2>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </div>
+
+      <div id="alertArea"></div>
+
+      <!-- フェーズ別タイムライン -->
+      <div style="margin-top:6px">
+        <div class="section-title">フェーズ別 詳細タイムライン</div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+
+      <!-- 受給年金一覧表 -->
+      <div style="margin-top:16px">
+        <div class="section-title">受給年金 一覧表</div>
+        <div style="overflow-x:auto">
+          <table class="period-table" id="periodTable">
+            <thead>
+              <tr>
+                <th>年金の種類</th>
+                <th>受給期間</th>
+                <th>配偶者の年齢</th>
+                <th>金額目安/年</th>
+                <th>状況</th>
+              </tr>
+            </thead>
+            <tbody id="periodTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="disclaimer" style="margin-top:14px">
+        ※金額はすべて2026年度の概算目安です。実際の受給額は加入期間・報酬額・家族状況によって異なります。<br>
+        正確な金額は<a href="https://www.nenkin.go.jp" target="_blank" rel="noopener">ねんきんネット</a>または最寄りの年金事務所にご確認ください。
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <p>わが家の保障をもっと詳しく整理したい方はこちら</p>
+      <a class="cta-btn" href="https://for-tomorrow2026.com/articles/retirement/death-protection-checklist/">50代会社員の保障リスト全解説を読む</a>
+      <button class="btn-retry" onclick="retry()">条件を変えてもう一度シミュレートする</button>
+    </div>
+
+  </div><!-- /result -->
+
+</div><!-- /wrap -->
+
+<footer>
+  <a href="https://for-tomorrow2026.com/">明日のために for-tomorrow</a> &copy; 2026 ／
+  <a href="https://www.nenkin.go.jp" target="_blank" rel="noopener">日本年金機構</a>
+</footer>
+
+<script>
+// ===== ラジオ管理 =====
+const radioVals = {
+  pensionType:'kosei', payStatus:'ok', kouseiPeriod:'long',
+  hasSpouse:'yes', spousePension:'kosei', spouseKoseiEligible:'no'
+};
+function setRadio(name, el, val){
+  radioVals[name] = val;
+  document.querySelectorAll(`#${name} .radio-btn`).forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+function toggleSpouse(show){
+  document.getElementById('spouseForm').style.display = show ? '' : 'none';
+}
+
+// ===== 子の管理 =====
+let children = [];
+let childId = 0;
+function addChild(){
+  const id = childId++;
+  children.push({id, age:12});
+  renderChildren();
+}
+function removeChild(id){
+  children = children.filter(c=>c.id!==id);
+  renderChildren();
+}
+function renderChildren(){
+  const wrap = document.getElementById('childrenWrap');
+  wrap.innerHTML = children.map((c,i)=>`
+    <div class="child-row">
+      <label>子${i+1}の年齢</label>
+      <input type="number" min="0" max="22" value="${c.age}" style="width:70px"
+        onchange="children[${children.indexOf(c)}].age=+this.value">
+      <span class="input-unit">歳</span>
+      <div style="flex:1"></div>
+      <button class="btn-remove" onclick="removeChild(${c.id})" aria-label="削除">×</button>
+    </div>
+  `).join('');
+}
+
+// ===== メイン計算 =====
+function calculate(){
+  const pType    = radioVals.pensionType;      // kosei / kokumin
+  const pStatus  = radioVals.payStatus;        // ok / ng
+  const kPeriod  = radioVals.kouseiPeriod;     // long / short / na
+  const hSpouse  = radioVals.hasSpouse;        // yes / no
+  const spIncome = document.getElementById('spouseIncome')?.value || 'ok';
+  const spPension= radioVals.spousePension;    // kosei / kokumin
+  const spElig   = radioVals.spouseKoseiEligible; // yes / no
+
+  const deathAge = +document.getElementById('deathAge').value || 52;
+  const spAge    = hSpouse==='yes' ? (+document.getElementById('spouseAge').value||39) : null;
+
+  const childAges = children.map(c=>+c.age).filter(a=>a>=0&&a<=22);
+
+  // 年金機能フラグ
+  const hasKosei = pType === 'kosei';
+  const payOk    = pStatus === 'ok';
+  const incomeOk = spIncome === 'ok';
+
+  const phases   = [];
+  const tableRows= [];
+  const alerts   = [];
+
+  // 保険料未納
+  if(!payOk){
+    alerts.push({type:'danger',title:'⚠️ 保険料未納の影響',body:'直近1年以内に未納期間がある場合、遺族年金が受給できない可能性があります。ただし保険料納付済み期間が加入期間の2/3以上あれば別途要件を満たす場合があります。年金事務所にご確認ください。'});
+  }
+  if(!incomeOk && hSpouse==='yes'){
+    alerts.push({type:'warn',title:'⚠️ 収入要件に注意',body:'配偶者の年収が850万円以上の場合、「生計を維持されていた」と認められない可能性があります。詳しくは年金事務所にご相談ください。'});
+  }
+  if(pType==='kokumin'){
+    alerts.push({type:'info',title:'📌 国民年金加入の場合',body:'自営業・フリーランスの方は厚生年金に加入していないため、遺族厚生年金は受給できません。遺族基礎年金のみが対象です。'});
+  }
+
+  // ===== 遺族基礎年金の計算 =====
+  // 対象：子のある配偶者（子が18歳年度末まで）、または子本人
+  // 2026年度 基本816,000円 + 子1人目234,800円 + 2人目以降各234,800円
+  const KISO_BASE = 816000;
+  const KISO_CHILD = 234800;
+
+  // 子が18歳年度末（概算：誕生日年+1年3月）を超えるまでの最長期間
+  // 18歳年度末 = 18 - 現在年齢 + 余裕 → 配偶者が生計維持できている間
+  let kisoEndSpouseAge = null; // 末子が18歳になるとき配偶者は何歳か
+  let kisoYears = 0;
+  const eligibleChildren = childAges.filter(a => a < 18);
+  const eligibleChildrenCount = eligibleChildren.length;
+
+  if(hSpouse==='yes' && spAge!==null && eligibleChildrenCount > 0 && payOk && incomeOk){
+    const youngestChildAge = Math.min(...eligibleChildren);
+    const yearsUntilEnd = 18 - youngestChildAge; // 年度末なので概算
+    kisoEndSpouseAge = spAge + yearsUntilEnd;
+    kisoYears = yearsUntilEnd;
+    const kisoAmount = KISO_BASE + KISO_CHILD * eligibleChildrenCount;
+
+    phases.push({
+      type:'success',
+      period:`今〜配偶者${kisoEndSpouseAge}歳（約${kisoYears}年間）`,
+      title:'遺族基礎年金＋遺族厚生年金（最も手厚い時期）',
+      benefits:[
+        {cls:'su', label:`遺族基礎年金（子${eligibleChildrenCount}人加算込み）`, amount:`年間 約${Math.round(kisoAmount/10000)}万円`},
+        ...(hasKosei ? [{cls:'hi', label:'遺族厚生年金（老齢厚生年金見込の3/4相当）', amount:'月5〜10万円目安'}] : []),
+        ...(hSpouse==='yes' ? [{cls:'', label:'配偶者の収入（継続前提）', amount:'継続'}] : []),
+      ],
+      notes:[
+        `末子（${youngestChildAge}歳）が18歳の誕生日を迎えた年度末（3月末）で遺族基礎年金は終了`,
+        '遺族基礎年金の額：年間816,000円＋子1人につき234,800円（2026年度）',
+        hasKosei ? '遺族厚生年金は亡くなった方の報酬・加入期間によって変わります' : '',
+      ].filter(Boolean)
+    });
+
+    tableRows.push({
+      name:'遺族基礎年金',
+      period:`死亡時〜子が18歳年度末（約${kisoYears}年）`,
+      spouseAgeRange: spAge ? `配偶者${spAge}歳〜${kisoEndSpouseAge}歳` : '—',
+      amount:`年間 約${Math.round(kisoAmount/10000)}万円`,
+      status:'ok'
+    });
+  } else if(hSpouse==='yes' && eligibleChildrenCount===0 && payOk && incomeOk){
+    // 子なし配偶者 → 基礎年金なし
+    tableRows.push({
+      name:'遺族基礎年金',
+      period:'対象外（子がいないため）',
+      spouseAgeRange:'—',
+      amount:'—',
+      status:'ng'
+    });
+    alerts.push({type:'info',title:'📌 遺族基礎年金について',body:'18歳未満の子がいない場合、配偶者は遺族基礎年金の対象外となります。ただし遺族厚生年金（会社員の場合）は受給できます。'});
+  } else if(hSpouse==='no' && eligibleChildrenCount > 0 && payOk){
+    // 子のみ受給
+    const kisoAmount = KISO_BASE + KISO_CHILD * eligibleChildrenCount;
+    tableRows.push({
+      name:'遺族基礎年金（子として受給）',
+      period:'子が18歳年度末まで',
+      spouseAgeRange:'—',
+      amount:`年間 約${Math.round(kisoAmount/10000)}万円`,
+      status:'ok'
+    });
+  }
+
+  // ===== 遺族厚生年金（フェーズ分け） =====
+  if(hasKosei && hSpouse==='yes' && spAge!==null && payOk && incomeOk){
+
+    // フェーズ②：末子18歳以降〜配偶者65歳（中高齢寡婦加算含む）
+    const phase2Start = kisoEndSpouseAge || spAge; // 遺族基礎年金終了時 or 最初から
+    const phase2HasChukourei = phase2Start >= 40; // 40歳以上なら加算あり
+    const CHUKOUREI = 596300; // 2026年度 中高齢寡婦加算
+
+    // 中高齢寡婦加算：子が18歳超えたとき配偶者が40歳以上 OR 死亡時点で40歳以上子なし
+    let chukoureiStart = null;
+    let chukoureiEnd = null;
+
+    if(eligibleChildrenCount > 0){
+      // 末子18歳のとき配偶者が40歳以上なら即加算
+      if(kisoEndSpouseAge !== null && kisoEndSpouseAge >= 40){
+        chukoureiStart = kisoEndSpouseAge;
+        chukoureiEnd = 65;
+      } else if(kisoEndSpouseAge !== null && kisoEndSpouseAge < 40){
+        // 40歳になるまで空白あり
+        chukoureiStart = 40;
+        chukoureiEnd = 65;
+        const gapYears = 40 - kisoEndSpouseAge;
+        if(gapYears > 0){
+          alerts.push({type:'warn',title:`⚠️ 中高齢寡婦加算に${gapYears}年の空白期間があります`,body:`末子が18歳になるとき配偶者は${kisoEndSpouseAge}歳です。中高齢寡婦加算は40歳からのため、${kisoEndSpouseAge}歳〜40歳の約${gapYears}年間は遺族厚生年金のみの受給となります（加算なし）。`});
+        }
+      }
+    } else {
+      // 子なし
+      if(spAge >= 40){
+        chukoureiStart = spAge;
+        chukoureiEnd = 65;
+      } else {
+        chukoureiStart = 40;
+        chukoureiEnd = 65;
+        const gapYears = 40 - spAge;
+        alerts.push({type:'warn',title:`⚠️ 中高齢寡婦加算まで${gapYears}年の空白期間`,body:`配偶者が現在${spAge}歳のため、40歳になるまでの約${gapYears}年間は中高齢寡婦加算が受給できません。`});
+        // 子なし30歳未満は5年限定
+        if(spAge < 30){
+          alerts.push({type:'danger',title:'⚠️ 子なし30歳未満の場合は5年間のみ',body:'子のいない30歳未満の配偶者は遺族厚生年金が5年間のみの受給となります。'});
+        }
+      }
+    }
+
+    // フェーズ②：遺族厚生年金（中高齢寡婦加算あり期間）
+    if(chukoureiStart !== null){
+      const chukoureiYears = chukoureiEnd - chukoureiStart;
+      phases.push({
+        type:'active',
+        period:`配偶者${chukoureiStart}歳〜65歳（約${chukoureiYears}年間）`,
+        title:'遺族厚生年金＋中高齢寡婦加算',
+        benefits:[
+          {cls:'hi', label:'遺族厚生年金', amount:'月5〜10万円目安'},
+          {cls:'wa', label:`中高齢寡婦加算（40〜65歳）`, amount:`年間 約${Math.round(CHUKOUREI/10000)}万円`},
+        ],
+        notes:[
+          '中高齢寡婦加算：2026年度年間596,300円（月約5万円）',
+          '遺族基礎年金が終了しても遺族厚生年金は継続されます',
+          kPeriod==='short' ? '厚生年金加入20年未満の場合は中高齢寡婦加算の適用外となる場合があります（要確認）' : '',
+        ].filter(Boolean)
+      });
+
+      tableRows.push({
+        name:'遺族厚生年金',
+        period:'死亡時〜配偶者65歳（子の有無問わず継続）',
+        spouseAgeRange:`配偶者${spAge}歳〜65歳`,
+        amount:'月5〜10万円目安',
+        status:'ok'
+      });
+      tableRows.push({
+        name:'中高齢寡婦加算',
+        period:`配偶者${chukoureiStart}歳〜65歳（約${chukoureiYears}年）`,
+        spouseAgeRange:`配偶者${chukoureiStart}〜65歳`,
+        amount:`年間 約${Math.round(CHUKOUREI/10000)}万円`,
+        status:'ok'
+      });
+    }
+
+    // フェーズ③：65歳以降 - 老齢厚生年金との調整
+    const phase3Notes = [
+      '自分の老齢基礎年金＋老齢厚生年金（全額）を受給',
+      '遺族厚生年金が自分の老齢厚生年金を上回る場合、差額分を受給できる',
+      '「遺族年金がゼロになる」わけではなく、自分の年金が優先されるしくみ',
+    ];
+    if(spElig==='yes'){
+      phase3Notes.push('配偶者がすでに厚生年金受給資格を持つ場合、65歳時点で差額計算が重要になります');
+      phase3Notes.push('今から25年後の話なので、65歳時点で年金事務所に試算を依頼するのが現実的');
+    }
+    phases.push({
+      type:'gray',
+      period:`配偶者65歳以降（${65 - spAge}年後〜）`,
+      title:'老齢厚生年金と遺族厚生年金の調整期',
+      benefits:[
+        {cls:'', label:'配偶者自身の老齢基礎年金', amount:'全額受給'},
+        {cls:'', label:'配偶者自身の老齢厚生年金', amount:'全額受給'},
+        {cls:'wa', label:'遺族厚生年金との差額（あれば）', amount:'差額分を上乗せ'},
+        {cls:'en', label:'中高齢寡婦加算', amount:'終了'},
+      ],
+      notes: phase3Notes
+    });
+
+    tableRows.push({
+      name:'差額加算（遺族厚生年金との差額）',
+      period:'配偶者65歳以降',
+      spouseAgeRange:'配偶者65歳〜',
+      amount:'遺族厚生年金＞老齢厚生年金の差額',
+      status:'warn'
+    });
+
+  } else if(hasKosei && hSpouse==='no' && payOk){
+    // 配偶者なし・子あり
+    tableRows.push({
+      name:'遺族厚生年金（子として）',
+      period:'子が18歳年度末まで',
+      spouseAgeRange:'—',
+      amount:'月5〜10万円目安',
+      status:'ok'
+    });
+  } else if(!hasKosei){
+    tableRows.push({
+      name:'遺族厚生年金',
+      period:'対象外（厚生年金非加入のため）',
+      spouseAgeRange:'—',
+      amount:'—',
+      status:'ng'
+    });
+  }
+
+  // ===== 遺族基礎年金（配偶者なし・子のみ）=====
+  if(hSpouse==='no' && eligibleChildrenCount===0){
+    alerts.push({type:'danger',title:'受給できる遺族年金がない可能性があります',body:'配偶者も18歳未満の子もいない場合、遺族年金の主な受給対象がいない状態です。父母・祖父母が対象になる場合がありますが、詳しくは年金事務所にご確認ください。'});
+  }
+
+  // ===== サマリー =====
+  const totalKisoYears = kisoYears || 0;
+  const kouseiYears = hSpouse==='yes' && spAge ? 65 - spAge : 0;
+  const chukoureiYearsCalc = hSpouse==='yes' && spAge ? 65 - Math.max(40, kisoEndSpouseAge || spAge) : 0;
+
+  const summaryItems = [
+    {v: hasKosei && payOk && hSpouse==='yes' && incomeOk ? '受給可' : '対象外', l:'遺族基礎年金'},
+    {v: hasKosei && payOk ? '受給可' : '対象外', l:'遺族厚生年金'},
+    {v: totalKisoYears > 0 ? `約${totalKisoYears}年` : '—', l:'遺族基礎年金 期間'},
+    {v: kouseiYears > 0 ? `約${kouseiYears}年` : '—', l:'遺族厚生年金 期間'},
+    {v: chukoureiYearsCalc > 0 ? `約${chukoureiYearsCalc}年` : '—', l:'中高齢寡婦加算 期間'},
+  ];
+
+  // ===== 描画 =====
+  renderResult(summaryItems, alerts, phases, tableRows);
+  document.getElementById('result').classList.add('show');
+  setTimeout(()=>{
+    document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+  },100);
+}
+
+function renderResult(summaryItems, alerts, phases, tableRows){
+  // サマリー
+  document.getElementById('summaryGrid').innerHTML = summaryItems.map(s=>`
+    <div class="summary-item">
+      <div class="sv">${s.v}</div>
+      <div class="sl">${s.l}</div>
+    </div>
+  `).join('');
+
+  // アラート
+  document.getElementById('alertArea').innerHTML = alerts.map(a=>`
+    <div class="alert ${a.type}"><div class="alert-title">${a.title}</div>${a.body}</div>
+  `).join('');
+
+  // タイムライン
+  document.getElementById('timeline').innerHTML = phases.map((p,i)=>{
+    const dotCls = p.type==='success'?'active':p.type==='active'?'active':p.type==='gray'?'end':'warn';
+    const pCls   = p.type==='success'||p.type==='active'?'g':p.type==='warn'?'w':'d';
+    const benefits = p.benefits.map(b=>`
+      <div class="benefit-row ${b.cls}">
+        <span class="bl">${b.label}</span>
+        <span class="ba${b.cls==='en'?' red':''}">${b.amount}</span>
+      </div>
+    `).join('');
+    const notes = p.notes.length ? `<div class="tl-note"><ul>${p.notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>` : '';
+    const isLast = i===phases.length-1;
+    return `
+      <div class="tl-item">
+        <div class="tl-line">
+          <div class="tl-dot ${dotCls}"></div>
+          ${isLast ? '' : '<div class="tl-connector"></div>'}
+        </div>
+        <div class="tl-body">
+          <div class="tl-period ${pCls}">${p.period}</div>
+          <div class="tl-title">${p.title}</div>
+          <div class="tl-benefits">${benefits}</div>
+          ${notes}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // テーブル
+  const statusMap = {ok:'tag-ok',ng:'tag-ng',warn:'tag-warn'};
+  const statusLabel= {ok:'対象',ng:'対象外',warn:'要確認'};
+  document.getElementById('periodTableBody').innerHTML = tableRows.map(r=>`
+    <tr>
+      <td><strong>${r.name}</strong></td>
+      <td>${r.period}</td>
+      <td style="white-space:nowrap">${r.spouseAgeRange}</td>
+      <td>${r.amount}</td>
+      <td><span class="${statusMap[r.status]}">${statusLabel[r.status]}</span></td>
+    </tr>
+  `).join('');
+}
+
+function retry(){
+  document.getElementById('result').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

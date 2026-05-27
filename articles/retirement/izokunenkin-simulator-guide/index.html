@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遺族年金いくらもらえる？無料シミュレーターで5分試算｜使い方と実例を解説 | 明日のために for-tomorrow</title>
+<meta name="description" content="遺族基礎年金・遺族厚生年金・中高齢寡婦加算がいつからいつまでいくら受給できるかをフェーズ別に試算。配偶者の年齢・子の人数を入力するだけ。52歳・妻39歳・娘12歳のわが家の試算例も公開。">
+<link rel="canonical" href="https://for-tomorrow2026.com/articles/retirement/izokunenkin-simulator-guide/">
+<meta property="og:title" content="遺族年金いくらもらえる？無料シミュレーターで5分試算｜使い方と実例を解説">
+<meta property="og:description" content="遺族基礎年金・遺族厚生年金・中高齢寡婦加算が「いつからいつまで」いくら受給できるかをフェーズ別に試算できる無料ツール。わが家の実例も公開。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://for-tomorrow2026.com/articles/retirement/izokunenkin-simulator-guide/">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-899479E9P4');
+</script>
+
+<style>
+:root {
+  --primary: #1a3a5c;
+  --accent: #2d7dd2;
+  --accent-light: #e8f2fc;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --gray: #6b7280;
+  --gray-light: #f3f4f6;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --text-light: #4b5563;
+  --bg: #ffffff;
+  --max-width: 780px;
+  --radius: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Meiryo','Noto Sans JP',sans-serif;color:var(--text);background:var(--bg);line-height:1.85;font-size:16px}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+.site-header{background:var(--primary);padding:12px 0;border-bottom:3px solid var(--accent)}
+.site-header a{color:#fff;text-decoration:none;font-size:15px;font-weight:700;letter-spacing:.05em}
+
+.article-header{background:linear-gradient(135deg,#1a3a5c 0%,#2d5986 100%);color:#fff;padding:48px 0 40px}
+.article-category{display:inline-block;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:.05em;margin-bottom:16px}
+h1{font-size:clamp(20px,4vw,26px);font-weight:700;line-height:1.45;margin-bottom:16px;color:#fff}
+.article-meta{font-size:13px;color:rgba(255,255,255,.75);display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+
+h2{font-size:clamp(17px,3vw,20px);font-weight:700;color:var(--primary);margin:40px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--accent);line-height:1.4}
+h2::before{content:"";display:inline-block;width:5px;height:18px;background:var(--accent);border-radius:2px;margin-right:9px;vertical-align:middle;position:relative;top:-2px}
+h3{font-size:17px;font-weight:700;color:var(--primary);margin:28px 0 12px;padding-left:11px;border-left:3px solid var(--accent)}
+p{margin:0 0 14px}
+ul,ol{padding-left:22px;margin:0 0 14px}
+li{margin:6px 0}
+strong{font-weight:700}
+a{color:var(--accent)}
+
+.lead-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px 24px;margin:32px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:15px;line-height:1.9}
+
+.toc{background:var(--gray-light);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;margin:28px 0}
+.toc-title{font-size:13px;font-weight:700;color:var(--gray);letter-spacing:.08em;margin-bottom:10px}
+.toc>ol{padding-left:18px}
+.toc li{margin:5px 0;font-size:14px}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+.note-box{background:var(--warning-light);border:1px solid #fcd34d;border-left:4px solid var(--warning);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px;margin:20px 0;font-size:14px;line-height:1.85}
+.note-box-title{font-weight:700;color:var(--warning);margin-bottom:6px;font-size:14px}
+.info-box{background:var(--accent-light);border:1px solid #93c5fd;border-left:4px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px;margin:20px 0;font-size:14px;line-height:1.85}
+.info-box-title{font-weight:700;color:var(--accent);margin-bottom:6px;font-size:14px}
+.success-box{background:var(--success-light);border:1px solid #86efac;border-left:4px solid var(--success);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px;margin:20px 0;font-size:14px;line-height:1.85}
+.success-box-title{font-weight:700;color:var(--success);margin-bottom:6px;font-size:14px}
+
+/* ステップカード */
+.step-list{display:flex;flex-direction:column;gap:0;margin:24px 0}
+.step-item{display:flex;gap:0}
+.step-line{display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;z-index:1}
+.step-connector{width:2px;background:#d1d5db;flex:1;min-height:16px}
+.step-body{padding:0 0 28px;flex:1}
+.step-title{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.step-content{font-size:14px;color:var(--text-light);line-height:1.85}
+.step-tag{display:inline-block;font-size:11px;font-weight:700;background:var(--accent);color:#fff;padding:2px 8px;border-radius:3px;margin-bottom:8px}
+
+/* 入力例カード */
+.input-example{background:var(--gray-light);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin:14px 0;font-size:14px}
+.input-example-title{font-size:12px;font-weight:700;color:var(--gray);letter-spacing:.06em;margin-bottom:10px}
+.input-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.input-row:last-child{border-bottom:none}
+.input-label{color:var(--text-light)}
+.input-value{font-weight:700;color:var(--primary)}
+
+/* 結果プレビューカード */
+.result-preview{background:var(--primary);border-radius:var(--radius);padding:20px 24px;margin:20px 0;color:#fff}
+.result-preview-title{font-size:14px;font-weight:700;margin-bottom:14px;color:rgba(255,255,255,.85)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.result-item{background:rgba(255,255,255,.1);border-radius:6px;padding:10px 12px;text-align:center}
+.result-val{font-size:18px;font-weight:700;color:#fff;line-height:1.2}
+.result-label{font-size:11px;color:rgba(255,255,255,.7);margin-top:3px}
+
+.phase-mini{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.phase-mini-row{background:rgba(255,255,255,.08);border-radius:5px;padding:8px 12px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.phase-mini-row .pm-label{color:rgba(255,255,255,.8)}
+.phase-mini-row .pm-val{font-weight:700;color:#fff}
+
+/* チェックリスト */
+.check-list{list-style:none;padding:0;margin:14px 0}
+.check-list li{padding:7px 0 7px 28px;border-bottom:1px solid var(--border);font-size:14px;position:relative}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:"✅";position:absolute;left:0;top:7px;font-size:13px}
+
+/* CTA */
+.tool-cta{background:linear-gradient(135deg,#1a3a5c,#2d5986);border-radius:var(--radius);padding:28px 30px;text-align:center;margin:36px 0}
+.tool-cta p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:18px;line-height:1.75}
+.tool-cta-btn{display:inline-block;background:#2d7dd2;color:#fff;padding:14px 36px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.03em;transition:background .2s}
+.tool-cta-btn:hover{background:#1a5fa8}
+.tool-cta-sub{margin-top:10px;font-size:12px;color:rgba(255,255,255,.6)}
+
+.summary-box{background:var(--primary);color:#fff;border-radius:var(--radius);padding:26px 30px;margin:36px 0}
+.summary-box h3{color:#fff;border-left-color:rgba(255,255,255,.4);margin-top:0}
+.summary-box ul{color:rgba(255,255,255,.9)}
+.summary-box li{margin:8px 0}
+
+.column-box{background:var(--warning-light);border:1px solid #fcd34d;border-radius:var(--radius);padding:18px 22px;margin:24px 0}
+.column-box-title{font-size:14px;font-weight:700;color:var(--warning);margin-bottom:8px}
+
+footer{background:var(--primary);color:rgba(255,255,255,.7);padding:28px 0;font-size:13px}
+footer a{color:rgba(255,255,255,.7)}
+.article-body{padding:0 0 60px}
+
+@media(max-width:600px){
+  .article-header{padding:28px 0 24px}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .phase-mini-row{flex-direction:column;align-items:flex-start;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="https://for-tomorrow2026.com/">明日のために for-tomorrow</a>
+  </div>
+</header>
+
+<div class="article-header">
+  <div class="container">
+    <span class="article-category">退職準備・家族の保障</span>
+    <h1>遺族年金、実際いくらもらえる？<br>無料シミュレーターで5分試算｜使い方と実例解説</h1>
+    <div class="article-meta">
+      <span>📅 2026年5月</span>
+      <span>👤 管理人（52歳・会社員）</span>
+      <span>🕐 約6分</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="article-body">
+
+  <div class="lead-box">
+    「保険入ってるから大丈夫」と思っていたけど、そもそも<strong>遺族年金がいくらになるか試算したことがなかった。</strong><br><br>
+    遺族年金は会社員の死亡保障の中で最も金額が大きい。でも「なんとなくもらえる」という認識のまま、具体的な金額を把握していない人がほとんどではないか。<br><br>
+    当サイトで作った無料シミュレーターを使えば、<strong>家族構成と年齢を入力するだけで、フェーズ別に「いつからいつまでいくら」受給できるかが5分で確認できる。</strong>使い方と実際の試算例を解説する。
+  </div>
+
+  <nav class="toc" aria-label="目次">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#what">このシミュレーターでわかること</a></li>
+      <li><a href="#howto">使い方：3ステップ</a></li>
+      <li><a href="#example">わが家の試算例（52歳・妻39歳・娘12歳）</a></li>
+      <li><a href="#points">試算してわかった3つのこと</a></li>
+      <li><a href="#cta">シミュレーターを使ってみる</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="what">このシミュレーターでわかること</h2>
+
+  <p>遺族年金は大きく3種類あり、それぞれ受給できる期間が異なる。「今の家族状況でいつからいつまで何がもらえるか」を時系列で把握することが大事だ。</p>
+
+  <ul class="check-list">
+    <li>遺族基礎年金＋遺族厚生年金が同時に受給できる期間（最も手厚い時期）</li>
+    <li>末子が18歳を超えたあとの遺族厚生年金＋中高齢寡婦加算の期間</li>
+    <li>配偶者が65歳以降、自分の老齢年金と遺族厚生年金の調整がどうなるか</li>
+    <li>中高齢寡婦加算に「空白期間」がないか（年齢差によって生じる場合がある）</li>
+    <li>保険料未納・年収850万円超など受給できないケースの早期発見</li>
+  </ul>
+
+  <div class="info-box">
+    <div class="info-box-title">📌 金額はあくまで目安です</div>
+    遺族厚生年金の正確な金額は亡くなった方の報酬月額・加入期間によって異なります。このシミュレーターは「年間いくらか」の参考値と「受給できる年数」を把握するための試算ツールです。正確な金額は年金事務所でご確認ください。
+  </div>
+
+  <h2 id="howto">使い方：3ステップで入力するだけ</h2>
+
+  <div class="step-list">
+
+    <div class="step-item">
+      <div class="step-line">
+        <div class="step-num">1</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-tag">亡くなった方の情報</span>
+        <div class="step-title">被保険者（本人）の情報を入力</div>
+        <div class="step-content">
+          <p>入力する項目は3つ。</p>
+          <div class="input-example">
+            <div class="input-example-title">入力項目</div>
+            <div class="input-row"><span class="input-label">死亡時の年齢</span><span class="input-value">例：52歳</span></div>
+            <div class="input-row"><span class="input-label">年金加入の種類</span><span class="input-value">会社員・公務員（厚生年金）/ 自営業（国民年金）</span></div>
+            <div class="input-row"><span class="input-label">保険料の納付状況</span><span class="input-value">問題なし / 直近1年以内に未納あり</span></div>
+            <div class="input-row"><span class="input-label">厚生年金の加入期間</span><span class="input-value">20年以上 / 20年未満 / 該当なし</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--text-light);">会社員の場合は「厚生年金」「問題なし」「20年以上」がデフォルト設定になっているので、基本的にそのままでOK。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-line">
+        <div class="step-num">2</div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step-body">
+        <span class="step-tag">配偶者の情報</span>
+        <div class="step-title">配偶者（妻または夫）の年齢と収入を入力</div>
+        <div class="step-content">
+          <div class="input-example">
+            <div class="input-example-title">入力項目</div>
+            <div class="input-row"><span class="input-label">配偶者の現在の年齢</span><span class="input-value">例：39歳</span></div>
+            <div class="input-row"><span class="input-label">配偶者の年収</span><span class="input-value">850万円未満 / 850万円以上</span></div>
+            <div class="input-row"><span class="input-label">配偶者の年金加入状況</span><span class="input-value">厚生年金加入 / 国民年金のみ</span></div>
+            <div class="input-row"><span class="input-label">老齢厚生年金受給資格</span><span class="input-value">あり・見込み / なし・不明</span></div>
+          </div>
+          <p style="font-size:13px;color:var(--text-light);">年収が850万円以上だと「生計を維持されていた」と認められず、遺族年金が受給できない場合があります。共働き家庭でも多くは850万円未満なので該当しないことが多いです。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-line">
+        <div class="step-num">3</div>
+      </div>
+      <div class="step-body">
+        <span class="step-tag">子の情報</span>
+        <div class="step-title">18歳未満の子の年齢を入力して試算ボタンを押す</div>
+        <div class="step-content">
+          <p>「＋ 子を追加する」ボタンで子の年齢を入力。18歳以上の子は遺族基礎年金の対象外のため入力不要。</p>
+          <p>入力が終わったら<strong>「受給期間・金額をシミュレートする」</strong>ボタンを押せば結果が表示される。</p>
+          <div class="success-box" style="margin-top:8px;">
+            <div class="success-box-title">✅ 入力はすべてブラウザ内で完結</div>
+            入力した情報は外部サーバーに送信されません。プライバシーは完全に保護されます。
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 id="example">わが家の試算例（52歳・妻39歳・娘12歳）</h2>
+
+  <p>実際にわが家の条件で入力してみた結果がこちら。</p>
+
+  <div class="input-example" style="margin-bottom:14px;">
+    <div class="input-example-title">入力条件</div>
+    <div class="input-row"><span class="input-label">被保険者（私）の年齢</span><span class="input-value">52歳・会社員・厚生年金20年以上</span></div>
+    <div class="input-row"><span class="input-label">配偶者（妻）の年齢</span><span class="input-value">39歳・年収850万円未満・厚生年金加入</span></div>
+    <div class="input-row"><span class="input-label">子</span><span class="input-value">娘1人（12歳）</span></div>
+  </div>
+
+  <div class="result-preview">
+    <div class="result-preview-title">試算サマリー</div>
+    <div class="result-grid">
+      <div class="result-item"><div class="result-val">受給可</div><div class="result-label">遺族基礎年金</div></div>
+      <div class="result-item"><div class="result-val">受給可</div><div class="result-label">遺族厚生年金</div></div>
+      <div class="result-item"><div class="result-val">約6年</div><div class="result-label">遺族基礎年金 期間</div></div>
+      <div class="result-item"><div class="result-val">約26年</div><div class="result-label">遺族厚生年金 期間</div></div>
+      <div class="result-item"><div class="result-val">約21年</div><div class="result-label">中高齢寡婦加算 期間</div></div>
+    </div>
+    <div class="phase-mini">
+      <div class="phase-mini-row">
+        <span class="pm-label">フェーズ①　今〜妻45歳（約6年）</span>
+        <span class="pm-val">遺族基礎年金＋遺族厚生年金</span>
+      </div>
+      <div class="phase-mini-row">
+        <span class="pm-label">フェーズ②　妻45歳〜65歳（約20年）</span>
+        <span class="pm-val">遺族厚生年金＋中高齢寡婦加算（年約60万円）</span>
+      </div>
+      <div class="phase-mini-row">
+        <span class="pm-label">フェーズ③　妻65歳以降</span>
+        <span class="pm-val">老齢厚生年金＋遺族厚生年金との差額</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-title">📌 12歳差婚だと遺族年金の受給期間が長くなる</div>
+    妻が若いほど遺族厚生年金を受給できる期間が長くなります。わが家の場合、妻39歳なので65歳まで約26年間受給できる計算。同い年の夫婦だと同じ条件でも受給期間が13年ほど短くなります。
+  </div>
+
+  <h2 id="points">試算してわかった3つのこと</h2>
+
+  <h3>① 「保険がない期間」はほぼない</h3>
+  <p>「団信でローンが消える＋遺族年金（26年間）＋妻の給与収入」を組み合わせると、基本的な生活費はカバーできる見込みが出た。生命保険の死亡保障は「上乗せ」と考えれば、過剰な保険に入る必要がないことも確認できる。</p>
+
+  <h3>② 中高齢寡婦加算に「空白期間」がないか要チェック</h3>
+  <p>末子が18歳になったとき配偶者が40歳未満だと、遺族基礎年金が終わってから中高齢寡婦加算が始まるまでの空白期間が生じる。わが家は娘18歳＝妻45歳になるため空白なし。だが年齢差が小さい夫婦や子が幼い場合は注意が必要で、シミュレーターがアラートを出してくれる。</p>
+
+  <h3>③ 65歳以降の「遺族年金ゼロ」は誤解</h3>
+  <p>よくある誤解が「妻が65歳になると遺族年金がゼロになる」というもの。実際は「自分の老齢厚生年金＋（遺族厚生年金との差額）」という仕組みで、どちらかがゼロになるわけではない。シミュレーターの結果画面でもこの点をわかりやすく説明している。</p>
+
+  <div class="note-box">
+    <div class="note-box-title">⚠️ 試算結果はあくまで目安</div>
+    遺族厚生年金の金額は亡くなった方の報酬月額・加入年数によって大きく変わります。正確な金額は<a href="https://www.nenkin.go.jp" target="_blank" rel="noopener">ねんきんネット</a>または最寄りの年金事務所でご確認ください。シミュレーターは「だいたいの期間と傾向」を把握するためのものとしてご活用ください。
+  </div>
+
+  <h2 id="cta">シミュレーターを使ってみる</h2>
+
+  <div class="tool-cta">
+    <p>
+      家族構成を入力するだけで<br>
+      <strong>遺族年金がいつからいつまでいくら受給できるか</strong><br>
+      フェーズ別に5分で試算できます
+    </p>
+    <a class="tool-cta-btn" href="https://for-tomorrow2026.com/tools/izokunenkin-simulator/" target="_blank" rel="noopener">遺族年金シミュレーターを使う（無料）</a>
+    <div class="tool-cta-sub">入力データは外部送信されません・スマートフォン対応</div>
+  </div>
+
+  <div class="summary-box">
+    <h3>この記事のまとめ</h3>
+    <ul>
+      <li>遺族年金は会社員の死亡保障の中で最も大きいが、具体的な金額・期間を把握している人は少ない</li>
+      <li>シミュレーターに家族の年齢・構成を入力するだけで、フェーズ別の受給期間と金額目安が5分でわかる</li>
+      <li>中高齢寡婦加算の空白期間・子なし30歳未満の特例など、見落としやすいケースも自動でアラート表示</li>
+      <li>試算はあくまで目安。正確な金額は年金事務所で確認することが大事</li>
+    </ul>
+  </div>
+
+  <div class="column-box">
+    <div class="column-box-title">📌 合わせて読みたい</div>
+    <ul style="font-size:14px;margin:0;padding-left:18px;">
+      <li><a href="https://for-tomorrow2026.com/articles/retirement/death-protection-checklist/">もし自分に万が一のことが起きたら？50代会社員が整理した「家族を守るお金」全リストと安心度診断</a></li>
+      <li><a href="https://for-tomorrow2026.com/articles/retirement/ending-note/">【52歳パパが実際に書いた】エンディングノートって何？妻・子どものために現実的に作る7つのステップ</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:8px;"><a href="https://for-tomorrow2026.com/" style="color:#fff;font-weight:700;">明日のために for-tomorrow</a></p>
+    <p>40・50代の「今と未来のお金」を一緒に考えるブログ</p>
+    <p style="margin-top:10px;font-size:12px;">※本記事は情報提供を目的としており、特定の商品・サービスを推奨するものではありません。実際の受給額・手続きは年金事務所にご確認ください。</p>
+    <p style="margin-top:10px;font-size:12px;">&copy; 2026 明日のために for-tomorrow</p>
+  </div>
+</footer>
+
+</body>
+</html>
