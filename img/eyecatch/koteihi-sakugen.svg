@@ -1,0 +1,20 @@
+<svg width="100%" viewBox="0 0 750 470" role="img" xmlns="http://www.w3.org/2000/svg">
+  <rect width="680" height="380" fill="#fff9f0" rx="0"/>
+  <rect x="0" y="0" width="680" height="8" fill="#f4845f"/>
+  <circle cx="580" cy="300" r="160" fill="#fde8d8" opacity="0.5"/>
+  <circle cx="120" cy="80" r="90" fill="#fde8d8" opacity="0.35"/>
+  <rect x="40" y="36" width="100" height="32" fill="#f4845f" rx="16"/>
+  <text x="90" y="57" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">家計改善</text>
+  <text x="56" y="130" font-family="sans-serif" font-size="38" font-weight="700" fill="#2c2c2a">固定費を削減して</text>
+  <text x="56" y="178" font-family="sans-serif" font-size="38" font-weight="700" fill="#2c2c2a">家計を改善する方法</text>
+  <text x="56" y="220" font-family="sans-serif" font-size="16" fill="#888780">40・50代向け実践ガイド</text>
+  <rect x="56" y="248" width="480" height="1" fill="#e8d8c8"/>
+  <rect x="56" y="270" width="36" height="36" fill="#fde8d8" rx="18"/>
+  <text x="74" y="293" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#c8522a">52</text>
+  <text x="104" y="284" font-family="sans-serif" font-size="13" fill="#5f5e5a">52歳・IT業界34年が実践中</text>
+  <text x="104" y="302" font-family="sans-serif" font-size="12" fill="#888780">明日のために for-tomorrow</text>
+  <rect x="480" y="258" width="164" height="48" fill="#f4845f" rx="8"/>
+  <text x="562" y="287" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">無料で読む</text>
+  <rect x="0" y="340" width="680" height="40" fill="#fff3e8"/>
+  <text x="340" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#c8a078">for-tomorrow2026.com ｜ 40・50代の退職準備・家計改善・NISA</text>
+</svg>
