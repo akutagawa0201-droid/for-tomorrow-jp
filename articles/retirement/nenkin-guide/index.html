@@ -39,434 +39,314 @@
 </script>
 
 <style>
-  :root {
-    --primary: #e8793a;
-    --primary-light: #f5a97a;
-    --dark: #1a2a3a;
-    --text: #2d3748;
-    --text-muted: #718096;
-    --bg: #fff9f5;
-    --bg-card: #ffffff;
-    --border: #e8d5c4;
-    --success: #2d8a5e;
-    --warning: #c05621;
-    --info: #2b6cb0;
-    --shadow: 0 2px 16px rgba(232,121,58,0.08);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.8;
-  }
+:root{
+  --bg:#fbf9f4;
+  --ink:#1f2933;
+  --ink-soft:#475569;
+  --paper:#ffffff;
+  --accent:#0a6e5b;
+  --accent-soft:#e8f3ef;
+  --gold:#c89b3c;
+  --gold-soft:#fbf4e2;
+  --navy:#1e3a5f;
+  --navy-soft:#e0e9f3;
+  --border:#e6e1d6;
+  --shadow:0 2px 12px rgba(31,41,51,.06);
+  --orange:#e8793a;
+  --orange-soft:#fff3e8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 
-  /* アイキャッチ */
-  .eyecatch {
-    background: linear-gradient(135deg, #1a2a3a 60%, #2d4a6a);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .eyecatch-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 60px 24px 48px;
-    position: relative;
-    z-index: 1;
-  }
-  .eyecatch::before {
-    content: '';
-    position: absolute;
-    right: -60px; top: -60px;
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(232,121,58,0.25) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .category-badge {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
-  }
-  .eyecatch h1 {
-    color: #fff;
-    font-size: clamp(22px, 5vw, 34px);
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 16px;
-  }
-  .eyecatch-sub {
-    color: #a0b8cc;
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
-  .eyecatch-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .author-badge {
-    width: 40px; height: 40px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
-  }
-  .author-info { font-size: 13px; color: #8aa0b4; }
-  .author-info strong { color: #c0d4e4; display: block; }
+/* ========================================
+   グローバルヘッダー
+   ======================================== */
+.global-header{background:#1e3a5f;width:100%;padding:14px 0;position:sticky;top:0;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.global-header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.global-brand{color:#fff !important;text-decoration:none !important}
+.global-brand-name{font-weight:700;font-size:1.05rem;letter-spacing:.05em;line-height:1.2;color:#fff}
+.global-brand-sub{display:block;font-size:.7rem;letter-spacing:.15em;font-weight:400;opacity:.85;margin-top:2px;color:#fff}
+.global-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.global-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.03em;transition:opacity .15s;white-space:nowrap}
+.global-nav a:hover{opacity:.75}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px 8px}
 
-  /* メインレイアウト */
-  .main-wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 16px 80px;
-  }
+/* ========================================
+   グローバルフッター
+   ======================================== */
+.global-footer{background:#1e3a5f;color:#fff;padding:40px 24px 28px;margin-top:60px;width:100%}
+.global-footer-inner{max-width:1200px;margin:0 auto;text-align:center}
+.global-footer-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:22px}
+.global-footer-nav a{color:#fff !important;text-decoration:none !important;font-size:.88rem;letter-spacing:.05em;transition:opacity .15s}
+.global-footer-nav a:hover{opacity:.75;text-decoration:underline !important}
+.global-footer-copyright{font-size:.85rem;letter-spacing:.05em;margin-bottom:8px}
+.global-footer-note{font-size:.75rem;opacity:.7;line-height:1.7;max-width:600px;margin:0 auto}
 
-  /* リード文 */
-  .lead-box {
-    background: #fff;
-    border-left: 4px solid var(--primary);
-    border-radius: 0 12px 12px 0;
-    padding: 20px 24px;
-    margin: 32px 0;
-    font-size: 15px;
-    box-shadow: var(--shadow);
-  }
+/* ========================================
+   記事レイアウト
+   ======================================== */
+article{
+  padding:32px 20px 80px;
+}
+.article-meta{
+  font-size:.8rem;color:var(--ink-soft);
+  letter-spacing:.1em;margin-bottom:12px;
+}
+.article-meta span{margin-right:14px}
+.article-meta .cat{
+  background:var(--navy);color:#fff;
+  padding:3px 10px;border-radius:2px;font-size:.7rem;
+  letter-spacing:.15em;
+}
+.ad-disclosure{
+  font-size:.78rem;color:var(--ink-soft);
+  background:#f4f0e6;padding:8px 14px;
+  border-radius:2px;margin-bottom:16px;
+}
+h1{
+  font-size:1.6rem;line-height:1.5;
+  letter-spacing:.02em;font-weight:700;
+  margin:8px 0 24px;
+  padding-bottom:18px;border-bottom:2px solid var(--ink);
+}
+p{margin-bottom:1.3em}
+strong{font-weight:700}
 
-  /* 目次 */
-  .toc {
-    background: #f7f0e8;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin: 32px 0;
-  }
-  .toc-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 12px;
-    letter-spacing: 0.08em;
-  }
-  .toc ol { padding-left: 20px; }
-  .toc li { margin: 6px 0; }
-  .toc a { color: var(--dark); text-decoration: none; font-size: 14px; }
-  .toc a:hover { color: var(--primary); }
+/* ========================================
+   記事内コンポーネント
+   ======================================== */
 
-  /* 見出し */
-  h2 {
-    font-size: clamp(18px, 4vw, 22px);
-    font-weight: 700;
-    color: var(--dark);
-    margin: 52px 0 20px;
-    padding: 14px 20px;
-    background: linear-gradient(90deg, #fff3e8 0%, transparent 100%);
-    border-left: 4px solid var(--primary);
-    border-radius: 0 8px 8px 0;
-    line-height: 1.4;
-  }
-  h3 {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--dark);
-    margin: 32px 0 12px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--border);
-  }
+/* リード文 */
+.lead-box{
+  background:var(--paper);
+  border-left:4px solid var(--gold);
+  border-radius:0 8px 8px 0;
+  padding:20px 24px;
+  margin:24px 0 32px;
+  font-size:15px;
+  box-shadow:var(--shadow);
+}
 
-  p { margin-bottom: 16px; }
+/* 目次 */
+.toc{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:24px;
+  margin:32px 0;
+  box-shadow:var(--shadow);
+}
+.toc-title{
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:12px;
+  letter-spacing:.08em;
+  border-bottom:1px dashed var(--border);
+  padding-bottom:10px;
+}
+.toc ol{padding-left:20px}
+.toc li{margin:7px 0}
+.toc a{color:var(--ink);text-decoration:none;font-size:.95rem}
+.toc a:hover{color:var(--accent)}
 
-  /* データカード */
-  .data-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin: 24px 0;
-  }
-  .data-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-  .data-card .label {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-  .data-card .value {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1.2;
-  }
-  .data-card .sub {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
+/* 見出し */
+h2{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--ink);
+  margin:52px 0 20px;
+  padding:14px 20px;
+  background:linear-gradient(90deg,var(--navy-soft) 0%,transparent 100%);
+  border-left:4px solid var(--navy);
+  border-radius:0 8px 8px 0;
+  line-height:1.4;
+}
+h3{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--navy);
+  margin:32px 0 12px;
+  padding-bottom:6px;
+  border-bottom:2px solid var(--border);
+}
 
-  /* 比較テーブル */
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 14px;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .compare-table th {
-    background: var(--dark);
-    color: #fff;
-    padding: 12px 16px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 13px;
-  }
-  .compare-table th:first-child { text-align: left; }
-  .compare-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #f0e8de;
-    text-align: center;
-  }
-  .compare-table td:first-child { text-align: left; font-weight: 600; }
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:nth-child(even) td { background: #fdf9f5; }
-  .highlight-cell { color: var(--primary); font-weight: 700; }
-  .muted-cell { color: var(--text-muted); }
+/* データカード */
+.data-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  margin:24px 0;
+}
+.data-card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:20px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.data-card .label{font-size:12px;color:var(--ink-soft);margin-bottom:6px;font-weight:600;letter-spacing:.05em}
+.data-card .value{font-size:26px;font-weight:700;color:var(--orange);line-height:1.2}
+.data-card .sub{font-size:12px;color:var(--ink-soft);margin-top:4px}
 
-  /* インフォボックス */
-  .info-box {
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin: 24px 0;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .info-box.orange {
-    background: #fff3e8;
-    border: 1px solid #f5c9a0;
-  }
-  .info-box.blue {
-    background: #ebf4ff;
-    border: 1px solid #bee3f8;
-  }
-  .info-box.green {
-    background: #e6f4ed;
-    border: 1px solid #9ed5b8;
-  }
-  .info-box.red {
-    background: #fff5f5;
-    border: 1px solid #fbb6b6;
-  }
-  .info-box-title {
-    font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+/* 比較テーブル */
+.compare-table{
+  width:100%;border-collapse:collapse;
+  margin:24px 0;font-size:14px;
+  background:var(--paper);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);
+}
+.compare-table th{
+  background:var(--navy);color:#fff;
+  padding:12px 16px;text-align:center;font-weight:600;font-size:13px;
+}
+.compare-table th:first-child{text-align:left}
+.compare-table td{padding:12px 16px;border-bottom:1px solid #f0ebe0;text-align:center}
+.compare-table td:first-child{text-align:left;font-weight:600}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:nth-child(even) td{background:#faf8f4}
+.highlight-cell{color:var(--orange);font-weight:700}
+.muted-cell{color:var(--ink-soft)}
 
-  /* 不足額シミュレーション */
-  .shortage-box {
-    background: linear-gradient(135deg, #1a2a3a, #2d4a6a);
-    color: #fff;
-    border-radius: 16px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-  .shortage-box h3 {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.2);
-    margin-top: 0;
-  }
-  .shortage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-  }
-  @media(max-width: 480px) {
-    .shortage-grid { grid-template-columns: 1fr; }
-  }
-  .shortage-item {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-  }
-  .shortage-item .s-label { font-size: 12px; color: #8aa0b4; margin-bottom: 6px; }
-  .shortage-item .s-val { font-size: 24px; font-weight: 700; color: var(--primary-light); }
-  .shortage-item .s-sub { font-size: 11px; color: #8aa0b4; margin-top: 4px; }
+/* インフォボックス */
+.info-box{
+  border-radius:8px;padding:18px 22px;margin:24px 0;font-size:14px;line-height:1.7;
+}
+.info-box.orange{background:var(--orange-soft);border:1px solid #f5c9a0}
+.info-box.blue{background:#ebf4ff;border:1px solid #bee3f8}
+.info-box.green{background:#e6f4ed;border:1px solid #9ed5b8}
+.info-box.red{background:#fff5f5;border:1px solid #fbb6b6}
+.info-box-title{font-weight:700;font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
 
-  /* 出口戦略カード */
-  .strategy-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    margin: 24px 0;
-  }
-  .strategy-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-  }
-  .strategy-card .s-title {
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--dark);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .strategy-card .s-badge {
-    background: var(--primary);
-    color: #fff;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 600;
-  }
-  .strategy-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+/* 不足額シミュレーション */
+.shortage-box{
+  background:linear-gradient(135deg,#1a2a3a,#2d4a6a);
+  color:#fff;border-radius:12px;padding:28px;margin:28px 0;
+}
+.shortage-box h3{color:#fff;border-bottom-color:rgba(255,255,255,.2);margin-top:0}
+.shortage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.shortage-item{background:rgba(255,255,255,.08);border-radius:8px;padding:16px;text-align:center}
+.shortage-item .s-label{font-size:12px;color:#8aa0b4;margin-bottom:6px}
+.shortage-item .s-val{font-size:22px;font-weight:700;color:#f5a97a}
+.shortage-item .s-sub{font-size:11px;color:#8aa0b4;margin-top:4px}
 
-  /* 実践チェックリスト */
-  .checklist {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin: 24px 0;
-    box-shadow: var(--shadow);
-  }
-  .check-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0e8de;
-    font-size: 14px;
-  }
-  .check-item:last-child { border-bottom: none; }
-  .check-icon {
-    width: 22px; height: 22px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff;
-    font-size: 12px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+/* 出口戦略カード */
+.strategy-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}
+.strategy-card{background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--shadow)}
+.strategy-card .s-title{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.strategy-card .s-badge{background:var(--navy);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600}
+.strategy-card p{font-size:13px;color:var(--ink-soft);margin:0}
 
-  /* まとめ */
-  .summary-box {
-    background: linear-gradient(135deg, #fff3e8, #fff9f5);
-    border: 2px solid var(--primary);
-    border-radius: 16px;
-    padding: 28px;
-    margin: 40px 0;
-  }
-  .summary-box h2 {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0 0 16px;
-    font-size: 20px;
-  }
+/* チェックリスト */
+.checklist{background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:24px;margin:24px 0;box-shadow:var(--shadow)}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0ebe0;font-size:14px}
+.check-item:last-child{border-bottom:none}
+.check-icon{width:22px;height:22px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;flex-shrink:0;margin-top:2px}
 
-  /* 出典 */
-  .source {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 8px;
-    padding: 8px 12px;
-    background: #f7f0e8;
-    border-radius: 6px;
-  }
+/* まとめボックス */
+.summary-box{
+  background:linear-gradient(135deg,var(--navy-soft),#fff);
+  border:2px solid var(--navy);
+  border-radius:12px;padding:28px;margin:40px 0;
+}
+.summary-box h2{
+  background:none;border:none;padding:0;margin:0 0 16px;font-size:1.2rem;color:var(--navy);
+}
 
-  /* CTA */
-  .cta-box {
-    background: var(--dark);
-    color: #fff;
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    margin: 40px 0;
-  }
-  .cta-box h3 { color: #fff; border: none; font-size: 18px; margin: 0 0 8px; }
-  .cta-box p { color: #8aa0b4; font-size: 14px; margin-bottom: 20px; }
-  .cta-btn {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 14px 32px;
-    border-radius: 30px;
-    text-decoration: none;
-  }
+/* 出典 */
+.source{font-size:12px;color:var(--ink-soft);margin-top:8px;padding:8px 12px;background:#f4f0e6;border-radius:4px}
 
-  .section-divider {
-    border: none;
-    border-top: 2px dashed var(--border);
-    margin: 40px 0;
-  }
+/* CTA */
+.cta-box{background:var(--navy);color:#fff;border-radius:12px;padding:32px;text-align:center;margin:40px 0}
+.cta-box h3{color:#fff;border:none;font-size:1.1rem;margin:0 0 8px}
+.cta-box p{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff !important;font-weight:700;font-size:16px;padding:14px 32px;border-radius:30px;text-decoration:none !important}
 
-  .tag { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+.section-divider{border:none;border-top:2px dashed var(--border);margin:40px 0}
 
-  @media(max-width: 600px) {
-    .eyecatch-inner { padding: 40px 16px 32px; }
-    .main-wrap { padding: 0 12px 60px; }
-    .shortage-grid { grid-template-columns: 1fr; }
-  }
+.article-footer{margin-top:48px;padding:24px 0;border-top:1px solid var(--border);font-size:.85rem;color:var(--ink-soft)}
+.disclaimer{background:#f4f0e6;padding:16px 20px;border-radius:4px;margin-top:16px;font-size:.8rem;line-height:1.7}
+
+@media(max-width:768px){
+  .global-header-inner{padding:0 16px}
+  .menu-toggle{display:block}
+  .global-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#1e3a5f;flex-direction:column;align-items:stretch;padding:12px 0;gap:0;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+  .global-nav.is-open{display:flex}
+  .global-nav a{padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem}
+  .global-nav a:last-child{border-bottom:none}
+  .global-footer{padding:32px 20px 24px}
+  .global-footer-nav{gap:16px;margin-bottom:18px}
+}
+@media(max-width:600px){
+  body{font-size:15px}
+  article{padding:20px 16px 60px}
+  h1{font-size:1.25rem}
+  h2{font-size:1.1rem;padding:12px 14px}
+  h3{font-size:1rem}
+  .shortage-grid{grid-template-columns:1fr}
+}
 </style>
+<link rel="stylesheet" href="/css/sidebar.css">
 </head>
 <body>
 
-<!-- アイキャッチ画像 -->
-<div style="width:100%;overflow:hidden;line-height:0;">
-  <img src="/img/eyecatch/nenkin-guide.svg" alt="年金受給額の平均・中央値と老後不足分の解決策" style="width:100%;height:auto;display:block;">
-</div>
-
-<!-- アイキャッチ -->
-<div class="eyecatch">
-  <div class="eyecatch-inner">
-    <span class="category-badge">退職準備・年金</span>
-    <h1>年金受給額の平均・中央値と<br>老後不足分の解決策</h1>
-    <p class="eyecatch-sub">国民年金・厚生年金の実態から、積立NISAの出口戦略まで52歳が実践ベースで解説</p>
-    <div class="eyecatch-meta">
-      <div class="author-badge">52</div>
-      <div class="author-info">
-        <strong>52歳・IT業界34年が実践中</strong>
-        明日のために for-tomorrow
+<!-- グローバルヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
       </div>
-    </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/tools/ending-note/">🌸 エンディングノート</a>
+      <a href="/tools/values-map/">🧭 価値観マップ</a>
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
+      <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="main-wrap">
+<div class="page-layout">
+
+<article>
+
+  <!-- アイキャッチ画像 -->
+  <div style="margin-bottom:24px;border-radius:8px;overflow:hidden;">
+    <img src="/img/eyecatch/nenkin-guide.svg" alt="年金受給額の平均・中央値と老後不足分の解決策" style="width:100%;height:auto;display:block;">
+  </div>
+
+  <div class="article-meta">
+    <span class="cat">退職準備・年金</span>
+    <span>2026.05.28 公開</span>
+  </div>
+
+  <div class="ad-disclosure">
+    ※ 本記事にはアフィリエイト広告（楽天証券・楽天カード）が含まれます。
+  </div>
+
+  <h1>年金受給額の平均・中央値と老後不足分の解決策｜積立NISAで出口戦略まで解説</h1>
 
   <!-- リード文 -->
   <div class="lead-box">
-    「年金だけで老後は生活できるの？」「いったいいくら不足するの？」——定年まで残り8年のサラリーマンとして、この問いを数字で正面から受け止めました。この記事では、厚生労働省の最新データをもとに年金受給額の平均・中央値を整理し、老後の不足分をどう補うか。積立NISAのS&P500・オルカンを使った出口戦略まで、実践ベースで解説します。
+    「年金だけで老後は生活できるの？」「いったいいくら不足するの？」——定年まで残り8年のサラリーマンとして、この問いを数字で正面から受け止めました。この記事では、厚生労働省の最新データをもとに年金受給額の平均・中央値を整理し、老後の不足分をどう補うか。積立NISAのS&amp;P500・オルカンを使った出口戦略まで、実践ベースで解説します。
   </div>
 
   <!-- 目次 -->
@@ -478,7 +358,7 @@
       <li><a href="#heikin-jumyo">平均寿命と今後の予測</a></li>
       <li><a href="#hitsuyosei">年金だけでは足りない？不足額を計算する</a></li>
       <li><a href="#kaizen">不足分をどう補うか：積立NISAの活用</a></li>
-      <li><a href="#deguchi">出口戦略：S&P500・オルカンの取り崩し方</a></li>
+      <li><a href="#deguchi">出口戦略：S&amp;P500・オルカンの取り崩し方</a></li>
       <li><a href="#matome">まとめ：今すぐやること</a></li>
     </ol>
   </div>
@@ -715,13 +595,13 @@
   <hr class="section-divider">
 
   <!-- ⑤積立NISA活用 -->
-  <h2 id="kaiken">⑤ 不足分をどう補うか：積立NISAの活用</h2>
+  <h2 id="kaizen">⑤ 不足分をどう補うか：積立NISAの活用</h2>
 
   <p>不足分を補う手段はいくつかありますが、<strong>長期・積立・分散</strong>の観点から最も再現性が高いのが積立NISAです。</p>
 
   <div class="info-box green">
     <div class="info-box-title">✅ 積立NISAが老後対策に向いている理由</div>
-    <ul style="padding-left:18px; margin-top:8px; font-size:14px;">
+    <ul style="padding-left:18px;margin-top:8px;font-size:14px;">
       <li>運用益・売却益がすべて<strong>非課税</strong>（通常20.315%の税金が0円）</li>
       <li>月100円から始められ、積立・引き出しの柔軟性が高い</li>
       <li>年間360万円（つみたて投資枠120万＋成長投資枠240万）まで投資可能</li>
@@ -729,12 +609,12 @@
     </ul>
   </div>
 
-  <h3>S&P500 vs オルカン：どちらを選ぶ？</h3>
+  <h3>S&amp;P500 vs オルカン：どちらを選ぶ？</h3>
 
   <table class="compare-table">
     <tr>
       <th>比較項目</th>
-      <th>S&P500（米国株）</th>
+      <th>S&amp;P500（米国株）</th>
       <th>オルカン（全世界株）</th>
     </tr>
     <tr>
@@ -765,8 +645,8 @@
   </table>
 
   <div class="info-box blue">
-    <div class="info-box-title">💡 私の選択：SP500コアで積み立て中</div>
-    正直、どちらでも長期では大差ないというのが結論です。大切なのは選んだら<strong>市場の上下に動じず淡々と積み立て続けること</strong>。私はSP500を選んでいますが、迷うくらいならオルカン一択でOKです。
+    <div class="info-box-title">💡 私の選択：S&amp;P500コアで積み立て中</div>
+    正直、どちらでも長期では大差ないというのが結論です。大切なのは選んだら<strong>市場の上下に動じず淡々と積み立て続けること</strong>。私はS&amp;P500を選んでいますが、迷うくらいならオルカン一択でOKです。
   </div>
 
   <h3>積立シミュレーション（月3万円の場合）</h3>
@@ -798,12 +678,12 @@
     </tr>
   </table>
 
-  <p style="font-size:13px; color:var(--text-muted);">※複利計算による概算。税金・手数料は考慮していません。将来の運用成果を保証するものではありません。</p>
+  <p style="font-size:13px;color:var(--ink-soft);">※複利計算による概算。税金・手数料は考慮していません。将来の運用成果を保証するものではありません。</p>
 
   <hr class="section-divider">
 
   <!-- ⑥出口戦略 -->
-  <h2 id="deguchi">⑥ 出口戦略：S&P500・オルカンの取り崩し方</h2>
+  <h2 id="deguchi">⑥ 出口戦略：S&amp;P500・オルカンの取り崩し方</h2>
 
   <p>積み立てた資産をいつ・どう使うかが「出口戦略」です。老後の収入源として活用するためには、<strong>資産を減らしすぎない取り崩し方</strong>を選ぶことが重要です。</p>
 
@@ -830,8 +710,8 @@
 
   <div class="info-box orange">
     <div class="info-box-title">📋 実践的な出口設計：年金と組み合わせる</div>
-    <p style="font-size:14px; margin-bottom:12px;">老後の収入設計は「年金＋NISA取り崩し」の組み合わせが基本です。</p>
-    <table class="compare-table" style="margin:0; font-size:13px;">
+    <p style="font-size:14px;margin-bottom:12px;">老後の収入設計は「年金＋NISA取り崩し」の組み合わせが基本です。</p>
+    <table class="compare-table" style="margin:0;font-size:13px;">
       <tr>
         <th>例：夫婦世帯 月の生活費25万円</th>
         <th>金額</th>
@@ -849,7 +729,7 @@
         <td class="highlight-cell">約27万円</td>
       </tr>
     </table>
-    <p style="font-size:13px; color:var(--warning); margin-top:10px; margin-bottom:0;">→ 2,000万円の資産があれば、月5万円の不足分を30年以上補填できる計算になります。</p>
+    <p style="font-size:13px;color:#a05000;margin-top:10px;margin-bottom:0;">→ 2,000万円の資産があれば、月5万円の不足分を30年以上補填できる計算になります。</p>
   </div>
 
   <h3>繰り下げ受給とNISAの連携戦略</h3>
@@ -876,7 +756,7 @@
       </div>
       <div class="check-item">
         <div class="check-icon">4</div>
-        <div><strong>積立NISAでS&P500かオルカンを始める</strong><br>迷ったらオルカン一択。まず月1万円から始めて慣れることが大事。</div>
+        <div><strong>積立NISAでS&amp;P500かオルカンを始める</strong><br>迷ったらオルカン一択。まず月1万円から始めて慣れることが大事。</div>
       </div>
       <div class="check-item">
         <div class="check-icon">5</div>
@@ -884,9 +764,9 @@
       </div>
     </div>
 
-    <div class="info-box green" style="margin-top:20px; margin-bottom:0;">
+    <div class="info-box green" style="margin-top:20px;margin-bottom:0;">
       <div class="info-box-title">💬 52歳の私からひとこと</div>
-      「老後が不安」と漠然と思っているだけでは何も変わりません。数字にした瞬間、やるべきことが見えてきます。私も2025年からSP500積み立てを始めて、その安心感は想像以上でした。年金受給額の平均を知ることは、怖くなるためではなく、<strong>行動するための第一歩</strong>です。
+      「老後が不安」と漠然と思っているだけでは何も変わりません。数字にした瞬間、やるべきことが見えてきます。私も2025年からS&amp;P500積み立てを始めて、その安心感は想像以上でした。年金受給額の平均を知ることは、怖くなるためではなく、<strong>行動するための第一歩</strong>です。
     </div>
   </div>
 
@@ -894,7 +774,7 @@
   <div class="cta-box">
     <h3>🛠 無料ツール：価値観マップで老後の「なぜ」を見つける</h3>
     <p>お金の目標は「なぜやるか」が明確でないと続きません。当サイトの無料ツールで自分の価値観を整理してみてください。</p>
-    <a href="https://for-tomorrow2026.com/" class="cta-btn">無料で使ってみる</a>
+    <a href="https://for-tomorrow2026.com/tools/values-map/" class="cta-btn">無料で使ってみる</a>
   </div>
 
   <div class="source">
@@ -906,6 +786,72 @@
     ・トリニティ大学研究（1998年）4%ルールの理論的根拠
   </div>
 
-</div><!-- /main-wrap -->
+  <div class="article-footer">
+    <div class="disclaimer">※本記事は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。税制・制度情報は最新の公式情報に基づき、変更される場合があります。</div>
+  </div>
+
+</article>
+
+<aside class="sidebar">
+  <div class="sb-card">
+    <div class="sb-ttl">カテゴリ</div>
+    <ul class="sb-cats">
+      <li><a href="/articles/nisa/">📈 NISA入門</a></li>
+      <li><a href="/articles/kakei/">💰 家計改善</a></li>
+      <li><a href="/articles/taishoku/">🏢 退職準備</a></li>
+    </ul>
+  </div>
+
+  <div class="sb-card sb-ad">
+    <div class="sb-ad-label">PR</div>
+    <p class="sb-ad-ttl">📈 NISAを始めるなら</p>
+    <p class="sb-ad-body">楽天カード積立でポイントが貯まる<strong>楽天証券</strong>。私も10年以上使っています。</p>
+    <a href="https://ad2.trafficgate.net/t/r/1190/738/317672_396985" target="_blank" rel="nofollow noopener sponsored" class="sb-cta">無料で口座開設 →</a>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-ttl">よく読まれる記事</div>
+    <ul class="sb-posts">
+      <li><a href="/articles/nisa/what-is-nisa/">新NISAとは？旧NISAとの違いをわかりやすく解説</a></li>
+      <li><a href="/articles/nisa/nisa-account-opening/">NISA口座の開き方 ステップ別ガイド</a></li>
+      <li><a href="/articles/taishoku/retirement-simulation-50s/">定年まであと8年！老後シミュレーション</a></li>
+      <li><a href="/articles/kakei/koteihi-sakugen/">固定費を削減して家計を改善する方法</a></li>
+      <li><a href="/articles/taishoku/nenkin-qa-52sai/">年金は何歳からもらうのが得？</a></li>
+    </ul>
+  </div>
+
+  <div class="sb-card sb-ad">
+    <div class="sb-ad-label">PR</div>
+    <p class="sb-ad-ttl">💳 積立に使うクレカ</p>
+    <p class="sb-ad-body">年会費永年無料。NISA積立でポイント還元の<strong>楽天カード</strong>。</p>
+    <a href="https://ad2.trafficgate.net/t/r/579/1396/317672_396985" target="_blank" rel="nofollow noopener sponsored" class="sb-cta">無料で申し込む →</a>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-ttl">筆者について</div>
+    <p class="sb-body">52歳・IT業界34年のサラリーマン管理職。老後を見据えてNISA・家計改善を実践中。FP3級勉強中。</p>
+    <a href="/pages/about.html" class="sb-link">→ プロフィール詳細</a>
+  </div>
+</aside>
+
+</div><!-- /.page-layout -->
+
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      &copy; 2026 明日のために for-tomorrow
+    </div>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
