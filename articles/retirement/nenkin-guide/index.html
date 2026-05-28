@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年金受給額の平均・中央値と老後不足分の解決策｜積立NISAで出口戦略まで解説 | 明日のために for-tomorrow</title>
+<meta name="description" content="国民年金・厚生年金の平均・中央値を年額・月額で比較。平均寿命・将来予測も踏まえ、老後不足分をどう補うか。S&P500・オルカンの出口戦略まで52歳IT業界が実践ベースで解説。">
+<meta name="keywords" content="年金,老後,国民年金,厚生年金,平均受給額,中央値,老後不足,積立NISA,S&P500,オルカン,出口戦略,52歳">
+<link rel="canonical" href="https://for-tomorrow2026.com/articles/retirement/nenkin-guide/">
+
+<!-- OGP -->
+<meta property="og:title" content="年金受給額の平均・中央値と老後不足分の解決策｜積立NISAで出口戦略まで解説">
+<meta property="og:description" content="国民年金・厚生年金の平均・中央値を年額・月額で比較。平均寿命・将来予測も踏まえ、老後不足分をどう補うか。S&P500・オルカンの出口戦略まで52歳IT業界が実践ベースで解説。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://for-tomorrow2026.com/articles/retirement/nenkin-guide/">
+<meta property="og:image" content="https://for-tomorrow2026.com/img/eyecatch/nenkin-guide.svg">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "年金受給額の平均・中央値と老後不足分の解決策｜積立NISAで出口戦略まで解説",
+  "description": "国民年金・厚生年金の平均・中央値を年額・月額で比較。老後不足分をどう補うか。S&P500・オルカンの出口戦略まで解説。",
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "author": {
+    "@type": "Person",
+    "name": "明日のために for-tomorrow 運営者"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "明日のために for-tomorrow",
+    "url": "https://for-tomorrow2026.com/"
+  },
+  "image": "https://for-tomorrow2026.com/img/eyecatch/nenkin-guide.svg"
+}
+</script>
+
+<style>
+  :root {
+    --primary: #e8793a;
+    --primary-light: #f5a97a;
+    --dark: #1a2a3a;
+    --text: #2d3748;
+    --text-muted: #718096;
+    --bg: #fff9f5;
+    --bg-card: #ffffff;
+    --border: #e8d5c4;
+    --success: #2d8a5e;
+    --warning: #c05621;
+    --info: #2b6cb0;
+    --shadow: 0 2px 16px rgba(232,121,58,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* アイキャッチ */
+  .eyecatch {
+    background: linear-gradient(135deg, #1a2a3a 60%, #2d4a6a);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .eyecatch-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 24px 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .eyecatch::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(232,121,58,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .category-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .eyecatch h1 {
+    color: #fff;
+    font-size: clamp(22px, 5vw, 34px);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .eyecatch-sub {
+    color: #a0b8cc;
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .eyecatch-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-badge {
+    width: 40px; height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .author-info { font-size: 13px; color: #8aa0b4; }
+  .author-info strong { color: #c0d4e4; display: block; }
+
+  /* メインレイアウト */
+  .main-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* リード文 */
+  .lead-box {
+    background: #fff;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-size: 15px;
+    box-shadow: var(--shadow);
+  }
+
+  /* 目次 */
+  .toc {
+    background: #f7f0e8;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+  .toc-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: var(--dark); text-decoration: none; font-size: 14px; }
+  .toc a:hover { color: var(--primary); }
+
+  /* 見出し */
+  h2 {
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: 700;
+    color: var(--dark);
+    margin: 52px 0 20px;
+    padding: 14px 20px;
+    background: linear-gradient(90deg, #fff3e8 0%, transparent 100%);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    line-height: 1.4;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  p { margin-bottom: 16px; }
+
+  /* データカード */
+  .data-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .data-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .data-card .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .data-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+  }
+  .data-card .sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* 比較テーブル */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .compare-table th {
+    background: var(--dark);
+    color: #fff;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .compare-table th:first-child { text-align: left; }
+  .compare-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0e8de;
+    text-align: center;
+  }
+  .compare-table td:first-child { text-align: left; font-weight: 600; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #fdf9f5; }
+  .highlight-cell { color: var(--primary); font-weight: 700; }
+  .muted-cell { color: var(--text-muted); }
+
+  /* インフォボックス */
+  .info-box {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .info-box.orange {
+    background: #fff3e8;
+    border: 1px solid #f5c9a0;
+  }
+  .info-box.blue {
+    background: #ebf4ff;
+    border: 1px solid #bee3f8;
+  }
+  .info-box.green {
+    background: #e6f4ed;
+    border: 1px solid #9ed5b8;
+  }
+  .info-box.red {
+    background: #fff5f5;
+    border: 1px solid #fbb6b6;
+  }
+  .info-box-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* 不足額シミュレーション */
+  .shortage-box {
+    background: linear-gradient(135deg, #1a2a3a, #2d4a6a);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+  .shortage-box h3 {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.2);
+    margin-top: 0;
+  }
+  .shortage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media(max-width: 480px) {
+    .shortage-grid { grid-template-columns: 1fr; }
+  }
+  .shortage-item {
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .shortage-item .s-label { font-size: 12px; color: #8aa0b4; margin-bottom: 6px; }
+  .shortage-item .s-val { font-size: 24px; font-weight: 700; color: var(--primary-light); }
+  .shortage-item .s-sub { font-size: 11px; color: #8aa0b4; margin-top: 4px; }
+
+  /* 出口戦略カード */
+  .strategy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .strategy-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .strategy-card .s-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .strategy-card .s-badge {
+    background: var(--primary);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .strategy-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+  /* 実践チェックリスト */
+  .checklist {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0e8de;
+    font-size: 14px;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-icon {
+    width: 22px; height: 22px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* まとめ */
+  .summary-box {
+    background: linear-gradient(135deg, #fff3e8, #fff9f5);
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    padding: 28px;
+    margin: 40px 0;
+  }
+  .summary-box h2 {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 0 16px;
+    font-size: 20px;
+  }
+
+  /* 出典 */
+  .source {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #f7f0e8;
+    border-radius: 6px;
+  }
+
+  /* CTA */
+  .cta-box {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .cta-box h3 { color: #fff; border: none; font-size: 18px; margin: 0 0 8px; }
+  .cta-box p { color: #8aa0b4; font-size: 14px; margin-bottom: 20px; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 40px 0;
+  }
+
+  .tag { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+
+  @media(max-width: 600px) {
+    .eyecatch-inner { padding: 40px 16px 32px; }
+    .main-wrap { padding: 0 12px 60px; }
+    .shortage-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- アイキャッチ -->
+<div class="eyecatch">
+  <div class="eyecatch-inner">
+    <span class="category-badge">退職準備・年金</span>
+    <h1>年金受給額の平均・中央値と<br>老後不足分の解決策</h1>
+    <p class="eyecatch-sub">国民年金・厚生年金の実態から、積立NISAの出口戦略まで52歳が実践ベースで解説</p>
+    <div class="eyecatch-meta">
+      <div class="author-badge">52</div>
+      <div class="author-info">
+        <strong>52歳・IT業界34年が実践中</strong>
+        明日のために for-tomorrow
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <!-- リード文 -->
+  <div class="lead-box">
+    「年金だけで老後は生活できるの？」「いったいいくら不足するの？」——定年まで残り8年のサラリーマンとして、この問いを数字で正面から受け止めました。この記事では、厚生労働省の最新データをもとに年金受給額の平均・中央値を整理し、老後の不足分をどう補うか。積立NISAのS&P500・オルカンを使った出口戦略まで、実践ベースで解説します。
+  </div>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <div class="toc-title">📋 この記事の目次</div>
+    <ol>
+      <li><a href="#kokumin">国民年金のみ：平均・中央値と受給開始年齢</a></li>
+      <li><a href="#kousei">厚生年金あり：平均・中央値と男女差</a></li>
+      <li><a href="#heikin-jumyo">平均寿命と今後の予測</a></li>
+      <li><a href="#hitsuyosei">年金だけでは足りない？不足額を計算する</a></li>
+      <li><a href="#kaizen">不足分をどう補うか：積立NISAの活用</a></li>
+      <li><a href="#deguchi">出口戦略：S&P500・オルカンの取り崩し方</a></li>
+      <li><a href="#matome">まとめ：今すぐやること</a></li>
+    </ol>
+  </div>
+
+  <!-- ①国民年金 -->
+  <h2 id="kokumin">① 国民年金のみ：平均・中央値と受給開始年齢</h2>
+
+  <p>国民年金は、自営業・フリーランス・専業主婦（夫）など、厚生年金に加入していない人が受け取る年金です。受給額は「納付月数」だけで決まるため、シンプルですが上限があります。</p>
+
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="label">平均受給額（月額・全体）</div>
+      <div class="value">5.8万円</div>
+      <div class="sub">男性 6.0万円 ／ 女性 5.6万円</div>
+    </div>
+    <div class="data-card">
+      <div class="label">満額（2025年度・月額）</div>
+      <div class="value">6.9万円</div>
+      <div class="sub">年額 831,700円（68歳以下）</div>
+    </div>
+    <div class="data-card">
+      <div class="label">中央値（月額）</div>
+      <div class="value">6万円台</div>
+      <div class="sub">最多分布は6〜7万円未満</div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th>区分</th>
+      <th>月額</th>
+      <th>年額</th>
+      <th>備考</th>
+    </tr>
+    <tr>
+      <td>満額（2025年度）</td>
+      <td class="highlight-cell">69,308円</td>
+      <td class="highlight-cell">831,700円</td>
+      <td>40年間全納が条件</td>
+    </tr>
+    <tr>
+      <td>平均（全体）</td>
+      <td>57,584円</td>
+      <td>690,900円</td>
+      <td>令和5年度実績</td>
+    </tr>
+    <tr>
+      <td>平均（男性）</td>
+      <td>59,965円</td>
+      <td>719,580円</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>平均（女性）</td>
+      <td>55,777円</td>
+      <td>669,324円</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <div class="source">出典：厚生労働省「令和5年度 厚生年金保険・国民年金事業の概況」</div>
+
+  <h3>受給開始年齢と繰り上げ・繰り下げ</h3>
+  <p>原則は<strong>65歳から</strong>の受給です。60歳まで早める「繰り上げ」は最大24%減額、75歳まで遅らせる「繰り下げ」は最大84%増額になります。国民年金だけの場合、繰り下げの効果が特に大きくなります。</p>
+
+  <div class="info-box orange">
+    <div class="info-box-title">⚡ 繰り下げ受給のポイント</div>
+    65歳→70歳に繰り下げると受給額は<strong>42%増</strong>。月6.9万円→9.8万円に。ただし70歳まで生きることが前提。平均寿命を考えると<strong>男性は68〜69歳、女性は70歳前後</strong>が損益分岐点の目安です。
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ②厚生年金 -->
+  <h2 id="kousei">② 厚生年金あり：平均・中央値と男女差</h2>
+
+  <p>厚生年金は国民年金（基礎年金）に上乗せされる形で受け取ります。受給額は<strong>現役時代の年収×加入期間</strong>によって決まるため、個人差が非常に大きいのが特徴です。</p>
+
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="label">平均受給額（月額・全体）</div>
+      <div class="value">14.6万円</div>
+      <div class="sub">国民年金部分を含む</div>
+    </div>
+    <div class="data-card">
+      <div class="label">平均（男性）</div>
+      <div class="value">16.7万円</div>
+      <div class="sub">年額 約200万円</div>
+    </div>
+    <div class="data-card">
+      <div class="label">平均（女性）</div>
+      <div class="value">10.7万円</div>
+      <div class="sub">男女差 約6万円</div>
+    </div>
+  </div>
+
+  <h3>中央値（令和6年度データ）</h3>
+
+  <table class="compare-table">
+    <tr>
+      <th>区分</th>
+      <th>中央値（月額）</th>
+      <th>平均（月額）</th>
+      <th>年額換算（平均）</th>
+    </tr>
+    <tr>
+      <td>全体</td>
+      <td class="highlight-cell">14〜15万円未満</td>
+      <td>146,429円</td>
+      <td>175.7万円</td>
+    </tr>
+    <tr>
+      <td>男性</td>
+      <td class="highlight-cell">17〜18万円未満</td>
+      <td>166,606円</td>
+      <td>199.9万円</td>
+    </tr>
+    <tr>
+      <td>女性</td>
+      <td class="highlight-cell">10〜11万円未満</td>
+      <td>107,200円</td>
+      <td>128.6万円</td>
+    </tr>
+  </table>
+
+  <div class="source">出典：厚生労働省「令和6年度 厚生年金保険・国民年金事業の概況」</div>
+
+  <div class="info-box blue">
+    <div class="info-box-title">📊 平均と中央値はほぼ一致</div>
+    厚生年金は平均と中央値の差が小さく、データの分布が比較的均一です。ただし分布幅は広く、<strong>9〜12万円台に最も多くの受給者が集中</strong>しています。15万円以上もらえるのは全体の約4割程度です。
+  </div>
+
+  <h3>モデルケース（夫婦世帯）</h3>
+  <p>夫が会社員・妻が専業主婦の場合、2025年度のモデルケースでは<strong>夫婦合計で月232,784円（約23.3万円）</strong>の受給が見込まれています。</p>
+
+  <hr class="section-divider">
+
+  <!-- ③平均寿命 -->
+  <h2 id="heikin-jumyo">③ 平均寿命と今後の予測</h2>
+
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="label">男性平均寿命（2024年）</div>
+      <div class="value">81.1歳</div>
+      <div class="sub">前年横ばい（厚労省）</div>
+    </div>
+    <div class="data-card">
+      <div class="label">女性平均寿命（2024年）</div>
+      <div class="value">87.1歳</div>
+      <div class="sub">40年連続世界1位</div>
+    </div>
+    <div class="data-card">
+      <div class="label">将来推計（男性 2070年）</div>
+      <div class="value">85.9歳</div>
+      <div class="sub">女性は91.9歳へ</div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th>年次</th>
+      <th>男性</th>
+      <th>女性</th>
+      <th>出典・備考</th>
+    </tr>
+    <tr>
+      <td>2024年（実績）</td>
+      <td class="highlight-cell">81.09歳</td>
+      <td class="highlight-cell">87.13歳</td>
+      <td>厚労省 簡易生命表</td>
+    </tr>
+    <tr>
+      <td>2040年（推計）</td>
+      <td>83.3歳</td>
+      <td>89.1歳</td>
+      <td>国立社会保障・人口問題研究所</td>
+    </tr>
+    <tr>
+      <td>2070年（推計）</td>
+      <td>85.9歳</td>
+      <td>91.9歳</td>
+      <td>死亡中位仮定</td>
+    </tr>
+  </table>
+
+  <div class="info-box orange">
+    <div class="info-box-title">⚠️ 「平均寿命」は過小評価に注意</div>
+    平均寿命は「0歳時点」の余命です。<strong>65歳時点でさらに生きる年数（平均余命）</strong>は、男性約20年・女性約25年。つまり65歳で定年を迎えた場合、男性は85歳・女性は90歳まで生活費が必要になる計算です。
+  </div>
+
+  <h3>健康寿命との差に注目</h3>
+  <p>2022年データでは健康寿命は<strong>男性72.6歳・女性75.5歳</strong>。平均寿命との差は男性8.5年・女性11.6年。この「介護が必要な期間」の費用も老後資金に組み込む必要があります。</p>
+
+  <hr class="section-divider">
+
+  <!-- ④不足額 -->
+  <h2 id="hitsuyosei">④ 年金だけでは足りない？不足額を計算する</h2>
+
+  <p>総務省「家計調査2024年」によると、65歳以上の無職世帯の家計収支は以下の通りです。</p>
+
+  <div class="shortage-box">
+    <h3>💰 毎月の収支シミュレーション（2024年実績）</h3>
+    <div class="shortage-grid">
+      <div class="shortage-item">
+        <div class="s-label">夫婦世帯（65歳以上無職）</div>
+        <div class="s-val">▲3.4万円/月</div>
+        <div class="s-sub">収入22.5万円 vs 支出25.7万円</div>
+      </div>
+      <div class="shortage-item">
+        <div class="s-label">単身世帯（65歳以上無職）</div>
+        <div class="s-val">▲2.8万円/月</div>
+        <div class="s-sub">収入12.1万円 vs 支出14.9万円</div>
+      </div>
+      <div class="shortage-item">
+        <div class="s-label">夫婦30年間の累計不足額</div>
+        <div class="s-val">▲1,224万円</div>
+        <div class="s-sub">3.4万円 × 360ヶ月</div>
+      </div>
+      <div class="shortage-item">
+        <div class="s-label">単身30年間の累計不足額</div>
+        <div class="s-val">▲1,008万円</div>
+        <div class="s-sub">2.8万円 × 360ヶ月</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box red">
+    <div class="info-box-title">🏠 賃貸の場合は要注意</div>
+    上記の家計調査の住居費は夫婦で月<strong>約1.6万円</strong>（持ち家前提）。賃貸の場合は差額を上乗せする必要があります。都市部の賃貸で月7〜8万円なら、<strong>不足額は月9〜10万円超</strong>になることも。
+  </div>
+
+  <h3>国民年金のみの場合の不足額</h3>
+  <p>厚生年金がなく国民年金のみの夫婦（自営業など）の場合、月の収入は満額でも約13.8万円（2人分）。夫婦の生活費25.7万円との差は<strong>月約12万円の不足</strong>。30年で4,320万円もの資金が必要になります。</p>
+
+  <hr class="section-divider">
+
+  <!-- ⑤積立NISA活用 -->
+  <h2 id="kaiken">⑤ 不足分をどう補うか：積立NISAの活用</h2>
+
+  <p>不足分を補う手段はいくつかありますが、<strong>長期・積立・分散</strong>の観点から最も再現性が高いのが積立NISAです。</p>
+
+  <div class="info-box green">
+    <div class="info-box-title">✅ 積立NISAが老後対策に向いている理由</div>
+    <ul style="padding-left:18px; margin-top:8px; font-size:14px;">
+      <li>運用益・売却益がすべて<strong>非課税</strong>（通常20.315%の税金が0円）</li>
+      <li>月100円から始められ、積立・引き出しの柔軟性が高い</li>
+      <li>年間360万円（つみたて投資枠120万＋成長投資枠240万）まで投資可能</li>
+      <li>インデックスファンドなら低コストで世界分散投資ができる</li>
+    </ul>
+  </div>
+
+  <h3>S&P500 vs オルカン：どちらを選ぶ？</h3>
+
+  <table class="compare-table">
+    <tr>
+      <th>比較項目</th>
+      <th>S&P500（米国株）</th>
+      <th>オルカン（全世界株）</th>
+    </tr>
+    <tr>
+      <td>投資対象</td>
+      <td>米国主要500社</td>
+      <td>世界約50カ国3,000社超</td>
+    </tr>
+    <tr>
+      <td>米国比率</td>
+      <td class="highlight-cell">ほぼ100%</td>
+      <td>約63%（2025年時点）</td>
+    </tr>
+    <tr>
+      <td>過去10年リターン</td>
+      <td class="highlight-cell">年率 約12〜14%</td>
+      <td>年率 約10〜12%</td>
+    </tr>
+    <tr>
+      <td>リスク分散</td>
+      <td class="muted-cell">米国集中リスクあり</td>
+      <td class="highlight-cell">より幅広く分散</td>
+    </tr>
+    <tr>
+      <td>おすすめな人</td>
+      <td>米国経済を信頼できる人</td>
+      <td>迷ったらこちら・初心者</td>
+    </tr>
+  </table>
+
+  <div class="info-box blue">
+    <div class="info-box-title">💡 私の選択：SP500コアで積み立て中</div>
+    正直、どちらでも長期では大差ないというのが結論です。大切なのは選んだら<strong>市場の上下に動じず淡々と積み立て続けること</strong>。私はSP500を選んでいますが、迷うくらいならオルカン一択でOKです。
+  </div>
+
+  <h3>積立シミュレーション（月3万円の場合）</h3>
+
+  <table class="compare-table">
+    <tr>
+      <th>積立期間</th>
+      <th>元本</th>
+      <th>年率5%の場合</th>
+      <th>年率7%の場合</th>
+    </tr>
+    <tr>
+      <td>10年</td>
+      <td>360万円</td>
+      <td class="highlight-cell">約465万円</td>
+      <td class="highlight-cell">約497万円</td>
+    </tr>
+    <tr>
+      <td>15年</td>
+      <td>540万円</td>
+      <td class="highlight-cell">約796万円</td>
+      <td class="highlight-cell">約913万円</td>
+    </tr>
+    <tr>
+      <td>20年</td>
+      <td>720万円</td>
+      <td class="highlight-cell">約1,233万円</td>
+      <td class="highlight-cell">約1,512万円</td>
+    </tr>
+  </table>
+
+  <p style="font-size:13px; color:var(--text-muted);">※複利計算による概算。税金・手数料は考慮していません。将来の運用成果を保証するものではありません。</p>
+
+  <hr class="section-divider">
+
+  <!-- ⑥出口戦略 -->
+  <h2 id="deguchi">⑥ 出口戦略：S&P500・オルカンの取り崩し方</h2>
+
+  <p>積み立てた資産をいつ・どう使うかが「出口戦略」です。老後の収入源として活用するためには、<strong>資産を減らしすぎない取り崩し方</strong>を選ぶことが重要です。</p>
+
+  <h3>代表的な4つの出口戦略</h3>
+
+  <div class="strategy-cards">
+    <div class="strategy-card">
+      <div class="s-title">①4%ルール（定率取り崩し）<span class="s-badge">王道</span></div>
+      <p>毎年、保有資産の4%を取り崩す方法。米国トリニティ大学の研究で「30年以上資産が枯渇しない確率が98%以上」と実証。2,000万円なら年80万円・月6.7万円を取り崩せる計算。</p>
+    </div>
+    <div class="strategy-card">
+      <div class="s-title">②3%ルール（日本版・保守的）<span class="s-badge">安全重視</span></div>
+      <p>4%ルールはアメリカの経済成長を前提としているため、日本では3%が安全との意見も多い。資産2,000万円なら年60万円（月5万円）。不足分の補填として使いやすい水準。</p>
+    </div>
+    <div class="strategy-card">
+      <div class="s-title">③定額取り崩し</div>
+      <p>毎月一定額を売却する。生活費の計算が立てやすく管理しやすい反面、相場下落時に多くの口数を売ることになるデメリットも。年金の補填分だけ取り崩す使い方が現実的。</p>
+    </div>
+    <div class="strategy-card">
+      <div class="s-title">④運用しながら取り崩す</div>
+      <p>全額引き出さず、一部を運用し続けながら不足分だけ取り崩す方法。資産寿命が最も長くなりやすく、インフレにも対応しやすい。ただし市場変動に一定の耐性が必要。</p>
+    </div>
+  </div>
+
+  <div class="info-box orange">
+    <div class="info-box-title">📋 実践的な出口設計：年金と組み合わせる</div>
+    <p style="font-size:14px; margin-bottom:12px;">老後の収入設計は「年金＋NISA取り崩し」の組み合わせが基本です。</p>
+    <table class="compare-table" style="margin:0; font-size:13px;">
+      <tr>
+        <th>例：夫婦世帯 月の生活費25万円</th>
+        <th>金額</th>
+      </tr>
+      <tr>
+        <td>厚生年金（夫）＋国民年金（妻）</td>
+        <td class="highlight-cell">約22万円</td>
+      </tr>
+      <tr>
+        <td>NISAから補填（3%取り崩し・2,000万円の場合）</td>
+        <td class="highlight-cell">約5万円/月</td>
+      </tr>
+      <tr>
+        <td>合計</td>
+        <td class="highlight-cell">約27万円</td>
+      </tr>
+    </table>
+    <p style="font-size:13px; color:var(--warning); margin-top:10px; margin-bottom:0;">→ 2,000万円の資産があれば、月5万円の不足分を30年以上補填できる計算になります。</p>
+  </div>
+
+  <h3>繰り下げ受給とNISAの連携戦略</h3>
+  <p>年金の繰り下げ（65歳→70歳）の5年間の生活費をNISA資産で賄い、70歳以降は増額した年金（約42%増）を受け取る——という設計も有力です。年金を70歳まで繰り下げると、その後の損益分岐点を超えれば一生プラスになります。</p>
+
+  <hr class="section-divider">
+
+  <!-- まとめ -->
+  <div class="summary-box" id="matome">
+    <h2>📌 まとめ：今すぐやること</h2>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-icon">1</div>
+        <div><strong>ねんきん定期便で自分の受給額を確認する</strong><br>毎年誕生日前に届く。スマホで「ねんきんネット」からも確認可能。</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">2</div>
+        <div><strong>老後の生活費を概算する</strong><br>夫婦・単身、持ち家・賃貸で大きく変わる。まずは月25〜30万円を目安に。</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">3</div>
+        <div><strong>不足分を計算して必要な積立額を逆算する</strong><br>「月3万円不足×20年＝720万円」のように具体的な数字にすると動ける。</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">4</div>
+        <div><strong>積立NISAでS&P500かオルカンを始める</strong><br>迷ったらオルカン一択。まず月1万円から始めて慣れることが大事。</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">5</div>
+        <div><strong>年金の繰り下げタイミングを家族と話し合う</strong><br>健康状態・家計・配偶者の年金を総合的に考えて判断する。</div>
+      </div>
+    </div>
+
+    <div class="info-box green" style="margin-top:20px; margin-bottom:0;">
+      <div class="info-box-title">💬 52歳の私からひとこと</div>
+      「老後が不安」と漠然と思っているだけでは何も変わりません。数字にした瞬間、やるべきことが見えてきます。私も2025年からSP500積み立てを始めて、その安心感は想像以上でした。年金受給額の平均を知ることは、怖くなるためではなく、<strong>行動するための第一歩</strong>です。
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>🛠 無料ツール：価値観マップで老後の「なぜ」を見つける</h3>
+    <p>お金の目標は「なぜやるか」が明確でないと続きません。当サイトの無料ツールで自分の価値観を整理してみてください。</p>
+    <a href="https://for-tomorrow2026.com/" class="cta-btn">無料で使ってみる</a>
+  </div>
+
+  <div class="source">
+    <strong>主な参考資料</strong><br>
+    ・厚生労働省「令和5・6年度 厚生年金保険・国民年金事業の概況」<br>
+    ・厚生労働省「令和6(2024)年簡易生命表の概況」<br>
+    ・総務省統計局「家計調査報告（家計収支編）2024年（令和6年）平均結果の概要」<br>
+    ・国立社会保障・人口問題研究所「日本の将来推計人口（令和5年推計）」<br>
+    ・トリニティ大学研究（1998年）4%ルールの理論的根拠
+  </div>
+
+</div><!-- /main-wrap -->
+</body>
+</html>
