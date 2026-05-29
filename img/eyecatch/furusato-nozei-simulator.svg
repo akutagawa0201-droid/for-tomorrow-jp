@@ -1,0 +1,23 @@
+<svg width="100%" viewBox="0 0 750 470" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>ふるさと納税 控除上限額シミュレーター</title>
+  <desc>年収と家族構成を入力して控除上限額を計算できる無料ツールのアイキャッチ画像</desc>
+  <rect width="750" height="470" fill="#fff9f0" rx="0"/>
+  <rect x="0" y="0" width="750" height="8" fill="#e8793a"/>
+  <circle cx="620" cy="300" r="190" fill="#fde8d8" opacity="0.45"/>
+  <circle cx="100" cy="100" r="90" fill="#fde8d8" opacity="0.3"/>
+  <rect x="40" y="36" width="180" height="32" fill="#0a6e5b" rx="16"/>
+  <text x="130" y="57" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">無料ツール・家計改善</text>
+  <text x="56" y="120" font-family="sans-serif" font-size="34" font-weight="700" fill="#1a2a3a">ふるさと納税</text>
+  <text x="56" y="166" font-family="sans-serif" font-size="34" font-weight="700" fill="#e8793a">控除上限額シミュレーター</text>
+  <text x="56" y="210" font-family="sans-serif" font-size="18" fill="#5f5e5a">年収と家族構成を入れるだけ。今年の上限額がすぐわかる</text>
+  <text x="56" y="248" font-family="sans-serif" font-size="13" fill="#888780">📱 スマホ対応 ｜ 🔒 入力データは外部に送信されません</text>
+  <rect x="56" y="270" width="520" height="1" fill="#e8d8c8"/>
+  <rect x="56" y="288" width="36" height="36" fill="#fde8d8" rx="18"/>
+  <text x="74" y="311" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#c8522a">52</text>
+  <text x="104" y="302" font-family="sans-serif" font-size="13" fill="#5f5e5a">52歳・IT業界34年が実践中</text>
+  <text x="104" y="320" font-family="sans-serif" font-size="12" fill="#888780">明日のために for-tomorrow</text>
+  <rect x="490" y="280" width="164" height="48" fill="#0a6e5b" rx="8"/>
+  <text x="572" y="309" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">無料で使う</text>
+  <rect x="0" y="410" width="750" height="40" fill="#fff3e8"/>
+  <text x="375" y="436" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#c8a078">for-tomorrow2026.com ｜ 40・50代の退職準備・家計改善・NISA</text>
+</svg>
