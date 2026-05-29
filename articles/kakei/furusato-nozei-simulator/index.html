@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ふるさと納税 控除上限額シミュレーター｜年収と家族構成を入れるだけ無料計算 | 明日のために for-tomorrow</title>
-<meta name="description" content="ふるさと納税の控除上限額を無料で簡単シミュレーション。年収と家族構成を入れるだけの簡易版と、社会保険料や各種控除も入力できる詳細版を用意。スマホ対応・入力データは外部送信なしのプライバシー保護設計。">
-<meta name="keywords" content="ふるさと納税,控除上限額,シミュレーター,計算,年収,限度額,無料,2026年,40代,50代">
+<title>ふるさと納税 控除上限額シミュレーター｜年収・家族構成をタップで簡単計算【無料】 | 明日のために for-tomorrow</title>
+<meta name="description" content="ふるさと納税の控除上限額を無料でかんたんシミュレーション。年収を万単位で入力し、家族構成・扶養家族をタップで選ぶだけ。年齢区分別の扶養にも対応。スマホ対応・入力データは外部送信なしのプライバシー保護設計。">
+<meta name="keywords" content="ふるさと納税,控除上限額,シミュレーター,計算,年収,限度額,扶養,無料,2026年,40代,50代">
 <link rel="canonical" href="https://for-tomorrow2026.com/articles/kakei/furusato-nozei-simulator/">
 
 <!-- OGP -->
-<meta property="og:title" content="ふるさと納税 控除上限額シミュレーター｜年収と家族構成を入れるだけ無料計算">
-<meta property="og:description" content="ふるさと納税の控除上限額を無料で簡単シミュレーション。簡易版と詳細版を用意。スマホ対応・入力データは外部送信なし。">
+<meta property="og:title" content="ふるさと納税 控除上限額シミュレーター｜年収・家族構成をタップで簡単計算【無料】">
+<meta property="og:description" content="年収を万単位で入力し、家族構成・扶養家族をタップで選ぶだけ。年齢区分別の扶養にも対応。スマホ対応・入力データは外部送信なし。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://for-tomorrow2026.com/articles/kakei/furusato-nozei-simulator/">
 <meta property="og:image" content="https://for-tomorrow2026.com/img/eyecatch/furusato-nozei-simulator.svg">
@@ -21,8 +21,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "ふるさと納税 控除上限額シミュレーター｜年収と家族構成を入れるだけ無料計算",
-  "description": "ふるさと納税の控除上限額を無料で簡単シミュレーション。簡易版と詳細版を用意。スマホ対応・入力データは外部送信なし。",
+  "headline": "ふるさと納税 控除上限額シミュレーター｜年収・家族構成をタップで簡単計算",
+  "description": "年収を万単位で入力し、家族構成・扶養家族をタップで選ぶだけ。年齢区分別の扶養にも対応。スマホ対応・入力データは外部送信なし。",
   "datePublished": "2026-05-29",
   "dateModified": "2026-05-29",
   "author": { "@type": "Person", "name": "明日のために for-tomorrow 運営者" },
@@ -84,37 +84,56 @@ ul,ol{padding-left:1.5em;margin-bottom:1.3em}
 li{margin-bottom:.6em}
 
 /* === ツール本体 === */
-.tool-wrap{background:var(--paper);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;margin:24px 0}
-.tool-tabs{display:flex;border-bottom:1px solid var(--border)}
-.tool-tab{flex:1;padding:16px;background:#f4f0e6;border:none;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--ink-soft);cursor:pointer;transition:all .15s}
-.tool-tab.active{background:var(--paper);color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
-.tool-panel{padding:28px}
-.tool-panel.hidden{display:none}
-.field{margin-bottom:20px}
-.field label{display:block;font-size:.9rem;font-weight:700;margin-bottom:8px;color:var(--ink)}
-.field .hint{font-size:.78rem;color:var(--ink-soft);font-weight:400;margin-left:6px}
-.field input[type=number],.field select{width:100%;padding:12px 14px;font-size:1rem;font-family:inherit;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink)}
-.field input[type=number]:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.input-suffix{position:relative}
-.input-suffix .suffix{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--ink-soft);pointer-events:none}
-.input-suffix input{padding-right:48px !important}
-.calc-btn{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1.05rem;font-weight:700;font-family:inherit;cursor:pointer;transition:opacity .15s;margin-top:8px}
-.calc-btn:hover{opacity:.88}
+.tool-wrap{background:var(--paper);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;margin:24px 0}
+.tool-head{background:var(--accent);color:#fff;padding:16px 24px;font-size:1.05rem;font-weight:700;text-align:center}
+.tool-body{padding:24px}
 
-/* 結果表示 */
-.result{margin-top:24px;padding:24px;background:var(--accent-soft);border-radius:10px;display:none}
-.result.show{display:block}
-.result-label{font-size:.85rem;color:var(--ink-soft);text-align:center;margin-bottom:6px}
-.result-amount{font-size:2.4rem;font-weight:700;color:var(--accent);text-align:center;line-height:1.2;margin-bottom:4px}
-.result-sub{font-size:.85rem;color:var(--ink-soft);text-align:center;margin-bottom:20px}
-.result-detail{background:#fff;border-radius:8px;padding:16px;margin-bottom:20px}
-.result-detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.step{margin-bottom:26px}
+.step-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.step-badge{background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.08em}
+.step-title{font-size:1rem;font-weight:700;color:var(--ink)}
+
+/* 年収入力 */
+.income-input{display:flex;align-items:center;gap:10px}
+.income-input input{flex:1;max-width:200px;padding:14px 16px;font-size:1.3rem;font-weight:700;font-family:inherit;border:2px solid var(--border);border-radius:10px;text-align:right;color:var(--ink)}
+.income-input input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.income-input .unit{font-size:1.1rem;font-weight:700;color:var(--ink-soft)}
+
+/* ボタン選択 */
+.btn-group{display:flex;gap:10px;flex-wrap:wrap}
+.opt-btn{flex:1;min-width:90px;padding:13px 16px;font-size:.95rem;font-weight:700;font-family:inherit;background:#fff;border:2px solid var(--border);border-radius:10px;color:var(--ink-soft);cursor:pointer;transition:all .12s}
+.opt-btn:hover{border-color:var(--accent)}
+.opt-btn.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+
+/* サブ質問 */
+.sub-q{margin-top:16px;padding:16px;background:#f9f7f1;border-radius:10px;display:none}
+.sub-q.show{display:block}
+.sub-q-label{font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+
+/* 扶養家族テーブル */
+.kids-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.kids-row:last-child{margin-bottom:0}
+.kids-age{font-size:.82rem;color:var(--ink-soft);width:90px;flex-shrink:0}
+.kids-btns{display:flex;gap:6px;flex:1}
+.kids-btn{flex:1;padding:8px;font-size:.85rem;font-weight:700;font-family:inherit;background:#fff;border:2px solid var(--border);border-radius:8px;color:var(--ink-soft);cursor:pointer;transition:all .12s}
+.kids-btn:hover{border-color:var(--accent)}
+.kids-btn.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.kids-note{font-size:.74rem;color:var(--ink-soft);margin-top:4px}
+
+/* 結果 */
+.result-area{background:var(--accent-soft);border-radius:12px;padding:24px;margin-top:8px}
+.result-label{font-size:.85rem;color:var(--ink-soft);text-align:center;margin-bottom:4px}
+.result-amount{font-size:2.6rem;font-weight:700;color:var(--accent);text-align:center;line-height:1.1;margin-bottom:6px}
+.result-sub{font-size:.82rem;color:var(--ink-soft);text-align:center;margin-bottom:20px}
+.result-detail{background:#fff;border-radius:8px;padding:14px 16px;margin-bottom:20px}
+.result-detail-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:.88rem}
 .result-detail-row:last-child{border-bottom:none;font-weight:700}
-.result-cta{display:block;background:var(--orange);color:#fff !important;text-decoration:none !important;text-align:center;padding:15px;border-radius:8px;font-size:1rem;font-weight:700;transition:opacity .15s}
+.result-cta{display:block;background:var(--orange);color:#fff !important;text-decoration:none !important;text-align:center;padding:15px;border-radius:8px;font-size:1.02rem;font-weight:700;transition:opacity .15s}
 .result-cta:hover{opacity:.88}
-.result-cta-note{font-size:.75rem;color:var(--ink-soft);text-align:center;margin-top:8px}
+.result-cta-note{font-size:.74rem;color:var(--ink-soft);text-align:center;margin-top:8px}
+.result-placeholder{text-align:center;color:var(--ink-soft);font-size:.9rem;padding:20px 0}
 
-/* 注意ボックス */
+/* ボックス */
 .note-box{background:#fef5f5;border-left:4px solid #c0392b;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0}
 .note-box .box-label{font-size:.75rem;font-weight:700;color:#c0392b;letter-spacing:.1em;margin-bottom:6px}
 .note-box p{margin:0;font-size:.9rem}
@@ -165,8 +184,9 @@ li{margin-bottom:.6em}
   body{font-size:15px}
   h1{font-size:1.25rem}
   h2{font-size:1.1rem;padding:12px 14px}
-  .tool-panel{padding:20px 16px}
-  .result-amount{font-size:2rem}
+  .tool-body{padding:18px 14px}
+  .result-amount{font-size:2.1rem}
+  .kids-age{width:72px;font-size:.76rem}
 }
 </style>
 <link rel="stylesheet" href="/css/sidebar.css">
@@ -219,120 +239,140 @@ li{margin-bottom:.6em}
   </div>
 
   <!-- ⑥ 記事タイトル -->
-  <h1>ふるさと納税 控除上限額シミュレーター｜年収と家族構成を入れるだけ【無料】</h1>
+  <h1>ふるさと納税 控除上限額シミュレーター｜年収・家族構成をタップで簡単計算【無料】</h1>
 
   <p>ふるさと納税で損しないために最も大切なのが<strong>「控除上限額」の把握</strong>です。この上限を超えて寄付すると、超えた分は自己負担になってしまいます。</p>
-  <p>下のツールで、今年の見込み年収と家族構成を入れるだけで上限額の目安がわかります。ざっくり知りたい方は<strong>簡易版</strong>、より正確に出したい方は<strong>詳細版</strong>をお使いください。</p>
+  <p>下のツールは、年収を<strong>万単位</strong>で入れて、あとは<strong>タップで選ぶだけ</strong>。扶養家族の年齢区分にも対応しているので、お子さんがいる方も正確に試算できます。</p>
 
   <!-- === ツール本体 === -->
   <div class="tool-wrap">
-    <div class="tool-tabs">
-      <button class="tool-tab active" id="tab-simple" onclick="switchTab('simple')">簡易版</button>
-      <button class="tool-tab" id="tab-detail" onclick="switchTab('detail')">詳細版</button>
-    </div>
+    <div class="tool-head">かんたん入力で上限額をチェック</div>
+    <div class="tool-body">
 
-    <!-- 簡易版 -->
-    <div class="tool-panel" id="panel-simple">
-      <div class="field">
-        <label>今年の見込み給与収入（年収）<span class="hint">税込・額面</span></label>
-        <div class="input-suffix">
-          <input type="number" id="s-income" placeholder="例：5000000" min="0" step="100000">
-          <span class="suffix">円</span>
+      <!-- STEP1 年収 -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-badge">STEP 01</span>
+          <span class="step-title">💰 今年の見込み年収</span>
+        </div>
+        <div class="income-input">
+          <input type="number" id="income" placeholder="600" min="0" step="10" inputmode="numeric" oninput="calc()">
+          <span class="unit">万円</span>
         </div>
       </div>
-      <div class="field">
-        <label>家族構成</label>
-        <select id="s-family">
-          <option value="single">独身・共働き（配偶者控除なし）</option>
-          <option value="spouse">夫婦（配偶者控除あり・配偶者に収入なし）</option>
-          <option value="spouse_hs">夫婦＋子1人（高校生）</option>
-          <option value="spouse_hs_uni">夫婦＋子2人（高校生＋大学生）</option>
-        </select>
-      </div>
-      <button class="calc-btn" onclick="calcSimple()">控除上限額を計算する</button>
 
-      <div class="result" id="s-result">
-        <div class="result-label">あなたのふるさと納税 控除上限額の目安</div>
-        <div class="result-amount" id="s-amount">―</div>
-        <div class="result-sub">（実質自己負担2,000円で寄付できる上限の目安）</div>
-        <div class="result-detail">
-          <div class="result-detail-row"><span>寄付できる目安額</span><span id="s-donation">―</span></div>
-          <div class="result-detail-row"><span>実質自己負担</span><span>2,000円</span></div>
-          <div class="result-detail-row"><span>控除される額の目安</span><span id="s-deduction">―</span></div>
+      <!-- STEP2 家族構成 -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-badge">STEP 02</span>
+          <span class="step-title">👫 家族構成</span>
         </div>
-        <a href="https://hb.afl.rakuten.co.jp/hgc/0eec6fbb.c8d82b80.0eec6fbc.b679929e/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9" target="_blank" rel="nofollow sponsored noopener" class="result-cta">楽天ふるさと納税で返礼品を探す →</a>
-        <div class="result-cta-note">※ 上限額の範囲内なら、何か所に寄付しても自己負担は2,000円です</div>
+        <div class="btn-group">
+          <button class="opt-btn active" id="m-single" onclick="setMarital('single')">独身</button>
+          <button class="opt-btn" id="m-married" onclick="setMarital('married')">既婚</button>
+        </div>
+        <div class="sub-q" id="spouse-q">
+          <div class="sub-q-label">配偶者控除</div>
+          <div class="btn-group">
+            <button class="opt-btn" id="sp-yes" onclick="setSpouse('yes')">あり<br><span style="font-size:.7rem;font-weight:400">（配偶者に収入なし）</span></button>
+            <button class="opt-btn active" id="sp-no" onclick="setSpouse('no')">なし<br><span style="font-size:.7rem;font-weight:400">（共働き）</span></button>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- 詳細版 -->
-    <div class="tool-panel hidden" id="panel-detail">
-      <div class="field">
-        <label>今年の見込み給与収入（年収）<span class="hint">税込・額面</span></label>
-        <div class="input-suffix">
-          <input type="number" id="d-income" placeholder="例：5000000" min="0" step="100000">
-          <span class="suffix">円</span>
+      <!-- STEP3 扶養家族 -->
+      <div class="step">
+        <div class="step-head">
+          <span class="step-badge">STEP 03</span>
+          <span class="step-title">👨‍👩‍👧 扶養している子ども</span>
+        </div>
+        <div class="btn-group">
+          <button class="opt-btn active" id="k-none" onclick="setHasKids(false)">いない</button>
+          <button class="opt-btn" id="k-yes" onclick="setHasKids(true)">いる</button>
+        </div>
+        <div class="sub-q" id="kids-q">
+          <div class="sub-q-label">年齢区分ごとの人数を選んでください</div>
+          <div class="kids-row">
+            <span class="kids-age">0〜15歳</span>
+            <div class="kids-btns" data-age="age0">
+              <button class="kids-btn active" onclick="setKids('age0',0,this)">0人</button>
+              <button class="kids-btn" onclick="setKids('age0',1,this)">1人</button>
+              <button class="kids-btn" onclick="setKids('age0',2,this)">2人</button>
+              <button class="kids-btn" onclick="setKids('age0',3,this)">3人〜</button>
+            </div>
+          </div>
+          <div class="kids-note">※ 0〜15歳（中学生以下）は控除に影響しないため上限額は変わりません</div>
+          <div class="kids-row" style="margin-top:12px">
+            <span class="kids-age">16〜18歳</span>
+            <div class="kids-btns" data-age="age16">
+              <button class="kids-btn active" onclick="setKids('age16',0,this)">0人</button>
+              <button class="kids-btn" onclick="setKids('age16',1,this)">1人</button>
+              <button class="kids-btn" onclick="setKids('age16',2,this)">2人</button>
+              <button class="kids-btn" onclick="setKids('age16',3,this)">3人〜</button>
+            </div>
+          </div>
+          <div class="kids-row">
+            <span class="kids-age">19〜22歳</span>
+            <div class="kids-btns" data-age="age19">
+              <button class="kids-btn active" onclick="setKids('age19',0,this)">0人</button>
+              <button class="kids-btn" onclick="setKids('age19',1,this)">1人</button>
+              <button class="kids-btn" onclick="setKids('age19',2,this)">2人</button>
+              <button class="kids-btn" onclick="setKids('age19',3,this)">3人〜</button>
+            </div>
+          </div>
+          <div class="kids-row">
+            <span class="kids-age">23歳以上</span>
+            <div class="kids-btns" data-age="age23">
+              <button class="kids-btn active" onclick="setKids('age23',0,this)">0人</button>
+              <button class="kids-btn" onclick="setKids('age23',1,this)">1人</button>
+              <button class="kids-btn" onclick="setKids('age23',2,this)">2人</button>
+              <button class="kids-btn" onclick="setKids('age23',3,this)">3人〜</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="field">
-        <label>社会保険料の年額<span class="hint">未入力なら年収の約15%で自動計算</span></label>
-        <div class="input-suffix">
-          <input type="number" id="d-shaho" placeholder="例：750000" min="0" step="10000">
-          <span class="suffix">円</span>
-        </div>
-      </div>
-      <div class="field">
-        <label>家族構成</label>
-        <select id="d-family">
-          <option value="single">独身・共働き（配偶者控除なし）</option>
-          <option value="spouse">夫婦（配偶者控除あり・配偶者に収入なし）</option>
-          <option value="spouse_hs">夫婦＋子1人（高校生）</option>
-          <option value="spouse_hs_uni">夫婦＋子2人（高校生＋大学生）</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>その他の所得控除の合計<span class="hint">生命保険料控除・地震保険料控除・iDeCoなど</span></label>
-        <div class="input-suffix">
-          <input type="number" id="d-other" placeholder="例：100000（なければ0）" min="0" step="10000">
-          <span class="suffix">円</span>
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcDetail()">控除上限額を計算する</button>
 
-      <div class="result" id="d-result">
-        <div class="result-label">あなたのふるさと納税 控除上限額の目安</div>
-        <div class="result-amount" id="d-amount">―</div>
-        <div class="result-sub">（実質自己負担2,000円で寄付できる上限の目安）</div>
-        <div class="result-detail">
-          <div class="result-detail-row"><span>課税所得の目安</span><span id="d-taxable">―</span></div>
-          <div class="result-detail-row"><span>寄付できる目安額</span><span id="d-donation">―</span></div>
-          <div class="result-detail-row"><span>実質自己負担</span><span>2,000円</span></div>
+      <!-- 結果 -->
+      <div class="result-area">
+        <div class="result-label">あなたのふるさと納税 控除上限額（目安）</div>
+        <div class="result-amount" id="amount">―</div>
+        <div class="result-sub">実質自己負担2,000円で寄付できる上限の目安</div>
+        <div id="result-body" style="display:none">
+          <div class="result-detail">
+            <div class="result-detail-row"><span>寄付できる目安額</span><span id="donation">―</span></div>
+            <div class="result-detail-row"><span>実質自己負担</span><span>2,000円</span></div>
+            <div class="result-detail-row"><span>控除される額の目安</span><span id="deduction">―</span></div>
+          </div>
+          <a href="https://hb.afl.rakuten.co.jp/hgc/0eec6fbb.c8d82b80.0eec6fbc.b679929e/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9" target="_blank" rel="nofollow sponsored noopener" class="result-cta">楽天ふるさと納税で返礼品を探す →</a>
+          <div class="result-cta-note">※ 上限額の範囲内なら、何か所に寄付しても自己負担は2,000円です</div>
         </div>
-        <a href="https://hb.afl.rakuten.co.jp/hgc/0eec6fbb.c8d82b80.0eec6fbc.b679929e/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F&link_type=text&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6InRleHQiLCJjb2wiOjF9" target="_blank" rel="nofollow sponsored noopener" class="result-cta">楽天ふるさと納税で返礼品を探す →</a>
-        <div class="result-cta-note">※ 上限額の範囲内なら、何か所に寄付しても自己負担は2,000円です</div>
+        <div class="result-placeholder" id="result-placeholder">年収を入力すると上限額が表示されます</div>
       </div>
+
     </div>
   </div>
 
   <div class="note-box">
     <div class="box-label">⚠️ あくまで目安です</div>
-    <p>このツールの計算結果は概算の目安です。住宅ローン控除（税額控除）がある方、ふるさと納税以外で確定申告をする方は実際の上限額が変わります。正確な金額は、お住まいの市区町村にご確認いただくか、源泉徴収票をもとに各ふるさと納税サイトの詳細シミュレーターをご利用ください。</p>
+    <p>計算結果は概算の目安です。住宅ローン控除（税額控除）がある方、医療費控除など他の控除を申告する方は実際の上限額が変わります。社会保険料は年収の約15.5%として概算しています。正確な金額はお住まいの市区町村にご確認いただくか、源泉徴収票をもとに各ふるさと納税サイトの詳細シミュレーターをご利用ください。</p>
   </div>
 
-  <h2>このツールの使い方</h2>
-
-  <h3>簡易版：とにかく早く目安を知りたい人向け</h3>
-  <p>「今年の見込み年収」と「家族構成」を選ぶだけ。30秒で上限額の目安がわかります。初めての方や、ざっくり把握したい方はこちらで十分です。</p>
-
-  <h3>詳細版：より正確に出したい人向け</h3>
-  <p>社会保険料の実額や、生命保険料控除・iDeCoなどの所得控除も入力できます。源泉徴収票が手元にある方は、詳細版でより精度の高い試算ができます。</p>
+  <h2>楽天など他社ツールとの違い</h2>
+  <p>このツールは、使いやすさと「学べること」にこだわって作りました。</p>
+  <ul>
+    <li><strong>年収は万単位でOK</strong>——「600」と入れるだけ。ゼロをたくさん打つ必要はありません</li>
+    <li><strong>タップで選ぶだけ</strong>——年収以外はすべてボタン選択。スマホでサクサク使えます</li>
+    <li><strong>年齢区分別の扶養に対応</strong>——16〜18歳・19〜22歳で控除額が変わる点も正確に反映</li>
+    <li><strong>0〜15歳は影響しないと明記</strong>——勘違いしやすいポイントをツール上で解説</li>
+    <li><strong>入力中にリアルタイム計算</strong>——ボタンを押すたびに金額が更新されます</li>
+  </ul>
 
   <div class="point-box">
     <div class="box-label">💡 上限額は少なめに見積もるのが安全</div>
     <ul>
       <li>控除上限額は「今年の年収」で決まります。去年の年収ではありません</li>
       <li>年末に向けて年収が増減する可能性がある場合は、やや少なめに寄付するのが安全</li>
-      <li>上限ぎりぎりを狙うより、9割程度に抑えておくと超過のリスクを避けられます</li>
+      <li>このツールは安全側（やや低め）に計算しています。上限ぎりぎりより9割程度がおすすめ</li>
     </ul>
   </div>
 
@@ -404,17 +444,49 @@ li{margin-bottom:.6em}
 </footer>
 
 <script>
-function switchTab(name){
-  var simple = name === 'simple';
-  document.getElementById('tab-simple').classList.toggle('active', simple);
-  document.getElementById('tab-detail').classList.toggle('active', !simple);
-  document.getElementById('panel-simple').classList.toggle('hidden', !simple);
-  document.getElementById('panel-detail').classList.toggle('hidden', simple);
+var state = {
+  marital: 'single',
+  spouse: 'no',
+  hasKids: false,
+  kids: { age0:0, age16:0, age19:0, age23:0 }
+};
+
+function setMarital(v){
+  state.marital = v;
+  document.getElementById('m-single').classList.toggle('active', v==='single');
+  document.getElementById('m-married').classList.toggle('active', v==='married');
+  document.getElementById('spouse-q').classList.toggle('show', v==='married');
+  calc();
+}
+function setSpouse(v){
+  state.spouse = v;
+  document.getElementById('sp-yes').classList.toggle('active', v==='yes');
+  document.getElementById('sp-no').classList.toggle('active', v==='no');
+  calc();
+}
+function setHasKids(v){
+  state.hasKids = v;
+  document.getElementById('k-none').classList.toggle('active', !v);
+  document.getElementById('k-yes').classList.toggle('active', v);
+  document.getElementById('kids-q').classList.toggle('show', v);
+  if(!v){ state.kids = {age0:0,age16:0,age19:0,age23:0}; resetKidsButtons(); }
+  calc();
+}
+function setKids(age, n, btn){
+  state.kids[age] = n;
+  var row = btn.parentElement;
+  row.querySelectorAll('.kids-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  calc();
+}
+function resetKidsButtons(){
+  document.querySelectorAll('.kids-btns').forEach(function(row){
+    row.querySelectorAll('.kids-btn').forEach(function(b,i){ b.classList.toggle('active', i===0); });
+  });
 }
 
 function yen(n){ return Math.round(n).toLocaleString('ja-JP') + '円'; }
 
-// 給与所得控除（2020年以降）
 function kyuyoShotokuKojo(income){
   if(income <= 1625000) return 550000;
   if(income <= 1800000) return income*0.4 - 100000;
@@ -423,72 +495,6 @@ function kyuyoShotokuKojo(income){
   if(income <= 8500000) return income*0.1 + 1100000;
   return 1950000;
 }
-
-// 家族構成による所得控除（配偶者控除・扶養控除）。基礎控除は別途。
-function familyKojo(family){
-  // 所得税ベースの控除額
-  var spouse = 380000;     // 配偶者控除
-  var hs = 380000;         // 一般扶養（16-18歳・高校生）
-  var uni = 630000;        // 特定扶養（19-22歳・大学生）
-  switch(family){
-    case 'single': return 0;
-    case 'spouse': return spouse;
-    case 'spouse_hs': return spouse + hs;
-    case 'spouse_hs_uni': return spouse + hs + uni;
-    default: return 0;
-  }
-}
-
-// 住民税ベースの家族控除
-function familyKojoJuminzei(family){
-  var spouse = 330000;
-  var hs = 330000;
-  var uni = 450000;
-  switch(family){
-    case 'single': return 0;
-    case 'spouse': return spouse;
-    case 'spouse_hs': return spouse + hs;
-    case 'spouse_hs_uni': return spouse + hs + uni;
-    default: return 0;
-  }
-}
-
-// 控除上限額の計算（住民税所得割の約20%＋2000円の逆算式）
-function calcLimit(income, shaho, family, other){
-  var kyuyoKojo = kyuyoShotokuKojo(income);
-  var shotoku = income - kyuyoKojo; // 給与所得
-  if(shotoku < 0) shotoku = 0;
-
-  // 住民税の課税所得（基礎控除33万＋社保＋家族控除＋その他）
-  var juminKojo = 330000 + shaho + familyKojoJuminzei(family) + other;
-  var juminTaxable = shotoku - juminKojo;
-  if(juminTaxable < 0) juminTaxable = 0;
-
-  // 所得税の課税所得（基礎控除48万）
-  var shotokuKojo = 480000 + shaho + familyKojo(family) + other;
-  var shotokuTaxable = shotoku - shotokuKojo;
-  if(shotokuTaxable < 0) shotokuTaxable = 0;
-
-  // 所得税率（復興特別所得税込み）
-  var rate = incomeTaxRate(shotokuTaxable);
-
-  // 住民税所得割額
-  var juminTax = juminTaxable * 0.10;
-
-  // ふるさと納税 控除上限額の計算式
-  // 上限 = 住民税所得割額 × 20% ÷ (90% - 所得税率×1.021) + 2000
-  var denom = 0.90 - rate*1.021;
-  if(denom <= 0) denom = 0.90;
-  var limit = (juminTax * 0.20) / denom + 2000;
-  if(limit < 0) limit = 0;
-
-  return {
-    limit: limit,
-    juminTaxable: juminTaxable,
-    shotokuTaxable: shotokuTaxable
-  };
-}
-
 function incomeTaxRate(taxable){
   if(taxable <= 1950000) return 0.05;
   if(taxable <= 3300000) return 0.10;
@@ -498,39 +504,56 @@ function incomeTaxRate(taxable){
   if(taxable <= 40000000) return 0.40;
   return 0.45;
 }
-
 function roundDown1000(n){ return Math.floor(n/1000)*1000; }
 
-function calcSimple(){
-  var income = parseFloat(document.getElementById('s-income').value);
-  if(!income || income <= 0){ alert('年収を入力してください'); return; }
-  var family = document.getElementById('s-family').value;
-  var shaho = income * 0.155; // 簡易：年収の約15.5%を社保と仮定（安全側）
-  var r = calcLimit(income, shaho, family, 0);
-  var limit = roundDown1000(r.limit);
+function calc(){
+  var manVal = parseFloat(document.getElementById('income').value);
+  if(!manVal || manVal <= 0){
+    document.getElementById('amount').textContent = '―';
+    document.getElementById('result-body').style.display = 'none';
+    document.getElementById('result-placeholder').style.display = 'block';
+    return;
+  }
+  var income = manVal * 10000;
+  var shaho = income * 0.155;
 
-  document.getElementById('s-amount').textContent = yen(limit);
-  document.getElementById('s-donation').textContent = '約 ' + yen(limit);
-  document.getElementById('s-deduction').textContent = '約 ' + yen(limit - 2000);
-  document.getElementById('s-result').classList.add('show');
-  document.getElementById('s-result').scrollIntoView({behavior:'smooth', block:'nearest'});
-}
+  // 配偶者控除
+  var spShotoku = (state.marital==='married' && state.spouse==='yes') ? 380000 : 0;
+  var spJumin   = (state.marital==='married' && state.spouse==='yes') ? 330000 : 0;
 
-function calcDetail(){
-  var income = parseFloat(document.getElementById('d-income').value);
-  if(!income || income <= 0){ alert('年収を入力してください'); return; }
-  var family = document.getElementById('d-family').value;
-  var shahoInput = parseFloat(document.getElementById('d-shaho').value);
-  var shaho = (shahoInput && shahoInput > 0) ? shahoInput : income * 0.155;
-  var other = parseFloat(document.getElementById('d-other').value) || 0;
-  var r = calcLimit(income, shaho, family, other);
-  var limit = roundDown1000(r.limit);
+  // 扶養控除（所得税）：16-18歳=38万、19-22歳=63万、23歳以上=38万、0-15歳=0
+  var k = state.kids;
+  var fuyoShotoku = k.age16*380000 + k.age19*630000 + k.age23*380000;
+  // 扶養控除（住民税）：16-18歳=33万、19-22歳=45万、23歳以上=33万
+  var fuyoJumin = k.age16*330000 + k.age19*450000 + k.age23*330000;
 
-  document.getElementById('d-amount').textContent = yen(limit);
-  document.getElementById('d-taxable').textContent = '約 ' + yen(r.juminTaxable);
-  document.getElementById('d-donation').textContent = '約 ' + yen(limit);
-  document.getElementById('d-result').classList.add('show');
-  document.getElementById('d-result').scrollIntoView({behavior:'smooth', block:'nearest'});
+  var kyuyoKojo = kyuyoShotokuKojo(income);
+  var shotoku = income - kyuyoKojo;
+  if(shotoku < 0) shotoku = 0;
+
+  // 住民税の課税所得
+  var juminKojo = 330000 + shaho + spJumin + fuyoJumin;
+  var juminTaxable = shotoku - juminKojo;
+  if(juminTaxable < 0) juminTaxable = 0;
+
+  // 所得税の課税所得
+  var shotokuKojo = 480000 + shaho + spShotoku + fuyoShotoku;
+  var shotokuTaxable = shotoku - shotokuKojo;
+  if(shotokuTaxable < 0) shotokuTaxable = 0;
+
+  var rate = incomeTaxRate(shotokuTaxable);
+  var juminTax = juminTaxable * 0.10;
+  var denom = 0.90 - rate*1.021;
+  if(denom <= 0) denom = 0.90;
+  var limit = (juminTax * 0.20) / denom + 2000;
+  if(limit < 0) limit = 0;
+  limit = roundDown1000(limit);
+
+  document.getElementById('amount').textContent = yen(limit);
+  document.getElementById('donation').textContent = '約 ' + yen(limit);
+  document.getElementById('deduction').textContent = '約 ' + yen(Math.max(limit-2000,0));
+  document.getElementById('result-body').style.display = 'block';
+  document.getElementById('result-placeholder').style.display = 'none';
 }
 </script>
 
