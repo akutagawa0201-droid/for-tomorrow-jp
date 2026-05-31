@@ -109,17 +109,8 @@ main{
 .song-main{flex:1;min-width:0;max-width:840px}
 .song-sidebar{
   width:250px;flex-shrink:0;
-  position:sticky;top:90px;
-  /* 画面より高いときはサイドバー内でスクロールして下まで見えるように */
-  max-height:calc(100vh - 110px);
-  overflow-y:auto;overflow-x:hidden;
-  padding-right:4px;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(232,112,156,.4) transparent;
+  /* 本文と一緒にスクロールする（固定しない） */
 }
-.song-sidebar::-webkit-scrollbar{width:6px}
-.song-sidebar::-webkit-scrollbar-thumb{background:rgba(232,112,156,.4);border-radius:3px}
-.song-sidebar::-webkit-scrollbar-track{background:transparent}
 .sb-block{
   background:rgba(26,20,38,.55);
   border:1px solid var(--border);
