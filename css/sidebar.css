@@ -13,11 +13,19 @@
 }
 
 .page-layout > article,
-.page-layout > .article-wrap {
+.page-layout > .article-wrap,
+.page-layout > .top-main {
   flex: 1;
   min-width: 0;
   max-width: none !important;
 }
+
+/* トップページ：サイドバー付き2カラム時はセクションの横幅をカラムに合わせる */
+.top-main > .container,
+.top-main > .section .container { max-width: none; }
+.top-main > .section { padding-top: 40px; padding-bottom: 40px; }
+/* 3カラムのカードはサイドバー併設で窮屈なので2カラムに */
+.top-main .card-grid { grid-template-columns: repeat(2, 1fr); }
 
 /* サイドバー本体 */
 .sidebar {
