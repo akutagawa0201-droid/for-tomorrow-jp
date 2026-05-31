@@ -100,8 +100,49 @@ a:hover{color:var(--velvet-soft);border-bottom-color:var(--velvet)}
 /* メインラッパー */
 main{
   position:relative;z-index:1;
-  max-width:880px;margin:0 auto;
+  max-width:1180px;margin:0 auto;
   padding:48px 24px 100px;
+}
+
+/* 2カラム（本文＋サイドバー） */
+.song-layout{display:flex;gap:44px;align-items:flex-start}
+.song-main{flex:1;min-width:0;max-width:840px}
+.song-sidebar{
+  width:250px;flex-shrink:0;
+  position:sticky;top:90px;
+  /* 画面より高いときはサイドバー内でスクロールして下まで見えるように */
+  max-height:calc(100vh - 110px);
+  overflow-y:auto;overflow-x:hidden;
+  padding-right:4px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(232,112,156,.4) transparent;
+}
+.song-sidebar::-webkit-scrollbar{width:6px}
+.song-sidebar::-webkit-scrollbar-thumb{background:rgba(232,112,156,.4);border-radius:3px}
+.song-sidebar::-webkit-scrollbar-track{background:transparent}
+.sb-block{
+  background:rgba(26,20,38,.55);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:18px;margin-bottom:20px;
+}
+.sb-head{
+  font-family:'Cormorant Garamond',serif;
+  font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--neon);
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;margin-bottom:12px;
+}
+.sb-list{list-style:none;margin:0;padding:0}
+.sb-list li{padding:9px 0;border-bottom:1px dashed var(--border)}
+.sb-list li:last-child{border-bottom:none}
+.sb-list a{border:none;color:var(--ink);font-size:.86rem;line-height:1.5;display:block}
+.sb-list a:hover{color:var(--velvet-soft)}
+.sb-list .sb-sub{display:block;font-size:.72rem;color:var(--ink-soft);margin-top:2px;letter-spacing:.03em}
+@media(max-width:900px){
+  .song-layout{flex-direction:column}
+  .song-main{max-width:none}
+  .song-sidebar{width:100%;position:static;max-height:none;overflow:visible;padding-right:0;margin-top:24px}
 }
 
 /* ヒーローセクション */
@@ -444,6 +485,8 @@ footer p{margin-bottom:8px}
 </header>
 
 <main>
+<div class="song-layout">
+<div class="song-main">
 
   <!-- ヒーロー -->
   <section class="hero">
@@ -599,6 +642,39 @@ footer p{margin-bottom:8px}
       <a href="https://www.youtube.com/@lofichillft" target="_blank" rel="noopener">Lo-Fi Chill for-tomorrow (YouTube) →</a>
     </div>
   </div>
+
+</div><!-- /.song-main -->
+
+  <aside class="song-sidebar">
+    <div class="sb-block">
+      <div class="sb-head">New Songs · 新曲一覧</div>
+      <ul class="sb-list">
+        <li><a href="/en/midnight-velvet-mikoto/">Midnight Velvet<span class="sb-sub">Japanese City Pop · Night Drive</span></a></li>
+        <li><a href="/en/tsuki-no-hikari-mikoto/">月の光 — Tsuki no Hikari<span class="sb-sub">Japanese Lo-Fi Ballad</span></a></li>
+      </ul>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-head">Popular Articles · 人気記事</div>
+      <ul class="sb-list">
+        <li><a href="/articles/nisa/what-is-nisa/">新NISAとは？旧NISAとの違いをわかりやすく解説</a></li>
+        <li><a href="/articles/nisa/nisa-account-opening/">NISA口座の開き方 ステップ別ガイド</a></li>
+        <li><a href="/articles/taishoku/retirement-simulation-50s/">定年まであと8年！老後シミュレーション</a></li>
+        <li><a href="/articles/kakei/koteihi-sakugen/">固定費を削減して家計を改善する方法</a></li>
+        <li><a href="/articles/kakei/denki-plan-kirikae/">戸建ての電気代2年分公開｜電化上手は切り替えるべき？</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-head">Channel</div>
+      <ul class="sb-list">
+        <li><a href="https://www.youtube.com/@lofichillft" target="_blank" rel="noopener">Lo-Fi Chill for-tomorrow ▶ YouTube</a></li>
+        <li><a href="/en/japanese-lofi-bgm/">Japanese Lo-Fi BGM Guide</a></li>
+      </ul>
+    </div>
+  </aside>
+
+</div><!-- /.song-layout -->
 
   <footer>
     <p>For-Tomorrow · Lo-Fi Chill</p>

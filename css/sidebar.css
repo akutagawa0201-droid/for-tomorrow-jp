@@ -33,7 +33,17 @@
   flex-shrink: 0;
   position: sticky;
   top: 80px;
+  /* 画面より高いときはサイドバー内でスクロールして下まで見えるようにする */
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #c3d6e8 transparent;
 }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: #c3d6e8; border-radius: 3px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
 
 /* カード共通 */
 .sb-card {
@@ -126,5 +136,8 @@
   .sidebar {
     width: 100%;
     position: static;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
   }
 }
