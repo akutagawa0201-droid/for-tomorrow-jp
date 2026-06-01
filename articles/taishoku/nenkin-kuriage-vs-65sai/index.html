@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ねんきん定期便の実データ（月17万円）をもとに、年金の繰り上げ受給（60〜64歳）と65歳原則受給の損益分岐点を徹底比較。加給年金（最大約468万円）まで加味するとどう変わるか、タイプ別のおすすめ受給開始年齢をやさしく解説します。">
+  <link rel="canonical" href="https://for-tomorrow2026.com/articles/taishoku/nenkin-kuriage-vs-65sai/">
+
+<!-- OGP -->
+<meta property="og:title" content="年金は60歳と65歳どっちがお得？損益分岐点を実データで徹底比較【2026年版】">
+<meta property="og:description" content="ねんきん定期便の実データ（月17万円）をもとに繰り上げ受給と65歳原則受給を徹底比較。加給年金まで加味すると結論が変わります。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://for-tomorrow2026.com/articles/taishoku/nenkin-kuriage-vs-65sai/">
+<meta property="og:site_name" content="明日のために for-tomorrow">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "年金は60歳と65歳どっちがお得？損益分岐点を実データで徹底比較【2026年版】",
+  "description": "ねんきん定期便の実データ（月17万円）をもとに繰り上げ受給と65歳原則受給の損益分岐点を比較。加給年金まで加味した判断基準を解説します。",
+  "datePublished": "2026-06-01",
+  "dateModified": "2026-06-01",
+  "author": {
+    "@type": "Person",
+    "name": "明日のために for-tomorrow 運営者"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "明日のために for-tomorrow",
+    "url": "https://for-tomorrow2026.com/"
+  }
+}
+</script>
+  <title>年金は60歳と65歳どっちがお得？損益分岐点を実データで徹底比較【2026年版】 | 明日のために for-tomorrow</title>
+  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/article.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-899479E9P4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-899479E9P4');
+  </script>
+  <link rel="stylesheet" href="/css/sidebar.css">
+</head>
+<body>
+<!-- サイト共通ヘッダー -->
+<header class="global-header">
+  <div class="global-header-inner">
+    <a href="/" class="global-brand">
+      <div>
+        <span class="global-brand-name">明日のために</span>
+        <span class="global-brand-sub">for-tomorrow</span>
+      </div>
+    </a>
+    <button class="menu-toggle" onclick="document.querySelector('.global-nav').classList.toggle('is-open')" aria-label="メニュー">☰</button>
+    <nav class="global-nav">
+      <a href="/articles/nisa/">NISA入門</a>
+      <a href="/articles/kakei/">家計改善</a>
+      <a href="/articles/taishoku/">退職準備</a>
+      <a href="/articles/taishoku/fp3-cbt/">FP3模試</a>
+      <a href="/tools/ending-note/">🌸 エンディングノート</a>
+      <a href="/tools/values-map/">🧭 価値観マップ</a>
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/en/japanese-lofi-bgm/">🎧 BGM (EN)</a>
+      <a href="/en/best-japanese-bgm-youtube/">🎵 J-Pop (EN)</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-layout">
+
+<div class="article-wrap">
+  <div class="article-header">
+    <span class="card-tag">退職準備・年金</span>
+    <h1 class="article-title">年金は60歳と65歳、どっちがお得？損益分岐点を実データで徹底比較【2026年版】</h1>
+    <p class="article-meta">執筆者：masahiro（52歳・IT系コールセンター管理職・FP3級勉強中）（2026年6月時点の情報をもとに執筆）</p>
+  </div>
+
+  <p class="affiliate-note">※ 本記事の一部リンクはアフィリエイト広告（もしもアフィリエイト経由）を含みます。記事内容は広告主の影響を受けません。Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。</p>
+
+  <div class="article-body">
+
+    <p>「年金は早くもらったほうが得」と聞くけれど、本当にそうなのか？</p>
+    <p>52歳の私が、自分の<strong>ねんきん定期便の実データ（65歳時点で月17万円・厚生年金満期）</strong>をもとに、60歳・61歳・62歳・63歳・64歳・65歳のすべての開始年齢で損益分岐点を計算してみました。</p>
+    <p>さらに、年下配偶者がいる場合の<strong>加給年金（最大約468万円）</strong>まで加味すると……結論が大きく変わります。同じ悩みを抱える50代の方に、リアルな計算と判断基準をお伝えします。</p>
+
+    <div class="toc">
+      <p class="toc-title">目次</p>
+      <ol>
+        <li><a href="#kiso">繰り上げ受給の基本と減額率</a></li>
+        <li><a href="#hikaku">60〜65歳 全パターンの損益分岐点一覧</a></li>
+        <li><a href="#meritdemerit">繰り上げのメリット・デメリット</a></li>
+        <li><a href="#kakyunenkin">見落とし厳禁！加給年金を加味した再計算</a></li>
+        <li><a href="#unyo">繰り上げ＋S&amp;P500運用で加給年金損失を取り戻せるか？</a></li>
+        <li><a href="#decision">タイプ別おすすめ受給年齢</a></li>
+        <li><a href="#conclusion">筆者の結論</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <h2 id="kiso">1. 繰り上げ受給の基本と減額率</h2>
+    <p>老齢基礎年金・老齢厚生年金は本来<strong>65歳から受給開始</strong>ですが、60歳から繰り上げて受け取ることができます。ただし繰り上げた分だけ、<strong>受給額が一生涯減額</strong>されます。</p>
+
+    <div class="warn-box">
+      <strong>⚠️ 2022年4月以降の新ルール：</strong>2022年4月の法改正により、繰り上げ減額率が<strong>1ヶ月あたり0.5%→0.4%</strong>に緩和されました（出典：日本年金機構）。2022年4月2日以降に60歳になる方（1962年4月2日以降生まれ）が対象です。本記事はこの新ルールで計算しています。
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>受給開始年齢</th><th>繰り上げ月数</th><th>減額率</th><th>月受給額（※）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>60歳</td><td>60ヶ月</td><td>▲24.0%</td><td>約12.9万円</td></tr>
+        <tr><td>61歳</td><td>48ヶ月</td><td>▲19.2%</td><td>約13.7万円</td></tr>
+        <tr><td>62歳</td><td>36ヶ月</td><td>▲14.4%</td><td>約14.6万円</td></tr>
+        <tr><td>63歳</td><td>24ヶ月</td><td>▲9.6%</td><td>約15.4万円</td></tr>
+        <tr><td>64歳</td><td>12ヶ月</td><td>▲4.8%</td><td>約16.2万円</td></tr>
+        <tr><td><strong>65歳</strong></td><td>0ヶ月</td><td>±0%</td><td><strong>17万円（基準）</strong></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.82rem;color:var(--text-muted);">※筆者のねんきん定期便に基づく実額。65歳受給額を月17万円として計算しています。</p>
+
+    <!-- 2 -->
+    <h2 id="hikaku">2. 60〜65歳 全パターンの損益分岐点一覧</h2>
+    <p>「損益分岐点」とは、繰り上げて早くもらい始めた場合と、65歳から受け取った場合の<strong>累計受取額が逆転する年齢</strong>のことです。</p>
+
+    <div class="point-box">
+      <p class="point-label">計算の考え方</p>
+      <p>①65歳時点での累計受取差額（先取り額）を出す → ②65歳以降の毎月の差額で割る → ③65歳に足して損益分岐点を出す、という順番で計算しています。</p>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>受給開始</th><th>月受給額</th><th>65歳までの先取り額</th><th>65歳との月差額</th><th>損益分岐点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>60歳</strong></td><td>約12.9万円</td><td>約775万円</td><td>約4.1万円</td><td><strong>約81歳</strong></td></tr>
+        <tr><td><strong>61歳</strong></td><td>約13.7万円</td><td>約618万円</td><td>約3.3万円</td><td><strong>約81歳</strong></td></tr>
+        <tr><td><strong>62歳</strong></td><td>約14.6万円</td><td>約466万円</td><td>約2.5万円</td><td><strong>約81歳</strong></td></tr>
+        <tr><td><strong>63歳</strong></td><td>約15.4万円</td><td>約369万円</td><td>約1.6万円</td><td><strong>約84歳</strong></td></tr>
+        <tr><td><strong>64歳</strong></td><td>約16.2万円</td><td>約194万円</td><td>約0.8万円</td><td><strong>約85歳</strong></td></tr>
+        <tr><td><strong>65歳</strong></td><td>17万円</td><td>―</td><td>―</td><td>―</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box">
+      <strong>💡 意外な事実：63〜64歳の繰り上げが最も割に合わない</strong><br>
+      60〜62歳で繰り上げると損益分岐点は<strong>約81歳</strong>でほぼ同じ。ところが63〜64歳に繰り上げると84〜85歳まで上がります。<strong>「少しだけ早くもらう」が一番損</strong>という逆転現象が起きています。<br>
+      → どうせ繰り上げるなら、60歳のほうが合理的という結果になりました。
+    </div>
+
+    <!-- 3 -->
+    <h2 id="meritdemerit">3. 繰り上げのメリット・デメリット</h2>
+
+    <h3>メリット</h3>
+    <ul>
+      <li>60代に使えるお金が増える</li>
+      <li>体力がある時期にお金を使える</li>
+      <li>再雇用収入と合わせやすい</li>
+      <li>受け取った分を運用に回せる</li>
+      <li>早く亡くなっても損しにくい（81歳より前なら累計で有利）</li>
+      <li>毎月収入がある安心感</li>
+    </ul>
+
+    <h3>デメリット</h3>
+    <ul>
+      <li>月額が<strong>一生涯</strong>減額される</li>
+      <li>一度決めたら変更できない</li>
+      <li>長生きすると累計で損になる</li>
+      <li>障害年金への切り替えができなくなる</li>
+      <li>寡婦年金が受け取れなくなる</li>
+      <li><strong>加給年金が消える（重要！）</strong></li>
+    </ul>
+
+    <!-- 4 -->
+    <h2 id="kakyunenkin">4. 見落とし厳禁！加給年金を加味した再計算</h2>
+    <p>繰り上げ受給のデメリットで最も見落とされがちなのが<strong>加給年金の消滅</strong>です。</p>
+
+    <h3>加給年金とは？</h3>
+    <p>厚生年金に20年以上加入し、65歳時点で年収850万円未満の配偶者（65歳未満）がいる場合に上乗せされる年金です。年額<strong>約39万円（月約3.25万円）</strong>が加算されます（金額は年度により改定されます。最新額は日本年金機構でご確認ください）。</p>
+
+    <div class="warn-box">
+      <strong>⚠️ 繰り上げした瞬間に加給年金の権利は消滅します</strong><br>
+      60歳で繰り上げた場合、本来65歳から受け取れるはずだった加給年金が<strong>一生もらえなくなります</strong>。配偶者が12歳年下の場合、最大12年分が消えます。
+    </div>
+
+    <div class="result-box">
+      <div class="result-label">繰り上げによって消える加給年金の総額（配偶者12歳年下の例）</div>
+      <div class="result-value">約39万円 × 12年 ＝ 約468万円</div>
+      <div class="result-note">※ 配偶者の年齢差や加給年金額により変わります</div>
+    </div>
+
+    <h3>加給年金を加味した損益分岐点の再計算</h3>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>受給開始</th><th>65歳までの先取り額</th><th>加給年金損失</th><th>実質差引額</th><th>損益分岐点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>60歳</strong></td><td>約775万円</td><td>△468万円</td><td>約307万円プラス</td><td>約81歳</td></tr>
+        <tr><td><strong>61歳</strong></td><td>約618万円</td><td>△468万円</td><td>約150万円プラス</td><td>約80歳</td></tr>
+        <tr><td><strong>62歳</strong></td><td>約466万円</td><td>△468万円</td><td>約2万円のマイナス</td><td>65歳時点で損</td></tr>
+        <tr><td><strong>63歳</strong></td><td>約369万円</td><td>△468万円</td><td>約99万円のマイナス</td><td>最初から損</td></tr>
+        <tr><td><strong>64歳</strong></td><td>約194万円</td><td>△468万円</td><td>約274万円のマイナス</td><td>最初から損</td></tr>
+        <tr><td><strong>65歳</strong></td><td>―</td><td>―</td><td>―</td><td>加給年金フル受取</td></tr>
+      </tbody>
+    </table>
+
+    <div class="point-box">
+      <p class="point-label">加給年金を加味した結論</p>
+      <p>年下配偶者がいる場合、<strong>62〜64歳の繰り上げは最初から損</strong>になります。繰り上げを検討するなら60〜61歳、または65歳原則受給の二択が現実的です。</p>
+    </div>
+
+    <!-- 5 -->
+    <h2 id="unyo">5. 繰り上げ＋S&amp;P500運用で加給年金損失を取り戻せるか？</h2>
+    <p>「60歳繰り上げで受け取った年金を全額S&amp;P500（アメリカの代表的な株価指数）で運用すれば、加給年金の損失を取り戻せるのでは？」という発想は合理的です。実際に計算してみました。</p>
+
+    <p><strong>前提：</strong>60歳から月12.9万円を受け取り、再雇用給与で生活費を賄いながら、年金を全額投資に回した場合の5年後（65歳時点）の概算です。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>運用利回り</th><th>5年後の資産額（概算）</th><th>加給年金損失468万円との比較</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>運用なし（貯金）</td><td>約775万円</td><td>差引307万円のプラス</td></tr>
+        <tr><td>年利3%（債券系）</td><td>約835万円</td><td>差引367万円のプラス</td></tr>
+        <tr><td><strong>年利5%（S&amp;P500想定）</strong></td><td><strong>約880万円</strong></td><td><strong>差引412万円のプラス</strong></td></tr>
+        <tr><td>年利7%（積極運用）</td><td>約928万円</td><td>差引460万円のプラス</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box">
+      <strong>📌 注意：</strong>S&amp;P500を年利5%で運用できれば、加給年金の損失をほぼ相殺できる計算になります。ただし投資には元本割れ（投資したお金が減る）リスクがあります。「必ず5%のリターンが得られる」という保証はありません。<strong>運用リスクを取れる人向けの戦略</strong>であることを忘れずに。
+    </div>
+
+    <!-- 6 -->
+    <h2 id="decision">6. タイプ別おすすめ受給年齢</h2>
+    <p>あくまで一つの目安ですが、状況別の考え方を表にまとめました。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>あなたの状況</th><th>おすすめの考え方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>年下配偶者あり・運用が苦手</td><td>65歳原則受給</td></tr>
+        <tr><td>健康に不安がある・家系が短命</td><td>60歳繰り上げ</td></tr>
+        <tr><td>60代にやりたいことがある・再雇用収入あり・S&amp;P500で運用できる</td><td>60歳繰り上げ＋全額運用</td></tr>
+        <tr><td>配偶者が同年代または年上・長生き家系</td><td>65歳原則受給</td></tr>
+        <tr><td>再雇用収入がなく生活費が不安</td><td>65歳原則受給</td></tr>
+        <tr><td>とにかく早く使いたい・老後より今を優先</td><td>60歳繰り上げ</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 7 -->
+    <h2 id="conclusion">7. 筆者の結論</h2>
+
+    <div class="point-box">
+      <p class="point-label">筆者（52歳・IT系会社員）の場合</p>
+      <p>当初は「繰り上げ派寄り」で計算を始めましたが、<strong>加給年金468万円</strong>という数字を見て考えが変わりました。妻が年下で厚生年金の受給資格あり。繰り上げた瞬間にこの権利が消えるのは、数字として大きすぎます。私の場合の結論は<strong>「65歳原則受給」</strong>です。</p>
+    </div>
+
+    <p>ただし、これは純粋にお金の損得の話です。</p>
+    <p>私が本当に大切にしたいのは、<strong>「60〜70歳の10年間をどう生きるか」</strong>という問いです。体力があって、子育てが一段落して、自分の時間を使える10年。70歳以降は余生と考えれば、この10年の充実度こそが人生の質を決める、と感じています。</p>
+    <p>年金の損得計算は「平均的に生きれば81歳前後でプラスマイナスゼロ」という結果でした。つまり<strong>純粋に「60代をどう生きたいか」で決めていい</strong>ということでもあります。</p>
+    <p>お金の合理性だけで答えを出さず、自分の人生設計と照らし合わせて判断することをおすすめします。</p>
+
+    <!-- まとめ -->
+    <h2>まとめ</h2>
+    <div class="point-box">
+      <ul style="margin:0;padding-left:20px;font-size:.9rem;">
+        <li>60〜62歳繰り上げの損益分岐点は<strong>約81歳</strong>（おおむね平均寿命と近い水準）</li>
+        <li>63〜64歳の繰り上げは損益分岐点が84〜85歳と最も不利。<strong>中途半端な繰り上げが最も損</strong></li>
+        <li>年下配偶者がいる場合、加給年金（最大約468万円）が消える点を必ず確認</li>
+        <li>加給年金を加味すると<strong>62〜64歳の繰り上げは最初から損</strong></li>
+        <li>60歳繰り上げ＋S&amp;P500運用（年利5%想定）で、加給年金の損失はほぼ相殺できる計算（運用リスクあり）</li>
+        <li>最終判断は「お金の損得」だけでなく<strong>「60代をどう生きたいか」</strong>も合わせて</li>
+      </ul>
+    </div>
+
+    <div class="warn-box">
+      <strong>免責事項（2026年6月時点の情報です）：</strong>本記事は一般的な情報提供を目的としたもので、個別の投資・年金に関する助言ではありません。実際の受給額・加給年金の有無は<a href="https://www.nenkin.go.jp/" target="_blank" rel="noopener">ねんきんネット（日本年金機構）</a>等で必ずご確認ください。年金制度は改正される場合があり、計算数値はすべて概算です。
+    </div>
+
+  </div><!-- /.article-body -->
+
+  <div class="related-articles">
+    <h2>関連記事</h2>
+    <div class="card-grid">
+      <a href="../nenkin-qa-52sai/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・年金</span>
+          <h3>年金は何歳からもらうのが得？Q&amp;Aで丸わかり解説</h3>
+          <p>繰り上げ・繰り下げ受給の仕組みと損益分岐点を、よくある疑問に答えるかたちで整理しました。</p>
+        </div>
+      </a>
+      <a href="../kousei-nenkin-60sai/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・年金</span>
+          <h3>60歳で年金をもらえると思ったら…働くと厚生年金は払わないといけないの？</h3>
+          <p>定年後の厚生年金の誤解をやさしく解説。在職老齢年金の2026年改定情報も。</p>
+        </div>
+      </a>
+      <a href="../retirement-simulation-50s/" style="text-decoration:none;">
+        <div class="card">
+          <span class="card-tag">退職準備・体験談</span>
+          <h3>定年まであと8年｜52歳会社員のリアルな老後シミュレーション</h3>
+          <p>退職金・NISA・年金・健康保険・失業給付を数字で整理。60〜65歳の収支をどう乗り越えるか。</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /.article-wrap -->
+
+<aside class="sidebar">
+  <div class="sb-card">
+    <div class="sb-ttl">カテゴリ</div>
+    <ul class="sb-cats">
+      <li><a href="/articles/nisa/">📈 NISA・投資入門</a></li>
+      <li><a href="/articles/kakei/">💰 家計改善・節約</a></li>
+      <li><a href="/articles/taishoku/">🏢 退職準備</a></li>
+    </ul>
+  </div>
+
+  <div class="sb-card sb-ad">
+    <div class="sb-ad-label">PR</div>
+    <p class="sb-ad-ttl">📈 NISAを始めるなら</p>
+    <p class="sb-ad-body">楽天カード積立でポイントが貯まる<strong>楽天証券</strong>。私も10年以上使っています。</p>
+    <a href="https://ad2.trafficgate.net/t/r/1190/738/317672_396985" target="_blank" rel="nofollow noopener sponsored" class="sb-cta">無料で口座開設 →</a>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-ttl">よく読まれる記事</div>
+    <ul class="sb-posts">
+      <li><a href="/articles/nisa/what-is-nisa/">新NISAとは？旧NISAとの違いをわかりやすく解説</a></li>
+      <li><a href="/articles/nisa/nisa-account-opening/">NISA口座の開き方 ステップ別ガイド</a></li>
+      <li><a href="/articles/taishoku/retirement-simulation-50s/">定年まであと8年！老後シミュレーション</a></li>
+      <li><a href="/articles/kakei/koteihi-sakugen/">固定費を削減して家計を改善する方法</a></li>
+      <li><a href="/articles/taishoku/nenkin-qa-52sai/">年金は何歳からもらうのが得？</a></li>
+    </ul>
+  </div>
+
+  <div class="sb-card sb-ad">
+    <div class="sb-ad-label">PR</div>
+    <p class="sb-ad-ttl">💳 積立に使うクレカ</p>
+    <p class="sb-ad-body">年会費永年無料。NISA積立でポイント還元の<strong>楽天カード</strong>。</p>
+    <a href="https://ad2.trafficgate.net/t/r/579/1396/317672_396985" target="_blank" rel="nofollow noopener sponsored" class="sb-cta">無料で申し込む →</a>
+  </div>
+
+  <div class="sb-card">
+    <div class="sb-ttl">筆者について</div>
+    <p class="sb-body">52歳・IT業界34年のサラリーマン管理職。老後を見据えてNISA・家計改善を実践中。FP3級勉強中。</p>
+    <a href="/pages/about.html" class="sb-link">→ プロフィール詳細</a>
+  </div>
+</aside>
+</div><!-- /.page-layout -->
+
+<!-- サイト共通フッター -->
+<footer class="global-footer">
+  <div class="global-footer-inner">
+    <nav class="global-footer-nav">
+      <a href="/pages/about.html">このサイトについて</a>
+      <a href="/pages/disclaimer.html">免責事項</a>
+      <a href="/pages/privacy.html">プライバシーポリシー</a>
+      <a href="/pages/contact.html">お問い合わせ</a>
+    </nav>
+    <div class="global-footer-copyright">
+      &copy; 2026 明日のために for-tomorrow
+    </div>
+    <div class="global-footer-note">
+      本サイトの情報は情報提供を目的としており、投資勧誘を目的としたものではありません。投資は自己責任でお願いします。
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
